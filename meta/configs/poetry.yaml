@@ -1,0 +1,7 @@
+- create:
+    - ~/.config/pypoetry
+
+- link:
+    ~/.config/pypoetry:
+      path: poetry/**
+      glob: true
