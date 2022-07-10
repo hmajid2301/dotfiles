@@ -1,7 +1,7 @@
-fish.v3
+packages-sudo
 fish
-fisher
 poetry
 ssh
 vscode
 windows_terminal
+resolv-sudo

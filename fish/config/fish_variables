@@ -1,5 +1,24 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export EXA_LAAD_OPTIONS:\x2d\x2dall\x1e\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2donly\x2ddirs
+SETUVAR --export EXA_LAAID_OPTIONS:\x2d\x2dall\x1e\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2dicons\x1e\x2d\x2donly\x2ddirs
+SETUVAR --export EXA_LAAI_OPTIONS:\x2d\x2dall\x1e\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2dicons
+SETUVAR --export EXA_LAA_OPTIONS:\x2d\x2dall\x1e\x2d\x2dall\x1e\x2d\x2dbinary
+SETUVAR --export EXA_LAD_OPTIONS:\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2donly\x2ddirs
+SETUVAR --export EXA_LAID_OPTIONS:\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2dicons\x1e\x2d\x2donly\x2ddirs
+SETUVAR --export EXA_LAI_OPTIONS:\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2dicons
+SETUVAR --export EXA_LA_OPTIONS:\x2d\x2dall\x1e\x2d\x2dbinary
+SETUVAR --export EXA_LC_OPTIONS:\x2d\x2dacross
+SETUVAR --export EXA_LD_OPTIONS:\x2d\x2donly\x2ddirs
+SETUVAR --export EXA_LE_OPTIONS:\x2d\x2dextended\x1e\x2d\x2dlong
+SETUVAR --export EXA_LG_OPTIONS:\x2d\x2dgit\x1e\x2d\x2dgit\x2dignore\x1e\x2d\x2dlong
+SETUVAR --export EXA_LID_OPTIONS:\x2d\x2dicons
+SETUVAR --export EXA_LI_OPTIONS:\x2d\x2dicons
+SETUVAR --export EXA_LL_OPTIONS:\x2d\x2dlong
+SETUVAR --export EXA_LO_OPTIONS:\x2d\x2doneline
+SETUVAR --export EXA_LT_OPTIONS:\x2d\x2dtree\x1e\x2d\x2dlevel
+SETUVAR --export EXA_L_OPTIONS:\x1d
+SETUVAR --export EXA_STANDARD_OPTIONS:\x2d\x2dgroup\x1e\x2d\x2dheader\x1e\x2d\x2dgroup\x2ddirectories\x2dfirst
 SETUVAR FZF_DEFAULT_OPTS:\x2d\x2dheight\x2040\x25
 SETUVAR FZF_DISABLE_KEYBINDINGS:0
 SETUVAR FZF_LEGACY_KEYBINDINGS:1
@@ -11,6 +30,12 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/haseeb/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/haseeb/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/haseeb\x24
+SETUVAR --export __FISH_EXA_ALIASES:l\x1ela\x1eld\x1eli\x1elid\x1elaa\x1elad\x1elai\x1elaid\x1elaad\x1elaai\x1elaaid\x1ell\x1ella\x1elld\x1elli\x1ellid\x1ellaa\x1ellad\x1ellai\x1ellaid\x1ellaad\x1ellaai\x1ellaaid\x1elg\x1elga\x1elgd\x1elgi\x1elgid\x1elgaa\x1elgad\x1elgai\x1elgaid\x1elgaad\x1elgaai\x1elgaaid\x1ele\x1elea\x1eled\x1elei\x1eleid\x1eleaa\x1elead\x1eleai\x1eleaid\x1eleaad\x1eleaai\x1eleaaid\x1elt\x1elta\x1eltd\x1elti\x1eltid\x1eltad\x1eltai\x1eltaid\x1eltaad\x1eltaai\x1eltaaid\x1elc\x1elca\x1elcd\x1elci\x1elcid\x1elcaa\x1elcad\x1elcai\x1elcaid\x1elcaad\x1elcaai\x1elcaaid\x1elo\x1eloa\x1elod\x1eloi\x1eloid\x1eloaa\x1eload\x1eloai\x1eloaid\x1eloaad\x1eloaai\x1eloaaid
+SETUVAR --export __FISH_EXA_BASE_ALIASES:l\x1ell\x1elg\x1ele\x1elt\x1elc\x1elo
+SETUVAR --export __FISH_EXA_EXPANDED:a\x1ed\x1ei\x1eid\x1eaa\x1ead\x1eai\x1eaid\x1eaad\x1eaai\x1eaaid
+SETUVAR --export __FISH_EXA_EXPANDED_OPT_NAME:LA\x1eLD\x1eLI\x1eLID\x1eLAA\x1eLAD\x1eLAI\x1eLAID\x1eLAAD\x1eLAAI\x1eLAAID
+SETUVAR --export __FISH_EXA_OPT_NAMES:EXA_L_OPTIONS\x1eEXA_LA_OPTIONS\x1eEXA_LD_OPTIONS\x1eEXA_LI_OPTIONS\x1eEXA_LID_OPTIONS\x1eEXA_LAA_OPTIONS\x1eEXA_LAD_OPTIONS\x1eEXA_LAI_OPTIONS\x1eEXA_LAID_OPTIONS\x1eEXA_LAAD_OPTIONS\x1eEXA_LAAI_OPTIONS\x1eEXA_LAAID_OPTIONS\x1eEXA_LL_OPTIONS\x1eEXA_LG_OPTIONS\x1eEXA_LE_OPTIONS\x1eEXA_LT_OPTIONS\x1eEXA_LC_OPTIONS\x1eEXA_LO_OPTIONS
+SETUVAR --export __FISH_EXA_SORT_OPTIONS:name\x1e\x2ename\x1esize\x1eext\x1emod\x1eold\x1eacc\x1ecr\x1einode
 SETUVAR __fish_initialized:3400
 SETUVAR __git_plugin_abbreviations:g\x1ega\x1egaa\x1egapa\x1egap\x1egb\x1egba\x1egban\x1egbd\x1egbD\x1egbl\x1egbs\x1egbsb\x1egbsg\x1egbsr\x1egbss\x1egc\x1egc\x21\x1egcn\x21\x1egca\x1egca\x21\x1egcan\x21\x1egcv\x1egcav\x1egcav\x21\x1egcm\x1egcam\x1egscam\x1egcfx\x1egcf\x1egcl\x1egclean\x1egclean\x21\x1egclean\x21\x21\x1egcount\x1egcp\x1egcpa\x1egcpc\x1egd\x1egdca\x1egds\x1egdsc\x1egdw\x1egdwc\x1egignore\x1egf\x1egfa\x1egfm\x1egfo\x1egl\x1egll\x1eglr\x1eglg\x1eglgg\x1eglgga\x1eglo\x1eglog\x1eglom\x1eglod\x1egloo\x1egm\x1egmt\x1egp\x1egp\x21\x1egpo\x1egpo\x21\x1egpv\x1egpv\x21\x1eggp\x21\x1egpu\x1egr\x1egra\x1egrb\x1egrba\x1egrbc\x1egrbi\x1egrbm\x1egrbmi\x1egrbmia\x1egrbd\x1egrbdi\x1egrbdia\x1egrbs\x1egrev\x1egrh\x1egrhh\x1egrm\x1egrmc\x1egrmv\x1egrrm\x1egrs\x1egrset\x1egrss\x1egrup\x1egrv\x1egsh\x1egsd\x1egsr\x1egss\x1egst\x1egsta\x1egstd\x1egstp\x1egsts\x1egsu\x1egsur\x1egsuri\x1egts\x1egtv\x1egsw\x1egswc\x1egunignore\x1egup\x1egwch\x1egco\x1egcb\x1egcod\x1egcom\x1egfb\x1egff\x1egfr\x1egfh\x1egfs\x1egfbs\x1egffs\x1egfrs\x1egfhs\x1egfss\x1egfbt\x1egfft\x1egfrt\x1egfht\x1egfst\x1egfp
 SETUVAR __git_plugin_initialized:Fri\x20\x206\x20Nov\x2011\x3a44\x3a35\x20GMT\x202020
@@ -150,37 +175,39 @@ SETUVAR _fish_abbr_gup:git\x20pull\x20\x2d\x2drebase
 SETUVAR _fish_abbr_gwch:git\x20whatchanged\x20\x2dp\x20\x2d\x2dabbrev\x2dcommit\x20\x2d\x2dpretty\x3dmedium
 SETUVAR _fisher_FabioAntunes_2F_fish_2D_nvm_files:/home/haseeb/\x2econfig/fish/functions/__nvm_run\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/node\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/npm\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/npx\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/nvm\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/nvm_alias_command\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/nvm_alias_function\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/yarn\x2efish\x1e/home/haseeb/\x2econfig/fish/completions/nvm\x2efish
 SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/home/haseeb/\x2econfig/fish/functions/__fzf_extract_var_info\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/__fzf_preview_file\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/__fzf_report_file_type\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/__fzf_search_current_dir\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/__fzf_search_git_log\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/__fzf_search_git_status\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/__fzf_search_history\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/__fzf_search_shell_variables\x2efish\x1e/home/haseeb/\x2econfig/fish/conf\x2ed/fzf\x2efish
+SETUVAR _fisher_dracula_2F_fish_files:/home/haseeb/\x2econfig/fish/functions/screenshot_script\x2efish\x1e/home/haseeb/\x2econfig/fish/conf\x2ed/dracula\x2efish
 SETUVAR _fisher_edc_2F_bass_files:/home/haseeb/\x2econfig/fish/functions/__bass\x2epy\x1e/home/haseeb/\x2econfig/fish/functions/bass\x2efish
+SETUVAR _fisher_gazorby_2F_fish_2D_exa_files:/home/haseeb/\x2econfig/fish/functions/exa_git\x2efish\x1e/home/haseeb/\x2econfig/fish/conf\x2ed/fish\x2dexa\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/home/haseeb/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/home/haseeb/\x2econfig/fish/functions/nvm\x2efish\x1e/home/haseeb/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/home/haseeb/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/nvm\x2efish\x1ePatrickF1/fzf\x2efish\x1eFabioAntunes/fish\x2dnvm\x1eedc/bass
-SETUVAR fish_color_autosuggestion:555\x1ebrblack
-SETUVAR fish_color_cancel:\x2dr
-SETUVAR fish_color_command:005fd7
-SETUVAR fish_color_comment:990000
-SETUVAR fish_color_cwd:green
+SETUVAR _fisher_plugins:jorgebucaran/nvm\x2efish\x1ePatrickF1/fzf\x2efish\x1eFabioAntunes/fish\x2dnvm\x1eedc/bass\x1edracula/fish\x1egazorby/fish\x2dexa
+SETUVAR fish_color_autosuggestion:BD93F9
+SETUVAR fish_color_cancel:\x2d\x2dreverse
+SETUVAR fish_color_command:F92672
+SETUVAR fish_color_comment:75715E
+SETUVAR fish_color_cwd:66D9EF
 SETUVAR fish_color_cwd_root:red
-SETUVAR fish_color_end:009900
-SETUVAR fish_color_error:ff0000
-SETUVAR fish_color_escape:00a6b2
+SETUVAR fish_color_end:F8F8F2
+SETUVAR fish_color_error:F8F8F2\x1e\x2d\x2dbackground\x3dF92672
+SETUVAR fish_color_escape:66D9EF
 SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_host:normal
 SETUVAR fish_color_host_remote:yellow
-SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
-SETUVAR fish_color_normal:normal
-SETUVAR fish_color_operator:00a6b2
-SETUVAR fish_color_param:00afff
-SETUVAR fish_color_quote:999900
-SETUVAR fish_color_redirection:00afff
-SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_match:F8F8F2
+SETUVAR fish_color_normal:F8F8F2
+SETUVAR fish_color_operator:AE81FF
+SETUVAR fish_color_param:A6E22E
+SETUVAR fish_color_quote:E6DB74
+SETUVAR fish_color_redirection:AE81FF
+SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d49483E
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell\x0aType\x20\x60help\x60\x20for\x20instructions\x20on\x20how\x20to\x20use\x20fish
 SETUVAR fish_key_bindings:fish_default_key_bindings
-SETUVAR fish_pager_color_completion:\x1d
-SETUVAR fish_pager_color_description:B3A06D\x1eyellow
-SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
-SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_pager_color_completion:75715E
+SETUVAR fish_pager_color_description:49483E
+SETUVAR fish_pager_color_prefix:F8F8F2
+SETUVAR fish_pager_color_progress:F8F8F2
+SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_user_paths:/home/haseeb/\x2epyenv/bin\x1e/home/haseeb/\x2efzf/bin
