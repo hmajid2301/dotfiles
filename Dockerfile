@@ -50,4 +50,9 @@ RUN \
 
 USER ${user}
 RUN \
-	cd $HOME/.dotfiles
+	cd $HOME/.dotfiles && \
+	./install-profile devcontainer
+
+ENV XDG_DATA_HOME=/config/.history
+
+CMD []
