@@ -1,7 +1,7 @@
 function replay --description "Run Bash commands replaying changes in Fish"
     switch "$argv"
         case -v --version
-            echo "replay, version 1.1.1"
+            echo "replay, version 1.2.1"
         case "" -h --help
             echo "Usage: replay <commands>  Run Bash commands replaying changes in Fish"
             echo "Options:"
@@ -10,6 +10,7 @@ function replay --description "Run Bash commands replaying changes in Fish"
         case \*
             set --local env
             set --local sep @$fish_pid(random)(command date +%s)
+            set --local argv $argv[1] (string escape -- $argv[2..-1])
             set --local out (command bash -c "
                 $argv
                 status=\$?
@@ -23,21 +24,20 @@ function replay --description "Run Bash commands replaying changes in Fish"
 
             string replace --all -- \\n \n (
                 for line in $out
-                    if string split $sep $line | read --local --line name value
+                    if string split -- $sep $line | read --local --line name value
                         set --append env $name
-                   
+
                         contains -- $name SHLVL PS1 BASH_FUNC || test "$$name" = "$value" && continue
 
                         if test "$name" = PATH
-                            string replace --all : " " "set $name $value"
+                            echo set PATH (string split -- : $value | string replace --regex --all -- '(^.*$)' '"$1"')
                         else if test "$name" = PWD
-                            echo builtin cd $value
+                            echo builtin cd "\"$value\""
                         else
-                            echo "set --global --export $name \"$value\""
+                            echo "set --global --export $name "(string escape -- $value)
                         end
                     else
-                        set --query env[1] && 
-                            string match --entire --regex -- "^alias" $line || echo "echo \"$line\""
+                        set --query env[1] && string match --entire --regex -- "^alias" $line || echo "echo \"$line\""
                     end
                 end | string replace --all -- \$ \\\$
                 for name in (set --export --names)

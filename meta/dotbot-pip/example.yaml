@@ -1,0 +1,14 @@
+- pip:
+    file: requirements.txt
+    binary: /usr/local/bin/pip3
+    user: true
+    stdout: false
+    stderr: true
+- pipsi:
+    file: requirements-pipsi.txt
+    stdout: true
+    stderr: false
+- pipx:
+    file: requirements-pipx.txt
+    stdout: true
+    stderr: false

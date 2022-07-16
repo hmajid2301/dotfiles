@@ -4,3 +4,18 @@
     - fzf
     - vim
     - make
+    - bat
+    - fd-find
+    - ripgrep
+    - exa
+    - httpie
+
+- shell:
+    - wget -L https://github.com/dbrgn/tealdeer/releases/download/v1.5.0/tealdeer-linux-x86_64-musl -O ~/.local/bin/tealdeer
+    - wget https://github.com/chmln/sd/releases/download/v0.7.6/sd-v0.7.6-x86_64-unknown-linux-gnu -O ~/.local/bin/sd
+    - wget -L https://github.com/so-fancy/diff-so-fancy/releases/download/v1.4.3/diff-so-fancy -O ~/.local/bin/diff-so-fancy
+    - wget https://github.com/bcicen/ctop/releases/download/v0.7.7/ctop-0.7.7-linux-amd64 -O  ~/.local/bin/ctop
+    - chmod 755 ~/.local/bin/ctop  ~/.local/bin/diff-so-fancy  ~/.local/bin/sd ~/.local/bin/tealdeer
+    - curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+    - curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+    - tealdeer --update

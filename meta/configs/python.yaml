@@ -1,0 +1,7 @@
+- shell:
+    - python3 -m pip install --user pipx
+
+- pipx:
+    file: requirements-pipx.txt
+    stdout: false
+    stderr: true

@@ -4,3 +4,6 @@
 [submodule "meta/dotbot-apt"]
 	path = meta/dotbot-apt
 	url = https://github.com/bryant1410/dotbot-apt.git
+[submodule "meta/dotbot-pip"]
+	path = meta/dotbot-pip
+	url = https://github.com/sobolevn/dotbot-pip.git
