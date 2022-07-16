@@ -1,32 +1,15 @@
+- shell:
+    - curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+    - curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+    - wget -qO - https://azlux.fr/repo.gpg.key | sudo apt-key add -
+    - echo "deb http://packages.azlux.fr/debian/ stable main" | sudo tee /etc/apt/sources.list.d/azlux.list
+    - wget https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb
+    - wget https://github.com/bootandy/dust/releases/download/v0.8.1/du-dust_0.8.1_amd64.deb
+    - dpkg -i hyperfine_1.13.0_amd64.deb du-dust_0.8.1_amd64.deb && rm *.deb
+
 - apt:
     - bat
     - fd-find
     - ripgrep
     - exa
     - httpie
-    - gping
-
-- link:
-    ~/.local/bin/:
-      path: bash/**
-      glob: true
-
-- shell:
-    - wget https://github.com/dbrgn/tealdeer/releases/download/v1.5.0/tealdeer-linux-x86_64-musl -O ~/.local/bin/tealdeer
-    - wget https://github.com/chmln/sd/releases/download/v0.7.6/sd-v0.7.6-x86_64-unknown-linux-gnu -O ~/.local/bin/sd
-    - wget https://github.com/so-fancy/diff-so-fancy/releases/download/v1.4.3/diff-so-fancy -O ~/.local/bin/diff-so-fancy
-    - wget https://github.com/bcicen/ctop/releases/download/v0.7.7/ctop-0.7.7-linux-amd64 -O  ~/.local/bin/ctop
-    - wget https://dystroy.org/broot/download/x86_64-linux/broot -O ~/.local/bin/broot
-    - curl -s https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz | tar xf -C ~/.local/bin/lazygit
-    - curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-    - curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
-    - tealdeer --update
-    # - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-    # - mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-    - wget -qO - https://azlux.fr/repo.gpg.key | sudo apt-key add -
-    - echo "deb http://packages.azlux.fr/debian/ stable main" | sudo tee /etc/apt/sources.list.d/azlux.list
-    - curl -s -L https://github.com/Canop/broot/releases/download/v1.14.2/broot_1.14.2.zip -o - | gunzip -d ~/.local/bin/
-    - chmod 775 -R ~/.local/bin/
-    - wget https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb
-    - wget https://github.com/bootandy/dust/releases/download/v0.8.1/du-dust_0.8.1_amd64.deb
-    - dpkg -i hyperfine_1.13.0_amd64.deb du-dust_0.8.1_amd64.deb && rm *.deb
