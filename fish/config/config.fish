@@ -14,4 +14,3 @@ if command -v pyenv 1>/dev/null 2>&1
 end
 
 zoxide init fish | source
-source ~/.asdf/asdf.fish

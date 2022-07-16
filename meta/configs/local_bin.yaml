@@ -14,8 +14,6 @@
     - curl -s https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz | tar xf -C ~/.local/bin/lazygit
     - curl -L -o - https://github.com/dalance/procs/releases/download/v0.12.3/procs-v0.12.3-x86_64-linux.zip | gunzip > ~/.local/bin/procs
     - chmod 775 -R ~/.local/bin/
-    # - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-    # - mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 
 - apt:
     - gping
