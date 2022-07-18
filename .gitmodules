@@ -7,3 +7,6 @@
 [submodule "meta/dotbot-pip"]
 	path = meta/dotbot-pip
 	url = https://github.com/sobolevn/dotbot-pip.git
+[submodule "meta/dotbot-pacaur"]
+	path = meta/dotbot-pacaur
+	url = https://github.com/ajlende/dotbot-pacaur

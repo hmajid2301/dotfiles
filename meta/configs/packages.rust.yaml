@@ -1,0 +1,23 @@
+- pacman:
+    - bat
+    - fd
+    - ripgrep
+    - exa
+    - httpie
+    - zoxide
+    - hyperfine
+    - dust
+    - tealdeer
+    - sd
+    - diff-so-fancy
+    - ctop
+    - broot
+    - lazygit
+    - procs
+
+- pacaur:
+    - zoxide
+    - lazydocker
+
+- shell:
+    - tealdeer --update

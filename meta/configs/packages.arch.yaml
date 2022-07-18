@@ -1,0 +1,6 @@
+- pacman:
+    - fish
+    - jq
+    - fzf
+    - vim
+    - make
