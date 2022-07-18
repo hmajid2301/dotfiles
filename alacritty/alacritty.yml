@@ -15,3 +15,6 @@ font:
   #     style: Italic
 
   size: 14.0
+
+selection:
+  save_to_clipboard: true

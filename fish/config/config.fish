@@ -1,6 +1,5 @@
 starship init fish | source
 set -x PATH $PATH $HOME/.pyenv/bin $HOME/.poetry/bin $HOME/.local/bin
-set -gx PIPX_DEFAULT_PYTHON "$HOME/.pyenv/versions/3.10.5/bin/python"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]
