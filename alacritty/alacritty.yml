@@ -14,7 +14,12 @@ font:
   #     family: Fira Code
   #     style: Italic
 
-  size: 14.0
+  size: 12.0
+
+window:
+  padding:
+    x: 10
+    y: 10
 
 selection:
   save_to_clipboard: true
