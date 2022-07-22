@@ -10,3 +10,6 @@
 [submodule "meta/dotbot-pacaur"]
 	path = meta/dotbot-pacaur
 	url = https://github.com/ajlende/dotbot-pacaur
+[submodule "meta/dotbot-yay"]
+	path = meta/dotbot-yay
+	url = https://github.com/oxson/dotbot-yay

@@ -35,6 +35,7 @@ for config in ${CONFIGS} ${@}; do
     cmd=("${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" \
         -p "${BASE_DIR}/${META_DIR}/dotbot-apt/apt.py" \
         -p "${BASE_DIR}/${META_DIR}/dotbot-pip/pip.py" \
+        -p "${BASE_DIR}/${META_DIR}/dotbot-yay/yay.py" \
         -p "${BASE_DIR}/${META_DIR}/dotbot-pacaur/pacaur.py" -c "$configFile"  -v)
 
     if [[ $config == *"sudo"* ]]; then
