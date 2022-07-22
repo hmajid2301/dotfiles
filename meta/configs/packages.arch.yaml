@@ -20,6 +20,7 @@
     - fzf
     - vim
     - make
+    - flameshoot
 
 - shell:
     - tldr --update
