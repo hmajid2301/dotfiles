@@ -1,4 +1,5 @@
 alacritty
+qtile
 tmux
 fish
 packages.arch-sudo
@@ -6,3 +7,4 @@ poetry
 ssh
 git
 python
+shell-sudo

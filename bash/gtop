@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-docker run --rm -it \
-    --name gtop \
-    --net="host" \
-    --pid="host" \
-    aksakalli/gtop
