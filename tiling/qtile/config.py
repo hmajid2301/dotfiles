@@ -71,12 +71,10 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-
     # Sound
-    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 sset Master 1- unmute")
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 sset Master 1+ unmute")
-    
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 1%- unmute")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 1%+ unmute")),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -106,7 +104,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(border_focus_stack=["#d76f5f", "#8f3d3d"], border_width=4, margin=8),
     layout.Max(),
     layout.floating.Floating(),
     # Try more layouts by unleashing below layouts.
