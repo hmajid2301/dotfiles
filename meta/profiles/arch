@@ -6,5 +6,4 @@ packages.arch-sudo
 poetry
 ssh
 git
-python
 shell-sudo

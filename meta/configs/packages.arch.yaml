@@ -21,6 +21,8 @@
     - vim
     - make
     - flameshoot
+    - entr
+    - ttf-fira-code
 
 - shell:
     - tldr --update
