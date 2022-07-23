@@ -1,6 +1,11 @@
 - create:
     - ~/.config/qtile
+    - ~/.config/dunst
 
 - link:
-    ~/.config/qtile/config.py: tiling/qtile/config.py
+    ~/.config/qtile/:
+      path: tiling/qtile/**
+      glob: true
+
     ~/.config/picom.conf: tiling/picom.conf
+    ~/.config/dunst/dunstrc: tiling/dunstrc

@@ -24,6 +24,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
+
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -31,6 +33,7 @@ from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = guess_terminal("alacritty")
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -72,10 +75,11 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     # Sound
-    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 1%- unmute")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 1%+ unmute")),
+    Key([], "XF86AudioMute", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh mute"))),
+    Key([], "XF86AudioLowerVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh down"))),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh up"))),
 ]
+
 
 groups = [Group(i) for i in "123456789"]
 
@@ -106,7 +110,6 @@ for i in groups:
 layouts = [
     layout.Columns(border_focus_stack=["#d76f5f", "#8f3d3d"], border_width=4, margin=8),
     layout.Max(),
-    layout.floating.Floating(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -129,7 +132,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
