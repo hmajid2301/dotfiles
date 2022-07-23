@@ -1,6 +1,6 @@
 alacritty
 qtile
-lightdm-sudo
+lightdm
 tmux
 fish
 packages.arch-sudo
