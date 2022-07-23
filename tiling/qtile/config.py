@@ -73,11 +73,13 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     # Sound
     Key([], "XF86AudioMute", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh mute"))),
     Key([], "XF86AudioLowerVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh down"))),
     Key([], "XF86AudioRaiseVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh up"))),
+    # Other
+    Key([mod], "r", lazy.spawn("rofi -show run")),
 ]
 
 

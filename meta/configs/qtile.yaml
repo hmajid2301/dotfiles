@@ -1,6 +1,7 @@
 - create:
     - ~/.config/qtile
     - ~/.config/dunst
+    - ~/.config/rofi
 
 - link:
     ~/.config/qtile/:
@@ -10,3 +11,4 @@
     ~/.config/picom.conf: tiling/picom.conf
     ~/.xprofile: tiling/.xprofile
     ~/.config/dunst/dunstrc: tiling/dunstrc
+    ~/.config/rofi/config.rasi: tiling/rofi.rasi
