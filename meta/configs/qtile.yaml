@@ -8,4 +8,5 @@
       glob: true
 
     ~/.config/picom.conf: tiling/picom.conf
+    ~/.xprofile: tiling/.xprofile
     ~/.config/dunst/dunstrc: tiling/dunstrc
