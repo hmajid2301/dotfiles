@@ -9,9 +9,12 @@ fpath=(~/.zsh/zsh-completions/src $fpath)
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh
-source ~/.zsh/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.zsh/zsh-abbr/zsh-abbr.zsh
 
 eval "$(zoxide init zsh)"
+autoload -Uz compinit && compinit
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
