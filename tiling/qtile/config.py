@@ -79,7 +79,7 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh down"))),
     Key([], "XF86AudioRaiseVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh up"))),
     # Other
-    Key([mod], "r", lazy.spawn("rofi -show run")),
+    Key([mod], "r", lazy.spawn("rofi -show drun")),
 ]
 
 
