@@ -134,10 +134,13 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Sep(
+                    padding=6,
+                    linewidth=0,
+                ),
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
-                widget.Volume(),
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
@@ -145,10 +148,28 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Sep(
+                    padding=6,
+                    linewidth=0,
+                ),
+                widget.Net(
+                    interface="enp7s0",
+                    format="Net: {down} ↓↑ {up}",
+                    padding=5,
+                ),
+                widget.ThermalSensor(tag_sensor="Tctl", threshold=90, fmt="Temp: {}", padding=5),
+                widget.CheckUpdates(
+                    update_interval=1800,
+                    distro="Arch",
+                    display_format="Updates: {updates} ",
+                    mouse_callbacks={"Button1": lambda: lazy.spawn("alacritty -e sudo pacman -Syu")},
+                    padding=5,
+                ),
+                widget.Volume(
+                    fmt="Vol: {}",
+                ),
+                widget.Clock(format="%A, %B %d - %H:%M "),
                 widget.QuickExit(),
             ],
             24,
