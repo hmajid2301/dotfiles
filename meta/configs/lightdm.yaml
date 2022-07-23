@@ -1,0 +1,6 @@
+- create:
+    - /etc/lightdm/
+
+- link:
+    /etc/lightdm/lightdm.conf: tiling/lightdm/lightdm.conf
+    /etc/lightdm/lightdm-webkit2-greeter.conf: tiling/lightdm/lightdm-webkit2-greeter.conf

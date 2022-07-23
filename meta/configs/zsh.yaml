@@ -3,9 +3,6 @@
 
 - link:
     ~/.zshrc: zsh/.zshrc
-    ~/.zsh/:
-      path: zsh/plugins/**
-      glob: true
 
 - shell:
     - command: curl -fsSL https://starship.rs/install.sh | sh -s -- --yes

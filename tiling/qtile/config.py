@@ -155,6 +155,7 @@ screens = [
                     padding=6,
                     linewidth=0,
                 ),
+                widget.KeyboardLayout(configured_keyboards=["gb"], fmt=""),
                 widget.Net(
                     interface="enp7s0",
                     format="Net: {down} ↓↑ {up}",
