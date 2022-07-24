@@ -1,5 +1,5 @@
 import:
-  - ~/dotfiles/alacritty/dracula.yml
+  - ~/dotfiles/alacritty/theme.yml
 
 shell:
   program: /usr/bin/fish
