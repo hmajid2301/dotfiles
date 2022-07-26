@@ -26,13 +26,12 @@
 
 import os
 
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal("alacritty")
+terminal = "alacritty"
 
 
 keys = [
@@ -83,7 +82,7 @@ keys = [
 ]
 
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "12345"]
 
 for i in groups:
     keys.extend(
@@ -109,6 +108,36 @@ for i in groups:
         ]
     )
 
+
+def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
+    i = qtile.screens.index(qtile.current_screen)
+    if i != 0:
+        group = qtile.screens[i - 1].group.name
+        qtile.current_window.togroup(group, switch_group=switch_group)
+        if switch_screen == True:
+            qtile.cmd_to_screen(i - 1)
+
+
+def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
+    i = qtile.screens.index(qtile.current_screen)
+    if i + 1 != len(qtile.screens):
+        group = qtile.screens[i + 1].group.name
+        qtile.current_window.togroup(group, switch_group=switch_group)
+        if switch_screen == True:
+            qtile.cmd_to_screen(i + 1)
+
+
+keys.extend(
+    [
+        Key([mod, "shift"], "comma", lazy.function(window_to_next_screen)),
+        Key([mod, "shift"], "period", lazy.function(window_to_previous_screen)),
+        Key([mod, "control"], "comma", lazy.function(window_to_next_screen, switch_screen=True)),
+        Key([mod, "control"], "period", lazy.function(window_to_previous_screen, switch_screen=True)),
+        Key([mod], "comma", lazy.next_screen(), desc="Next monitor"),
+        Key([mod], "period", lazy.prev_screen(), desc="Prev monitor"),
+    ]
+)
+
 layouts = [
     layout.MonadTall(border_width=4, margin=8),
     layout.Max(),
@@ -132,55 +161,99 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+colors = [
+    "#2e2e2e",
+    "#1c1f24",
+    "#dfdfdf",
+    "#ff6c6b",
+    "#e5b567",
+    "#da8548",
+    "#e87d3e",
+    "#889fa7",
+    "#467b96",
+    "#a9a1e1",
+]
+
+widget_list = [
+    widget.Sep(linewidth=0, padding=6, foreground=colors[2], background=colors[0]),
+    widget.GroupBox(
+        font="Ubuntu Bold",
+        fontsize=15,
+        margin_y=3,
+        margin_x=5,
+        padding_y=5,
+        padding_x=5,
+        borderwidth=3,
+        active=colors[2],
+        inactive=colors[7],
+        rounded=False,
+        highlight_color=colors[1],
+        highlight_method="line",
+        this_current_screen_border=colors[6],
+        this_screen_border=colors[4],
+        other_current_screen_border=colors[6],
+        other_screen_border=colors[4],
+    ),
+    widget.CurrentLayout(),
+    widget.WindowName(),
+    widget.Chord(
+        chords_colors={
+            "launch": ("#ff0000", "#ffffff"),
+        },
+        name_transform=lambda name: name.upper(),
+    ),
+    widget.Systray(),
+    widget.Sep(
+        padding=6,
+        linewidth=0,
+    ),
+    widget.TextBox(text="ﯱ"),
+    widget.Net(
+        interface="enp7s0",
+        format="{down} ↓",
+    ),
+    widget.Sep(
+        padding=12,
+        linewidth=0,
+    ),
+    widget.Net(
+        interface="enp7s0",
+        format="{up} ↑",
+    ),
+    widget.Sep(
+        padding=4,
+        linewidth=0,
+    ),
+    widget.CPU(
+        format="️ {freq_current}GHz {load_percent}%",
+    ),
+    widget.ThermalSensor(tag_sensor="Tctl", threshold=90, fmt=" {}", padding=5),
+    widget.CheckUpdates(
+        distro="Arch",
+        display_format=" Updates: {updates}",
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(f"{terminal} -e yay -S")},
+        padding=5,
+    ),
+    widget.TextBox(text="墳"),
+    widget.Volume(
+        fmt="{}%",
+    ),
+    widget.Clock(format="%A, %B %d - %H:%M:%S"),
+    widget.TextBox(
+        text="⏻",
+        mouse_callbacks={
+            "Button1": lazy.spawn("rofi -show p -modi p:rofi-power-menu"),
+        },
+    ),
+    widget.KeyboardLayout(configured_keyboards=["gb"], fmt=""),
+]
+
 screens = [
     Screen(
         top=bar.Bar(
-            [
-                widget.Sep(
-                    padding=6,
-                    linewidth=0,
-                ),
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Systray(),
-                widget.Sep(
-                    padding=6,
-                    linewidth=0,
-                ),
-                widget.KeyboardLayout(configured_keyboards=["gb"], fmt=""),
-                widget.Net(
-                    interface="enp7s0",
-                    format="Net: {down} ↓↑ {up}",
-                    padding=5,
-                ),
-                widget.CPU(
-                    format="️🌡 {freq_current}GHz {load_percent}%",
-                ),
-                widget.ThermalSensor(tag_sensor="Tctl", threshold=90, fmt="Temp: {}", padding=5),
-                widget.CheckUpdates(
-                    update_interval=1800,
-                    distro="Arch",
-                    display_format="Updates: {updates} ",
-                    mouse_callbacks={"Button1": lambda: lazy.spawn("alacritty -e sudo pacman -Syu")},
-                    padding=5,
-                ),
-                widget.Volume(
-                    fmt="Vol: {}",
-                ),
-                widget.Clock(format="%A, %B %d - %H:%M "),
-                widget.QuickExit(),
-            ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            widgets=widget_list,
+            size=30,
+            background="#2e2e2e",
         ),
     ),
 ]
