@@ -1,6 +1,6 @@
 zsh
-alacritty
 qtile
+alacritty
 tmux
 fish
 packages.arch-sudo

@@ -27,7 +27,7 @@
 import os
 
 from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, DropDown, Group, Key, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
 
 mod = "mod4"
@@ -82,30 +82,87 @@ keys = [
 ]
 
 
-groups = [Group(i) for i in "12345"]
+# groups = [Group(i) for i in "12345"]
 
-for i in groups:
-    keys.extend(
+# for i in groups:
+#     keys.extend(
+#         [
+#             # mod1 + letter of group = switch to group
+#             Key(
+#                 [mod],
+#                 i.name,
+#                 lazy.group[i.name].toscreen(),
+#                 desc="Switch to group {}".format(i.name),
+#             ),
+#             # mod1 + shift + letter of group = switch to & move focused window to group
+#             Key(
+#                 [mod, "shift"],
+#                 i.name,
+#                 lazy.window.togroup(i.name, switch_group=True),
+#                 desc="Switch to & move focused window to group {}".format(i.name),
+#             ),
+#             # Or, use below if you prefer not to switch to that group.
+#             # # mod1 + shift + letter of group = move focused window to group
+#             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+#             #     desc="move focused window to group {}".format(i.name)),
+#         ]
+#     )
+
+
+workspaces = [
+    {
+        "name": "",
+        "key": "1",
+        "lay": "bsp",
+    },
+    {"name": "", "key": "2", "matches": [Match(wm_class="firefox")], "lay": "bsp"},
+    {
+        "name": "",
+        "key": "3",
+        "lay": "columns",
+    },
+    {
+        "name": "",
+        "key": "4",
+        "lay": "bsp",
+    },
+]
+
+groups = [
+    ScratchPad(
+        "scratchpad",
         [
-            # mod1 + letter of group = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+            # define a drop down terminal.
+            DropDown(
+                "term",
+                "alacritty --class dropdown -e tmux new -As Dropdown",
+                height=0.6,
+                on_focus_lost_hide=False,
+                opacity=1,
+                warp_pointer=False,
             ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
-        ]
+        ],
+    ),
+]
+
+for workspace in workspaces:
+    matches = workspace["matches"] if "matches" in workspace else None
+    groups.append(Group(workspace["name"], matches=matches, layout=workspace["lay"]))
+    keys.append(
+        Key(
+            [mod],
+            workspace["key"],
+            lazy.group[workspace["name"]].toscreen(toggle=True),
+            desc="Focus this desktop",
+        )
+    )
+    keys.append(
+        Key(
+            [mod, "shift"],
+            workspace["key"],
+            lazy.window.togroup(workspace["name"]),
+            desc="Move focused window to another group",
+        )
     )
 
 
@@ -154,31 +211,52 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
-
 colors = [
     "#2e2e2e",
     "#1c1f24",
     "#dfdfdf",
     "#ff6c6b",
-    "#e5b567",
+    "#b05279",
     "#da8548",
     "#e87d3e",
     "#889fa7",
     "#467b96",
     "#a9a1e1",
+    "#141414",
 ]
+
+colors = [
+    ["#2e3440", "#2e3440"],  # 0 background
+    ["#d8dee9", "#d8dee9"],  # 1 foreground
+    ["#3b4252", "#3b4252"],  # 2 background lighter
+    ["#bf616a", "#bf616a"],  # 3 red
+    ["#a3be8c", "#a3be8c"],  # 4 green
+    ["#ebcb8b", "#ebcb8b"],  # 5 yellow
+    ["#81a1c1", "#81a1c1"],  # 6 blue
+    ["#b48ead", "#b48ead"],  # 7 magenta
+    ["#88c0d0", "#88c0d0"],  # 8 cyan
+    ["#e5e9f0", "#e5e9f0"],  # 9 white
+    ["#4c566a", "#4c566a"],  # 10 grey
+    ["#d08770", "#d08770"],  # 11 orange
+    ["#8fbcbb", "#8fbcbb"],  # 12 super cyan
+    ["#5e81ac", "#5e81ac"],  # 13 super blue
+    ["#242831", "#242831"],  # 14 super dark background
+]
+
+widget_defaults = dict(
+    font="FiraCode Nerd Font",
+    fontsize=18,
+    padding=3,
+    background="#2e2e2e",
+)
+extension_defaults = widget_defaults.copy()
+
 
 widget_list = [
     widget.Sep(linewidth=0, padding=6, foreground=colors[2], background=colors[0]),
     widget.GroupBox(
         font="Ubuntu Bold",
-        fontsize=15,
+        fontsize=30,
         margin_y=3,
         margin_x=5,
         padding_y=5,
@@ -186,39 +264,54 @@ widget_list = [
         borderwidth=3,
         active=colors[2],
         inactive=colors[7],
-        rounded=False,
+        rounded=True,
         highlight_color=colors[1],
         highlight_method="line",
         this_current_screen_border=colors[6],
         this_screen_border=colors[4],
         other_current_screen_border=colors[6],
         other_screen_border=colors[4],
+        background=colors[0],
     ),
-    widget.CurrentLayout(),
-    widget.WindowName(),
-    widget.Chord(
-        chords_colors={
-            "launch": ("#ff0000", "#ffffff"),
-        },
-        name_transform=lambda name: name.upper(),
+    widget.Sep(
+        linewidth=0,
+        padding=10,
+        size_percent=40,
     ),
-    widget.Systray(),
+    widget.CurrentLayoutIcon(
+        custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
+        background=colors[0],
+        scale=0.60,
+    ),
+    widget.Spacer(),
+    widget.TextBox(
+        text="",
+        fontsize=24,
+        font="Font Awesome 6 Free Solid",
+    ),
+    widget.WindowName(
+        empty_group_string="Desktop",
+        max_chars=130,
+    ),
+    widget.Spacer(),
+    widget.Systray(icon_size=24, padding=7),
     widget.Sep(
         padding=6,
         linewidth=0,
     ),
-    widget.TextBox(text="ﯱ"),
-    widget.Net(
-        interface="enp7s0",
-        format="{down} ↓",
-    ),
-    widget.Sep(
-        padding=12,
-        linewidth=0,
+    widget.TextBox(
+        text=" ",
+        font="Font Awesome 6 Free Solid",
+        foreground=colors[7],  # fontsize=38
+        background=colors[14],
     ),
     widget.Net(
         interface="enp7s0",
-        format="{up} ↑",
+        format="{down} ↓↑ {up}",
+        foreground=colors[7],
+        background=colors[14],
+        prefix="k",
+        padding=5,
     ),
     widget.Sep(
         padding=4,
@@ -238,7 +331,55 @@ widget_list = [
     widget.Volume(
         fmt="{}%",
     ),
-    widget.Clock(format="%A, %B %d - %H:%M:%S"),
+    widget.TextBox(
+        text=" ",
+        font="Font Awesome 6 Free Solid",
+        foreground=colors[5],  # fontsize=38
+        background=colors[14],
+    ),
+    widget.Clock(
+        format="%a, %b %d",
+        background=colors[14],
+        foreground=colors[5],
+    ),
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
+    ),
+    widget.Sep(
+        linewidth=0,
+        foreground=colors[2],
+        padding=10,
+        size_percent=50,
+    ),
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
+    ),
+    widget.TextBox(
+        text=" ",
+        font="Font Awesome 6 Free Solid",
+        foreground=colors[4],  # fontsize=38
+        background=colors[14],
+    ),
+    widget.Clock(
+        format="%I:%M %p",
+        foreground=colors[4],
+        background=colors[14],
+    ),
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
+    ),
     widget.TextBox(
         text="⏻",
         mouse_callbacks={
@@ -252,8 +393,10 @@ screens = [
     Screen(
         top=bar.Bar(
             widgets=widget_list,
-            size=30,
+            size=40,
             background="#2e2e2e",
+            border_width=[0, 0, 3, 0],
+            border_color="#3b4252",
         ),
     ),
 ]
