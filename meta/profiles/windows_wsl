@@ -1,5 +1,5 @@
 packages-sudo
-fish
+zsh
 poetry
 ssh
 vscode

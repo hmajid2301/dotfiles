@@ -104,8 +104,12 @@ for i in groups:
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
+            # Key(
+            #     [mod, "shift"],
+            #     i.name,
+            #     lazy.window.togroup(i.name),
+            #     desc="move focused window to group {}".format(i.name),
+            # ),
         ]
     )
 
@@ -191,6 +195,36 @@ mouse = [
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
+
+# Change monitor keybindings
+def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
+    i = qtile.screens.index(qtile.current_screen)
+    if i != 0:
+        group = qtile.screens[i - 1].group.name
+        qtile.current_window.togroup(group, switch_group=switch_group)
+        if switch_screen == True:
+            qtile.cmd_to_screen(i - 1)
+
+
+def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
+    i = qtile.screens.index(qtile.current_screen)
+    if i + 1 != len(qtile.screens):
+        group = qtile.screens[i + 1].group.name
+        qtile.current_window.togroup(group, switch_group=switch_group)
+        if switch_screen == True:
+            qtile.cmd_to_screen(i + 1)
+
+
+keys.extend(
+    [
+        Key([mod, "shift"], "comma", lazy.function(window_to_next_screen)),
+        Key([mod, "shift"], "period", lazy.function(window_to_previous_screen)),
+        Key([mod, "control"], "comma", lazy.function(window_to_next_screen, switch_screen=True)),
+        Key([mod, "control"], "period", lazy.function(window_to_previous_screen, switch_screen=True)),
+        Key([mod], "comma", lazy.next_screen(), desc="Next monitor"),
+        Key([mod], "period", lazy.prev_screen(), desc="Previous monitor"),
+    ]
+)
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
