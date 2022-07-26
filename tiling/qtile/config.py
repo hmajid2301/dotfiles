@@ -73,13 +73,13 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod], "r", lazy.spawn("rofi -show drun")),
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     # Sound
     Key([], "XF86AudioMute", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh mute"))),
     Key([], "XF86AudioLowerVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh down"))),
     Key([], "XF86AudioRaiseVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/volume.sh up"))),
     # Other
-    Key([mod], "r", lazy.spawn("rofi -show drun")),
 ]
 
 
@@ -110,13 +110,13 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d76f5f", "#8f3d3d"], border_width=4, margin=8),
+    layout.MonadTall(border_width=4, margin=8),
     layout.Max(),
+    layout.Columns(border_focus_stack=["#d76f5f", "#8f3d3d"], border_width=4, margin=8),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -160,6 +160,9 @@ screens = [
                     interface="enp7s0",
                     format="Net: {down} ↓↑ {up}",
                     padding=5,
+                ),
+                widget.CPU(
+                    format="️🌡 {freq_current}GHz {load_percent}%",
                 ),
                 widget.ThermalSensor(tag_sensor="Tctl", threshold=90, fmt="Temp: {}", padding=5),
                 widget.CheckUpdates(
