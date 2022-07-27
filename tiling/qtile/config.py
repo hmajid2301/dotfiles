@@ -290,6 +290,7 @@ widget_list = [
         font="Font Awesome 6 Free Solid",
     ),
     widget.WindowName(
+        foreground=colors[12],
         empty_group_string="Desktop",
         max_chars=130,
     ),
