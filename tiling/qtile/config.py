@@ -364,6 +364,7 @@ widget_list = [
     ),
     widget.Volume(
         fmt="墳 {}%",
+        mouse_callbacks={"Button2": lambda: qtile.cmd_spawn("pavucontrol")},
         foreground=colors[11],
         background=colors[14],
     ),
