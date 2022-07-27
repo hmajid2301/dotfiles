@@ -300,9 +300,16 @@ widget_list = [
         linewidth=0,
     ),
     widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
+    ),
+    widget.TextBox(
         text=" ",
         font="Font Awesome 6 Free Solid",
-        foreground=colors[7],  # fontsize=38
+        foreground=colors[7],
         background=colors[14],
     ),
     widget.Net(
@@ -313,23 +320,82 @@ widget_list = [
         prefix="k",
         padding=5,
     ),
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
+    ),
     widget.Sep(
         padding=4,
         linewidth=0,
     ),
-    widget.CPU(
-        format="️ {freq_current}GHz {load_percent}%",
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
     ),
-    widget.ThermalSensor(tag_sensor="Tctl", threshold=90, fmt=" {}", padding=5),
+    widget.ThermalSensor(
+        tag_sensor="Tctl",
+        threshold=90,
+        fmt=" {}",
+        padding=5,
+        foreground=colors[8],
+        background=colors[14],
+    ),
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
+    ),
+    widget.Sep(
+        padding=4,
+        linewidth=0,
+    ),
     widget.CheckUpdates(
         distro="Arch",
         display_format=" Updates: {updates}",
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(f"{terminal} -e yay -S")},
         padding=5,
     ),
-    widget.TextBox(text="墳"),
+    widget.Sep(
+        padding=4,
+        linewidth=0,
+    ),
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
+    ),
     widget.Volume(
-        fmt="{}%",
+        fmt="墳 {}%",
+        foreground=colors[11],
+        background=colors[14],
+    ),
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
+    ),
+    widget.Sep(
+        padding=4,
+        linewidth=0,
+    ),
+    widget.TextBox(
+        text="",
+        foreground=colors[14],
+        background=colors[0],
+        fontsize=28,
+        padding=0,
     ),
     widget.TextBox(
         text=" ",
@@ -382,6 +448,10 @@ widget_list = [
     ),
     widget.TextBox(
         text="⏻",
+        foreground=colors[13],
+        font="Font Awesome 6 Free Solid",
+        fontsize=34,
+        padding=20,
         mouse_callbacks={
             "Button1": lazy.spawn("rofi -show p -modi p:rofi-power-menu"),
         },
