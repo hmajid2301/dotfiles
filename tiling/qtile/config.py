@@ -211,19 +211,6 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-colors = [
-    "#2e2e2e",
-    "#1c1f24",
-    "#dfdfdf",
-    "#ff6c6b",
-    "#b05279",
-    "#da8548",
-    "#e87d3e",
-    "#889fa7",
-    "#467b96",
-    "#a9a1e1",
-    "#141414",
-]
 
 colors = [
     ["#2e2e2e", "#2e2e2e"],  # 0 background
@@ -247,7 +234,7 @@ widget_defaults = dict(
     font="FiraCode Nerd Font",
     fontsize=18,
     padding=3,
-    background="#2e2e2e",
+    background=colors[0],
 )
 extension_defaults = widget_defaults.copy()
 
