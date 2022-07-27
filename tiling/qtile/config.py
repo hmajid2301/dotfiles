@@ -226,7 +226,7 @@ colors = [
 ]
 
 colors = [
-    ["#2e3440", "#2e3440"],  # 0 background
+    ["#2e2e2e", "#2e2e2e"],  # 0 background
     ["#d8dee9", "#d8dee9"],  # 1 foreground
     ["#3b4252", "#3b4252"],  # 2 background lighter
     ["#bf616a", "#bf616a"],  # 3 red
