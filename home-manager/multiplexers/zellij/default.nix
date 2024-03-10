@@ -23,16 +23,10 @@ in {
       "zellij/config.kdl".source = ./config.kdl;
       "zellij/layouts/mine.kdl".text = ''
         layout {
-         tab {
-        	 pane
-         }
-
-         default_tab_template {
-        	 pane size=1 borderless=true {
-        		 plugin location="zellij:compact-bar"
-        	 }
-        	 children
-         }
+        	pane size=1 borderless=true {
+        		plugin location="zellij:compact-bar"
+        	}
+        	pane
         }
       '';
     };

@@ -3,6 +3,7 @@
   inputs,
   outputs,
   lib,
+  config,
   ...
 }: {
   imports =
@@ -40,6 +41,11 @@
   networking.networkmanager.enable = true;
   programs.hyprland.enable = true;
 
+  system.nixos.label = lib.concatStringsSep "-" (
+    (lib.sort (x: y: x < y) config.system.nixos.tags)
+    ++ ["${config.system.nixos.version}.${inputs.self.sourceInfo.shortRev or "dirty"}"]
+  );
+
   services = {
     pcscd.enable = true;
     udev.packages = with pkgs; [yubikey-personalization];
@@ -47,6 +53,14 @@
     udisks2.enable = true;
     fwupd.enable = true;
     dbus.packages = [pkgs.gcr];
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
   };
 
   nixpkgs = {
@@ -59,11 +73,4 @@
   sound.enable = true;
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = lib.mkForce false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 }
