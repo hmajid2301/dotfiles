@@ -5,12 +5,10 @@
   ...
 }: {
   imports = [
-    inputs.hardware.nixosModules.framework-13-7040-amd
     ./hardware-configuration.nix
     ./disks.nix
 
     ../../nixos
-    #../../nixos/optional/egpu.nix
     ../../nixos/users/haseeb.nix
   ];
 

@@ -16,7 +16,6 @@ in {
   config = mkIf cfg.enable {
     home.packages = [
       pkgs.tmate
-      inputs.zjstatus.packages.${pkgs.system}.default
     ];
 
     xdg.configFile = {

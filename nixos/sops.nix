@@ -1,8 +1,4 @@
 {inputs, ...}: {
-  imports = [
-    inputs.sops-nix.nixosModules.sops
-  ];
-
   sops = {
     gnupg = {
       home = "~/.gnupg";

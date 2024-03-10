@@ -6,36 +6,30 @@
   config,
   ...
 }: {
-  imports =
-    [
-      inputs.home-manager.nixosModules.home-manager
-      inputs.disko.nixosModules.disko
-      inputs.lanzaboote.nixosModules.lanzaboote
+  imports = [
+    ./auto-upgrade.nix
+    ./locale.nix
+    ./nix.nix
+    ./hardware.nix
+    ./fonts.nix
+    ./openssh.nix
+    ./opengl.nix
+    ./pam.nix
+    ./sops.nix
 
-      ./auto-upgrade.nix
-      ./locale.nix
-      ./nix.nix
-      ./hardware.nix
-      ./fonts.nix
-      ./openssh.nix
-      ./opengl.nix
-      ./pam.nix
-      ./sops.nix
-
-      ./optional/avahi.nix
-      ./optional/auto-hibernate.nix
-      ./optional/backup.nix
-      ./optional/bluetooth.nix
-      ./optional/docker.nix
-      ./optional/hardening.nix
-      ./optional/fingerprint.nix
-      ./optional/greetd.nix
-      ./optional/gaming.nix
-      ./optional/power.nix
-      ./optional/virtualisation.nix
-      ./optional/vpn.nix
-    ]
-    ++ (builtins.attrValues outputs.nixosModules);
+    ./optional/avahi.nix
+    ./optional/auto-hibernate.nix
+    ./optional/backup.nix
+    ./optional/bluetooth.nix
+    ./optional/docker.nix
+    ./optional/hardening.nix
+    ./optional/fingerprint.nix
+    ./optional/greetd.nix
+    ./optional/gaming.nix
+    ./optional/power.nix
+    ./optional/virtualisation.nix
+    ./optional/vpn.nix
+  ];
 
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
   networking.networkmanager.enable = true;
@@ -44,6 +38,7 @@
   system.nixos.label = lib.concatStringsSep "-" (
     (lib.sort (x: y: x < y) config.system.nixos.tags)
     ++ ["${config.system.nixos.version}.${inputs.self.sourceInfo.shortRev or "dirty"}"]
+    ++ (lib.match "(.{4})(.{2})(.{2}).*" inputs.self.lastModifiedDate)
   );
 
   services = {
