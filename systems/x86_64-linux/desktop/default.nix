@@ -54,18 +54,8 @@
       efi.canTouchEfiVariables = true;
     };
     resumeDevice = "/dev/disk/by-label/nixos";
-    # lanzaboote = {
-    #   enable = true;
-    #   pkiBundle = "/etc/secureboot";
-    # };
+    initrd.systemd.enable = true;
   };
-
-  # boot.plymouth = {
-  #   enable = true;
-  #   themePackages = [(pkgs.catppuccin-plymouth.override {variant = "mocha";})];
-  #   theme = "catppuccin-mocha";
-  # };
-  boot.initrd.systemd.enable = true;
 
   system.stateVersion = "23.11";
 }

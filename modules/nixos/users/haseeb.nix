@@ -7,12 +7,6 @@
 in {
   home-manager.users.haseeb = import ../../hosts/${config.networking.hostName}/home.nix;
 
-  sops.secrets.haseeb-password = {
-    sopsFile = ./secrets.yaml;
-    neededForUsers = true;
-  };
-
-  #users.mutableUsers = false;
   users.users.haseeb = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -37,7 +31,6 @@ in {
         "plugdev"
       ];
 
-    #hashedPasswordFile = config.sops.secrets.haseeb-password.path;
     packages = [pkgs.home-manager];
   };
 
