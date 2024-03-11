@@ -9,8 +9,8 @@
   yaml2nix = pkgs.writeScriptBin "yaml2nix" ''
     nix run github:euank/yaml2nix '.args'
   '';
-in {
-  default = pkgs.mkShell {
+in
+  pkgs.mkShell {
     NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
 
     packages = [
@@ -26,5 +26,4 @@ in {
       pkgs.gnupg
       pkgs.age
     ];
-  };
-}
+  }
