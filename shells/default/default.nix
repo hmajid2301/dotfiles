@@ -10,11 +10,6 @@
     nix run github:euank/yaml2nix '.args'
   '';
 in {
-  nix.settings = {
-    substituters = ["https://colmena.cachix.org"];
-    trusted-public-keys = ["colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="];
-  };
-
   default = pkgs.mkShell {
     NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
 
