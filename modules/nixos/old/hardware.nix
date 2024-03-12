@@ -23,12 +23,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    headsetcontrol2
     solaar
   ];
 
   services.udev.packages = with pkgs; [
-    headsetcontrol2
     logitech-udev-rules
     solaar
   ];

@@ -24,12 +24,17 @@ in {
       wireplumber.enable = true;
     };
     programs.noisetorch.enable = true;
+
+    services.udev.packages = with pkgs; [
+      headsetcontrol2
+    ];
+
     environment.systemPackages = with pkgs; [
       headsetcontrol2
       headset-charge-indicator
-      pavucontrol
       pulsemixer
     ];
+
     system.persist.home.dirs = [
       ".local/state/wireplumber"
     ];
