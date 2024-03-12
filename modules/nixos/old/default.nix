@@ -31,8 +31,6 @@
     ./optional/vpn.nix
   ];
 
-  home-manager.extraSpecialArgs = {inherit inputs outputs;};
-  networking.networkmanager.enable = true;
   programs.hyprland.enable = true;
 
   system.nixos.label = lib.concatStringsSep "-" (

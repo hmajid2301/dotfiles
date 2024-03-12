@@ -4,8 +4,7 @@
   lib,
   ...
 }:
-with lib;
-with lib.nebula; let
+with lib; let
   cfg = config.hardware.audio;
 in {
   options.hardware.audio = with types; {
