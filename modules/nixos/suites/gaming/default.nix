@@ -1,18 +1,27 @@
 {
-  pkgs,
+  options,
   config,
-  inputs,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.gaming;
+  cfg = config.suites.gaming;
 in {
-  options.modules.nixos.gaming = {
-    enable = mkEnableOption "Enable gaming features";
+  options.suites.gaming = with types; {
+    enable = mkBoolOpt false "Enable the gaming suite";
   };
 
   config = mkIf cfg.enable {
+    hardware.opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        mesa
+      ];
+    };
+
     nix.settings = {
       substituters = ["https://nix-gaming.cachix.org"];
       trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];

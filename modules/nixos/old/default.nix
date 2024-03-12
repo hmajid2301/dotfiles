@@ -7,15 +7,9 @@
   ...
 }: {
   imports = [
-    ./auto-upgrade.nix
-    ./locale.nix
-    ./nix.nix
     ./hardware.nix
     ./fonts.nix
     ./openssh.nix
-    ./opengl.nix
-    ./pam.nix
-    ./sops.nix
 
     ./optional/avahi.nix
     ./optional/auto-hibernate.nix
@@ -30,25 +24,4 @@
     ./optional/virtualisation.nix
     ./optional/vpn.nix
   ];
-
-  programs.hyprland.enable = true;
-
-  system.nixos.label = lib.concatStringsSep "-" (
-    (lib.sort (x: y: x < y) config.system.nixos.tags)
-    ++ ["${config.system.nixos.version}.${inputs.self.sourceInfo.shortRev or "dirty"}"]
-    ++ (lib.match "(.{4})(.{2})(.{2}).*" inputs.self.lastModifiedDate)
-  );
-
-  services = {
-    gvfs.enable = true;
-    udisks2.enable = true;
-    fwupd.enable = true;
-  };
-
-  environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
-    gst-plugins-good
-    gst-plugins-bad
-    gst-plugins-ugly
-    gst-libav
-  ]);
 }
