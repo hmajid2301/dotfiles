@@ -54,14 +54,15 @@
       };
 
       systems.modules.nixos = with inputs; [
-        inputs.home-manager.nixosModules.home-manager
-        inputs.disko.nixosModules.disko
-        inputs.lanzaboote.nixosModules.lanzaboote
-        inputs.sops-nix.nixosModules.sops
+        home-manager.nixosModules.home-manager
+        disko.nixosModules.disko
+        lanzaboote.nixosModules.lanzaboote
+        impermanence.nixosModules.impermanence
+        sops-nix.nixosModules.sops
       ];
 
       systems.hosts.framework.modules = with inputs; [
-        inputs.hardware.nixosModules.framework-13-7040-amd
+        hardware.nixosModules.framework-13-7040-amd
       ];
     };
 }
