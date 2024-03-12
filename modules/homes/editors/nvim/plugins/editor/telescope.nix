@@ -11,23 +11,12 @@
           "n"
         ];
       }
-      {
-        action = "<cmd> Telescope frecency <CR>";
-        key = "<leader>fR";
-        options = {
-          desc = "Find most used files";
-        };
-        mode = [
-          "n"
-        ];
-      }
     ];
 
     plugins.telescope = {
       enable = true;
       extensions.fzf-native.enable = true;
       extensions.undo.enable = true;
-      extensions.frecency.enable = true;
 
       keymaps = {
         "<leader>ff" = {
