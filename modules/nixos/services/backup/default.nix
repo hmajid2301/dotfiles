@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.backup;
+  cfg = config.services.backup;
 in {
-  options.modules.nixos.backup = {
+  options.services.backup = {
     enable = mkEnableOption "Enable cloud backups";
   };
 
@@ -23,9 +23,7 @@ in {
         OnUnitActiveSec = "1d";
       };
       exclude = [
-        "/home/haseeb/games"
         "~/.config/gtk"
-        "~/.local/steam"
       ];
 
       pruneOpts = [

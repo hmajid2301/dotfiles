@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.vpn;
+  cfg = config.services.vpn;
 in {
-  options.modules.nixos.vpn = {
+  options.services.vpn = {
     enable = mkEnableOption "Enable vpn";
   };
 
