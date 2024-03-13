@@ -15,6 +15,62 @@
     hostName = "desktop";
   };
 
+  virtualisation = {
+    sharedMemoryFiles = {
+      looking-glass = {
+        user = "haseeb";
+        group = "qemu-libvirtd";
+        mode = "666";
+      };
+    };
+
+    vfio = {
+      enable = true;
+      IOMMUType = "amd";
+      devices = ["10de:2208" "10de:1aef"];
+      blacklistNvidia = true;
+    };
+
+    hugepages = {
+      enable = true;
+      defaultPageSize = "1G";
+      pageSize = "1G";
+      numPages = 16;
+    };
+
+    kvmgt.enable = true;
+    spiceUSBRedirection.enable = true;
+    libvirtd = {
+      enable = true;
+      allowedBridges = [
+        "nm-bridge"
+        "virbr0"
+      ];
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+      clearEmulationCapabilities = false;
+      deviceACL = [
+        "/dev/input/by-id/usb-Logitech_USB_Receiver-event-mouse"
+        "/dev/input/by-id/usb-ZSA_Technology_Labs_Voyager-event-kbd"
+        "/dev/vfio/vfio"
+        "/dev/vfio/2"
+        "/dev/vfio/6"
+        "dev/null"
+        "/dev/full"
+        "/dev/zero"
+        "/dev/random"
+        "/dev/urandom"
+        "/dev/ptmx"
+        "/dev/kvm"
+        "/dev/kqemu"
+        "/dev/rtc"
+        "/dev/hpet"
+        "/dev/kvm"
+        "/dev/shm/looking-glass"
+      ];
+    };
+  };
+
   modules.nixos = {
     avahi.enable = true;
     auto-hibernate.enable = false;

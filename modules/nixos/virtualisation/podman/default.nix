@@ -4,10 +4,10 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.docker;
+  cfg = config.virtualisation.podman;
 in {
-  options.modules.nixos.docker = {
-    enable = mkEnableOption "Enable docker daemon or equivalent";
+  options.virtualisation.podman = {
+    enable = mkEnableOption "Enable podman";
   };
 
   config = mkIf cfg.enable {
@@ -23,9 +23,9 @@ in {
     };
   };
 
-  # environment.persistence = {
-  #   "/persist".directories = [
-  #     "/var/lib/containers"
-  #   ];
-  # };
+  system.environment.persistence = {
+    "/persist".directories = [
+      "/var/lib/containers"
+    ];
+  };
 }

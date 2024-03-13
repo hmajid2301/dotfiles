@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.login;
+  cfg = config.suites.desktop.greetd;
 in {
-  options.modules.nixos.login = {
+  options.suites.desktop.greetd = {
     enable = mkEnableOption "Enable login greeter";
   };
 
@@ -15,6 +15,7 @@ in {
       enable = true;
       settings = rec {
         initial_session = {
+          # TODO: config
           command = "Hyprland";
           user = "haseeb";
         };

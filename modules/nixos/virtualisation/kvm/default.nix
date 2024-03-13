@@ -22,6 +22,7 @@ with lib; let
     escapeNixString
     config.virtualisation.libvirtd.deviceACL;
 in {
+  # Based on this https://gist.github.com/CRTified/43b7ce84cd238673f7f24652c85980b3
   options.virtualisation = {
     sharedMemoryFiles = mkOption {
       type = types.attrsOf (types.submodule ({name, ...}: {
@@ -151,14 +152,33 @@ in {
       isSystemUser = true;
     };
 
-    virtualisation.libvirtd.qemu.verbatimConfig = ''
-      clear_emulation_capabilities = ${
-        boolToZeroOne cfg.clearEmulationCapabilities
-      }
-      cgroup_device_acl = [
-        ${aclString}
-      ]
-    '';
+    environment.systemPackages = with pkgs; [
+      libguestfs
+      win-virtio
+      win-spice
+      virt-manager
+      virt-viewer
+      virtiofsd
+      looking-glass-client
+    ];
+
+    virtualisation.libvirtd.qemu = {
+      runAsRoot = false;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [pkgs.OVMFFull.fd];
+      };
+
+      verbatimConfig = ''
+        clear_emulation_capabilities = ${
+          boolToZeroOne cfg.clearEmulationCapabilities
+        }
+        cgroup_device_acl = [
+          ${aclString}
+        ]
+      '';
+    };
 
     services.udev.extraRules = ''
       SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
