@@ -23,5 +23,10 @@
     useOSProber = true;
   };
 
+  user = {
+    enable = true;
+    name = "haseeb";
+  };
+
   system.stateVersion = "23.11";
 }

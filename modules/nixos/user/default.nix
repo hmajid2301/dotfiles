@@ -12,7 +12,7 @@ in {
   options.user = with types; {
     name = mkOpt str "haseeb" "The name of the user's account";
     initialPassword =
-      mkOpt str "password123_*()"
+      mkOpt str "1"
       "The initial password to use";
     extraGroups = mkOpt (listOf str) [] "Groups for the user to be assigned.";
     extraOptions =
