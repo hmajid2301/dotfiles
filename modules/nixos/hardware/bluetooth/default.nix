@@ -23,6 +23,5 @@ in {
         };
       };
     };
-    system.persist.root.dirs = ["/var/lib/bluetooth"];
   };
 }
