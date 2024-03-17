@@ -50,6 +50,15 @@
     };
 
     colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+    xdg = {
+      mime.enable = true;
+      systemDirs.data = ["${config.home.homeDirectory}/.nix-profile/share/applications"];
+      configFile."git/ignore".text = ''
+        projects/**/**/flake.nix
+        projects/**/**/flake.lock
+      '';
+    };
+    targets.genericLinux.enable = true;
 
     home = {
       username = lib.mkDefault "haseeb";

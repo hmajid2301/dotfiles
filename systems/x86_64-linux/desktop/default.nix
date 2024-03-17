@@ -5,14 +5,13 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./disks.nix
 
     ../../nixos
     ../../nixos/users/haseeb.nix
   ];
 
   networking = {
-    hostName = "desktop";
+    hostName = "vm";
   };
 
   virtualisation = {
@@ -32,26 +31,16 @@
     vpn.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    headsetcontrol2
-    headset-charge-indicator
-  ];
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
 
-  swapDevices = [{device = "/swap/swapfile";}];
-
-  boot = {
-    kernelParams = [
-      "resume_offset=533760"
-    ];
-    supportedFilesystems = lib.mkForce ["btrfs"];
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    resumeDevice = "/dev/disk/by-label/nixos";
-    initrd.systemd.enable = true;
-  };
+  # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = true;
 
   system.stateVersion = "23.11";
 }
