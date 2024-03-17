@@ -14,14 +14,24 @@ in {
   config = mkIf cfg.enable {
     suites = {
       common.enable = true;
+
       desktop.addons = {
         nautilus.enable = true;
-        hyprland.enable = true;
       };
+    };
 
-      virtualisation = {
-        podman.enable = true;
-      };
+    hardware = {
+      logitechMouse.enable = true;
+      zsa.enable = true;
+    };
+
+    virtualisation = {
+      podman.enable = true;
+    };
+
+    user = {
+      name = "haseeb";
+      initialPassword = "1";
     };
   };
 }
