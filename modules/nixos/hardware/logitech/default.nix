@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.nixicle; let
-  cfg = config.hardware.logitech;
+  cfg = config.hardware.logitechMouse;
 in {
-  options.hardware.logitech = with types; {
-    enable = mkBoolOpt false "Enable logitech hardware for their mice";
+  options.hardware.logitechMouse = with types; {
+    enable = mkBoolOpt false "Enable logitech mouse hardware for their mice";
   };
 
   config = mkIf cfg.enable {
