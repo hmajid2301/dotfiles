@@ -4,7 +4,8 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nixicle; let
   cfg = config.system.locale;
 in {
   options.system.locale = with types; {
