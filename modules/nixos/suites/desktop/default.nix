@@ -17,9 +17,9 @@ in {
         nautilus.enable = true;
         hyprland.enable = true;
       };
-      virtualisation = {
-        podman.enable = true;
-      };
+      # virtualisation = {
+      #   podman.enable = true;
+      # };
     };
   };
 }
