@@ -15,7 +15,7 @@ in {
     hardware = {
       audio.enable = true;
       bluetooth.enable = true;
-      neworking.enable = true;
+      networking.enable = true;
     };
 
     services = {
