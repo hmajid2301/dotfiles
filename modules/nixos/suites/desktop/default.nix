@@ -13,7 +13,7 @@ in {
   config = mkIf cfg.enable {
     suites = {
       common.enable = true;
-      desktop.addon = {
+      desktop.addons = {
         nautilus.enable = true;
         hyprland.enable = true;
       };
