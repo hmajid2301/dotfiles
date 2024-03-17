@@ -31,7 +31,7 @@
   hardware = {
     audio.enable = true;
     bluetooth.enable = true;
-    logitech.enable = true;
+    logitechMouse.enable = true;
     networking.enable = true;
     zsa.enable = true;
   };
