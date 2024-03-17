@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nixicle; let
-  cfg = config.nix;
+  cfg = config.system.nix;
 in {
-  options.nix = with types; {
+  options.system.nix = with types; {
     enable = mkBoolOpt false "Whether or not to manage nix configuration";
   };
 
