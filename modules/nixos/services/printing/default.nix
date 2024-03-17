@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nixicle; let
-  cfg = config.services.printing;
+  cfg = config.services.nixicle.printing;
 in {
-  options.services.printing = with types; {
+  options.services.nixicle.printing = with types; {
     enable = mkBoolOpt false "Whether or not to configure printing support.";
   };
 
