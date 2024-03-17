@@ -4,7 +4,8 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nixicle; let
   cfg = config.hardware.audio;
 in {
   options.hardware.audio = with types; {
