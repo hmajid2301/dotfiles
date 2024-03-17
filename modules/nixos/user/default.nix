@@ -6,7 +6,7 @@
   ...
 }:
 with lib;
-with lib.nebula; let
+with lib.nixicle; let
   cfg = config.user;
 in {
   options.user = with types; {
