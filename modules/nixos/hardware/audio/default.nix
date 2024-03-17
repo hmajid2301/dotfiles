@@ -27,11 +27,12 @@ in {
     programs.noisetorch.enable = true;
 
     services.udev.packages = with pkgs; [
-      headsetcontrol2
+      # headsetcontrol2
     ];
 
+    # TODO: add headset as a package
     environment.systemPackages = with pkgs; [
-      headsetcontrol2
+      # headsetcontrol2
       headset-charge-indicator
       pulsemixer
     ];
