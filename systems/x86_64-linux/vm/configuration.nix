@@ -5,29 +5,28 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./disks.nix
   ];
 
-  services = {
-    xserver = {
-      enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-    };
-    qemuGuest.enable = true;
-    spice-vdagentd.enable = true;
+  networking = {
+    hostName = "vm";
   };
 
-  swapDevices = [{device = "/swap/swapfile";}];
-  boot.initrd.systemd.enable = true;
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    resumeDevice = "/dev/disk/by-label/nixos";
+  modules.nixos = {
+    avahi.enable = true;
+    bluetooth.enable = true;
+    docker.enable = true;
   };
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
+
+  # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = true;
 
   system.stateVersion = "23.11";
 }
