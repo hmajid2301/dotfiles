@@ -14,5 +14,7 @@ in {
 
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
+    suites.desktop.addons.greetd.enable = true;
+    suites.desktop.addons.xdg-portal.enable = true;
   };
 }

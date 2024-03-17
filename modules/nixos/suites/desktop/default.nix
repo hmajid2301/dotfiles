@@ -29,6 +29,12 @@ in {
       podman.enable = true;
     };
 
+    services = {
+      nixicle.avahi.enable = true;
+      backup.enable = true;
+      vpn.enable = true;
+    };
+
     user = {
       name = "haseeb";
       initialPassword = "1";
