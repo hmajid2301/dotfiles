@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.desktop.addons.nautilus;
+  cfg = config.suites.desktop.addons.nautilus;
 in {
-  options.desktop.addons.nautilus = with types; {
+  options.suites.desktop.addons.nautilus = with types; {
     enable = mkBoolOpt false "Whether to enable the gnome file manager.";
   };
 

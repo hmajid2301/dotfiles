@@ -4,10 +4,11 @@
   lib,
   ...
 }:
-with lib; let
-  cfg = config.desktop.hyprland;
+with lib;
+with lib.nixicle; let
+  cfg = config.suites.desktop.addons.hyprland;
 in {
-  options.desktop.hyprland = with types; {
+  options.suites.desktop.addons.hyprland = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland window manager.";
   };
 
