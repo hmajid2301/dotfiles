@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.services.avahi;
+  cfg = config.services.nixicle.avahi;
 in {
-  options.services.avahi = {
+  options.services.nixicle.avahi = {
     enable = mkEnableOption "Enable The avahi service";
   };
 
