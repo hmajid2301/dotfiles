@@ -5,7 +5,7 @@
   ...
 }:
 with lib;
-with lib.custom; let
+with lib.nixicle; let
   cfg = config.hardware.zsa;
 in {
   options.hardware.zsa = with types; {
