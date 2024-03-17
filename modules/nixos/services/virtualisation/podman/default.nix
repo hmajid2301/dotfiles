@@ -22,10 +22,4 @@ in {
       };
     };
   };
-
-  system.environment.persistence = {
-    "/persist".directories = [
-      "/var/lib/containers"
-    ];
-  };
 }
