@@ -5,7 +5,8 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nixicle; let
   cfg = config.suites.desktop.addons.nautilus;
 in {
   options.suites.desktop.addons.nautilus = with types; {
