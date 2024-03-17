@@ -15,13 +15,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.variables = {
-      LOG_ICONS = "true";
-    };
-
-    environment.systemPackages = with pkgs; [font-manager];
-
-    nixpkgs.config.joypixels.acceptLicense = true;
     fonts = {
       enableDefaultPackages = false;
       fontDir.enable = true;
@@ -30,12 +23,9 @@ in {
           (nerdfonts.override {fonts = ["FiraCode" "SourceCodePro" "UbuntuMono"];})
           fira
           fira-go
-          joypixels
-          liberation_ttf
           noto-fonts-emoji
           source-serif
           ubuntu_font_family
-          work-sans
           noto-fonts
           noto-fonts-cjk
           noto-fonts-emoji
@@ -48,9 +38,6 @@ in {
           oxygenfonts
           cantarell-fonts
           open-sans
-          mplus-outline-fonts.githubRelease
-          dina-font
-          proggyfonts
         ]
         ++ cfg.fonts;
 
@@ -58,9 +45,9 @@ in {
         antialias = true;
         defaultFonts = {
           serif = ["Source Serif"];
-          sansSerif = ["Work Sans" "Fira Sans" "FiraGO"];
+          sansSerif = ["Fira Sans" "FiraGO"];
           monospace = ["FiraCode Nerd Font Mono" "SauceCodePro Nerd Font Mono"];
-          emoji = ["Joypixels" "Noto Color Emoji"];
+          emoji = ["Noto Color Emoji"];
         };
         enable = true;
         hinting = {
