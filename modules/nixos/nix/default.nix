@@ -4,7 +4,8 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nixicle; let
   cfg = config.nix;
 in {
   options.nix = with types; {
