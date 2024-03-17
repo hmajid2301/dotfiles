@@ -28,12 +28,6 @@ in {
       };
     };
 
-    impermanenceEnabled = mkOption {
-      type = types.bool;
-      description = "Whether to enable impermanence to delete home directory on reboot";
-      default = false;
-    };
-
     wallpaper = mkOption {
       type = types.str;
       default = "";

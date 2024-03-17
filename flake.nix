@@ -65,5 +65,15 @@
       systems.hosts.framework.modules = with inputs; [
         hardware.nixosModules.framework-13-7040-amd
       ];
+
+      homes.modules = with inputs; [
+        nix-colors.homeManagerModule
+        nixvim.homeManagerModules.nixvim
+        impermanence.nixosModules.home-manager.impermanence
+      ];
+
+      overlays = with inputs; [
+        nixgl.overlay
+      ];
     };
 }
