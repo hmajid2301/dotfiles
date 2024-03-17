@@ -34,5 +34,10 @@
     fonts.enable = true;
   };
 
+  security = {
+    sops.enable = true;
+    yubikey.enable = true;
+  };
+
   system.stateVersion = "23.11";
 }
