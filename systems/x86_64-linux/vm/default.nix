@@ -28,6 +28,14 @@
     initialPassword = "1";
   };
 
+  hardware = {
+    audio.enable = true;
+    bluetooth.enable = true;
+    logitech.enable = true;
+    networking.enable = true;
+    zsa.enable = true;
+  };
+
   system = {
     nix.enable = true;
     locale.enable = true;
