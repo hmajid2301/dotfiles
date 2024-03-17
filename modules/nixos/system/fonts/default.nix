@@ -6,7 +6,7 @@
   ...
 }:
 with lib;
-with lib.custom; let
+with lib.nixicle; let
   cfg = config.system.fonts;
 in {
   options.system.fonts = with types; {

@@ -31,6 +31,7 @@
   system = {
     nix.enable = true;
     locale.enable = true;
+    fonts.enable = true;
   };
 
   system.stateVersion = "23.11";
