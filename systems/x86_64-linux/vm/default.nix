@@ -14,7 +14,7 @@
   };
 
   suites = {
-    desktop.enable = true;
+    desktop.addons.gnome.enable = true;
   };
 
   system.stateVersion = "23.11";
