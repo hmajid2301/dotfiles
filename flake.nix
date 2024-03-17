@@ -43,6 +43,7 @@
       src = ./.;
       snowfall = {
         metadata = "nixicle";
+        namespace = "nixicle";
         meta = {
           name = "nixicle";
           title = "Haseeb's Nix Flake";
