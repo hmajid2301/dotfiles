@@ -61,8 +61,8 @@
         sops-nix.nixosModules.sops
       ];
 
-      # systems.hosts.framework.modules = with inputs; [
-      #   hardware.nixosModules.framework-13-7040-amd
-      # ];
+      systems.hosts.framework.modules = with inputs; [
+        hardware.nixosModules.framework-13-7040-amd
+      ];
     };
 }

@@ -11,7 +11,7 @@
   ];
 
   networking = {
-    hostName = "vm";
+    hostName = "desktop";
   };
 
   virtualisation = {
