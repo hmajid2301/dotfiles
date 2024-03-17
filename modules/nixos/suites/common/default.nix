@@ -18,9 +18,9 @@ in {
       networking.enable = true;
     };
 
-    services = {
-      openssh.enable = true;
-    };
+    # services = {
+    #   openssh.enable = true;
+    # };
 
     security = {
       sops.enable = true;
