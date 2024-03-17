@@ -24,8 +24,8 @@
   };
 
   user = {
-    enable = true;
     name = "haseeb";
+    initialPassword = "1";
   };
 
   system.stateVersion = "23.11";
