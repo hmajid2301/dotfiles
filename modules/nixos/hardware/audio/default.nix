@@ -34,9 +34,5 @@ in {
       headset-charge-indicator
       pulsemixer
     ];
-
-    system.persist.home.dirs = [
-      ".local/state/wireplumber"
-    ];
   };
 }
