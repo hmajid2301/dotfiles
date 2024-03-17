@@ -5,7 +5,7 @@
   ...
 }:
 with lib;
-with lib.custom; let
+with lib.nixicle; let
   cfg = config.system.impermanence;
 in {
   options.system.impermanence = with types; {
