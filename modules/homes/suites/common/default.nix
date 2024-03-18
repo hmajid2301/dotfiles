@@ -12,5 +12,22 @@ in {
 
   config = mkIf cfg.enable {
     nix.enable = true;
+
+    home.packages = with pkgs; [
+      keymapp
+      powertop
+
+      nix-your-shell
+      src-cli
+
+      (lib.hiPrio parallel)
+      moreutils
+      nvtop-amd
+      htop
+      unzip
+      gnupg
+
+      showmethekey
+    ];
   };
 }
