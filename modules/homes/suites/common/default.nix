@@ -12,7 +12,10 @@ in {
 
   config = mkIf cfg.enable {
     nix.enable = true;
+    cli.terminals.wezterm.enable = true;
+    cli.shells.fish.enable = true;
 
+    # TODO: move this to a separate module
     home.packages = with pkgs; [
       keymapp
       powertop

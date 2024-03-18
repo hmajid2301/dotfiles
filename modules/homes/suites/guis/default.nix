@@ -17,9 +17,7 @@ in {
       foliate
       helvum
       pavucontrol
-      read-it-later
       trayscale
-      piper
       celeste
 
       fragments
