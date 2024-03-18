@@ -12,6 +12,7 @@ in {
 
   config = mkIf cfg.enable {
     nix.enable = true;
+    suites.guis.enable = true;
     cli.terminals.wezterm.enable = true;
     cli.shells.fish.enable = true;
 

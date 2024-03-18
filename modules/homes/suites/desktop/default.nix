@@ -10,7 +10,11 @@ in {
     enable = mkEnableOption "Enable desktop suite";
   };
 
-  config =
-    mkIf cfg.enable {
+  config = mkIf cfg.enable {
+    suites = {
+      common.enable = true;
+      development.enable = true;
+      gaming.enable = true;
     };
+  };
 }
