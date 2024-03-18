@@ -26,6 +26,9 @@
 
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprland-nix.url = "github:spikespaz/hyprland-nix";
+    hypridle.url = "github:hyprwm/Hypridle";
+    hyprlock.url = "github:hyprwm/Hyprlock";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
 
     comma.url = "github:nix-community/comma";
     nix-gaming.url = "github:fufexan/nix-gaming";

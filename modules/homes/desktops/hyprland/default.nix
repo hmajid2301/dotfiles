@@ -16,5 +16,17 @@ in {
       trusted-substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
+
+    desktops.addons = {
+      gtk.enable = true;
+      qt.enable = true;
+      kanshi.enable = true;
+      rofi.enable = true;
+      swaylock.enable = true;
+      swaync.enable = true;
+      waybar.enable = true;
+      wlogout.enable = true;
+      wlsunset.enable = true;
+    };
   };
 }

@@ -17,6 +17,8 @@ in {
       gaming.enable = true;
     };
 
+    desktops.addons.xdg.enable = true;
+
     home.sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;
       QT_QPA_PLATFORM = "wayland;xcb";
