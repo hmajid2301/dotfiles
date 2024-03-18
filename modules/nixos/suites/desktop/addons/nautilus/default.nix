@@ -13,6 +13,12 @@ in {
     enable = mkBoolOpt false "Whether to enable the gnome file manager.";
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/privacy" = {
+      remember-recent-files = false;
+    };
+  };
+
   config = mkIf cfg.enable {
     services.gvfs.enable = true;
     services.udisks2.enable = true;

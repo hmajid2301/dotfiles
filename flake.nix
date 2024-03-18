@@ -27,7 +27,6 @@
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprland-nix.url = "github:spikespaz/hyprland-nix";
 
-    nwg-displays.url = "github:nwg-piotr/nwg-displays";
     comma.url = "github:nix-community/comma";
     nix-gaming.url = "github:fufexan/nix-gaming";
 
@@ -70,6 +69,7 @@
         nix-colors.homeManagerModule
         nixvim.homeManagerModules.nixvim
         impermanence.nixosModules.home-manager.impermanence
+        hyprland-nix.homeManagerModules.default
       ];
 
       overlays = with inputs; [

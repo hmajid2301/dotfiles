@@ -16,5 +16,29 @@ in {
       development.enable = true;
       gaming.enable = true;
     };
+
+    home.sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+      QT_QPA_PLATFORM = "wayland;xcb";
+      LIBSEAT_BACKEND = "logind";
+    };
+
+    # TODO: move this to somewhere
+    home.packages = with pkgs; [
+      mplayer
+      mtpfs
+      jmtpfs
+      brightnessctl
+      xdg-utils
+      wl-clipboard
+      pamixer
+      playerctl
+
+      grimblast
+      slurp
+      sway-contrib.grimshot
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.satty
+    ];
   };
 }
