@@ -11,9 +11,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    cli = {
-      suites.common.enable = true;
+    suites.common.enable = true;
 
+    cli = {
       editors.nvim.enable = true;
       multiplexers.zellij.enable = true;
       scripts.enable = true;
