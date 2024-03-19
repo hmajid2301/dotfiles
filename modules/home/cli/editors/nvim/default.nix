@@ -13,7 +13,7 @@ in {
     nixvim.homeManagerModules.nixvim
   ];
 
-  options.cli.editors.nvim = {
+  options.cli.editors.nvim = with types; {
     enable = mkBoolOpt "enable neovim editor";
   };
 
