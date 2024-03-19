@@ -17,9 +17,11 @@ in {
     services.gvfs.enable = true;
     services.udisks2.enable = true;
 
-    dconf.settings = {
-      "org/gnome/desktop/privacy" = {
-        remember-recent-files = false;
+    home.config = {
+      dconf.settings = {
+        "org/gnome/desktop/privacy" = {
+          remember-recent-files = false;
+        };
       };
     };
 
