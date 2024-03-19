@@ -7,7 +7,7 @@
   ...
 }:
 with lib;
-with lib.custom; let
+with lib.nixicle; let
   cfg = config.custom.desktop.addons.hypridle;
   inherit (inputs) hypridle;
 in {
