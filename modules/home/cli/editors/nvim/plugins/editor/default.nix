@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   zellij-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "zellij.nvim";
     version = "2023-12-03";
@@ -11,11 +15,7 @@
     meta.homepage = "https://github.com/Lilja/zellij.nvim/";
   };
 in {
-  imports = [
-    ./editor/telescope.nix
-    ./editor/trouble.nix
-    ./editor/focus.nix
-  ];
+  imports = lib.snowfall.fs.get-non-default-nix-files ./.;
 
   programs.nixvim = {
     clipboard = {

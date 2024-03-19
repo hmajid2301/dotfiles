@@ -1,8 +1,9 @@
-{pkgs, ...}: {
-  imports = [
-    ./ui/statusline.nix
-    ./ui/file-explorer.nix
-  ];
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = lib.snowfall.fs.get-non-default-nix-files ./.;
 
   programs.nixvim = {
     plugins.barbecue.enable = true;
