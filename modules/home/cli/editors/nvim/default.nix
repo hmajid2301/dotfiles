@@ -5,7 +5,7 @@
   ...
 }:
 with lib;
-with lib.nixicile; let
+with lib.nixicle; let
   cfg = config.cli.editors.nvim;
 in {
   imports = with inputs; [
