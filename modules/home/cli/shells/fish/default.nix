@@ -2,12 +2,12 @@
   pkgs,
   lib,
   config,
+  format,
   ...
 }:
 with lib;
 with lib.nixicle; let
-  inherit (config) my colorscheme;
-  inherit (my.settings) host;
+  inherit (config) colorscheme;
   inherit (colorscheme) colors;
   cfg = config.cli.shells.fish;
 in {
@@ -102,9 +102,9 @@ in {
         # nix
         nd = "nix develop";
         nfu = "nix flake update";
-        hms = "home-manager switch --flake ~/dotfiles#${host}";
+        hms = "home-manager switch --flake ~/dotfiles#${format}";
         hmr = "home-manager generations | fzf --tac | awk '{print $7}' | xargs -I{} bash {}/activate";
-        nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#${host}";
+        nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#${format}";
         niso = "nix build .#nixosConfigurations.iso.config.system.build.isoImage";
 
         # new commads
