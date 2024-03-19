@@ -33,10 +33,10 @@ in {
     };
 
     sops.secrets.restic_password = {
-      sopsFile = ../secrets.yaml;
+      sopsFile = ../../secrets.yaml;
     };
     sops.secrets.restic_env = {
-      sopsFile = ../secrets.yaml;
+      sopsFile = ../../secrets.yaml;
     };
   };
 }
