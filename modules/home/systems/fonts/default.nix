@@ -8,7 +8,7 @@ with lib;
 with lib.nixicle; let
   cfg = config.system.fonts;
 in {
-  options.systems.fonts = with types; {
+  options.system.fonts = with types; {
     enable = mkBoolOpt false "Whether or not to manage fonts";
   };
 
