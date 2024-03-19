@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.terminals.wezterm;
+  cfg = config.cli.terminals.wezterm;
 in {
-  options.modules.terminals.wezterm = {
+  options.cli.terminals.wezterm = {
     enable = mkEnableOption "enable wezterm terminal emulator";
   };
 
