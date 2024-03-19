@@ -23,11 +23,11 @@ in {
     home.packages = [pkgs.nixgl.nixGLIntel];
 
     systemd.user.startServices = "sd-switch";
-
-    programs = {
-      home-manager.enable = true;
-    };
-
+    #
+    # programs = {
+    #   home-manager.enable = true;
+    # };
+    #
     nix = {
       package = lib.mkDefault pkgs.nix;
       settings = {

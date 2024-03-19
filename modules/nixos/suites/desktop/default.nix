@@ -32,7 +32,7 @@ in {
     services = {
       nixicle.avahi.enable = true;
       backup.enable = true;
-      vpn.enable = false;
+      vpn.enable = true;
     };
 
     user = {
