@@ -38,8 +38,8 @@ with lib.nixicle; let
     fi
   '';
 in {
-  options.cli.multiplexers.zellij = {
-    enable = mkBoolOpt "enable zellij multiplexer";
+  options.cli.multiplexers.zellij = with types; {
+    enable = mkBoolOpt false "enable zellij multiplexer";
   };
 
   config = mkIf cfg.enable {
