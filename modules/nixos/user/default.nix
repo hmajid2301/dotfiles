@@ -35,6 +35,7 @@ in {
       // cfg.extraOptions;
 
     home-manager = {
+      userGlobalPkgs = true;
       useUserPackages = true;
     };
   };
