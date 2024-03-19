@@ -18,7 +18,7 @@ in {
     };
 
     services = {
-      kdeconnect.enable = true;
+      nixicle.kdeconnect.enable = true;
       spotify.enable = true;
     };
     desktops.addons.xdg.enable = true;

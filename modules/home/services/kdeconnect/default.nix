@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nixicle; let
-  cfg = config.services.kdeconnect;
+  cfg = config.services.nixicle.kdeconnect;
 in {
-  options.services.kdeconnect = with types; {
+  options.services.nixicle.kdeconnect = with types; {
     enable = mkBoolOpt false "Whether or not to manage kdeconnect";
   };
 
