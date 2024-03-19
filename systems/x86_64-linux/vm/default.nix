@@ -13,9 +13,9 @@
     useOSProber = true;
   };
 
-  # suites = {
-  #   desktop.addons.gnome.enable = true;
-  # };
+  suites = {
+    desktop.addons.gnome.enable = true;
+  };
 
   system.stateVersion = "23.11";
 }
