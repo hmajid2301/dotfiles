@@ -75,6 +75,6 @@ in {
   };
 
   sops.secrets.chatgpt_api_key = {
-    sopsFile = ../../../../secrets.yaml;
+    sopsFile = ../../../../../secrets.yaml;
   };
 }
