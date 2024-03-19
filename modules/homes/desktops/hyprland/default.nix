@@ -7,6 +7,10 @@
 with lib; let
   cfg = config.desktops.hyprland;
 in {
+  imports = with inputs; [
+    hyprland-nix.homeManagerModules.default
+  ];
+
   options.desktops.hyprland = {
     enable = mkEnableOption "enable hyprland window manager";
   };

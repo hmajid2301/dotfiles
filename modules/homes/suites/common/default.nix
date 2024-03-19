@@ -1,11 +1,14 @@
 {
   lib,
   config,
+  inputs,
   ...
 }:
 with lib; let
   cfg = config.suites.common;
 in {
+  imports = with inputs; [nix-colors.homeManagerModule];
+
   options.suites.common = {
     enable = mkEnableOption "Enable common configuration";
   };

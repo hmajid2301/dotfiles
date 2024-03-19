@@ -8,7 +8,9 @@ with lib;
 with lib.nixicile; let
   cfg = config.cli.editors.nvim;
 in {
-  imports = [
+  imports = with inputs; [
+    nixvim.homeManagerModules.nixvim
+
     ./keymaps.nix
     ./options.nix
     ./autocmds.nix
