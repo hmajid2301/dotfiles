@@ -9,7 +9,7 @@
     desktop.enable = true;
   };
 
-  nixicile.user = {
+  nixicle.user = {
     enable = true;
     name = "haseeb";
   };
