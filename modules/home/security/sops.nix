@@ -1,22 +1,34 @@
 {
+  options,
+  config,
+  lib,
   inputs,
-  pkgs,
   ...
-}: {
-  imports = [
-    inputs.sops-nix.homeManagerModules.sops
-  ];
-
-  sops = {
-    gnupg = {
-      home = "~/.gnupg";
-      sshKeyPaths = [];
-    };
-    defaultSymlinkPath = "/run/user/1000/secrets";
-    defaultSecretsMountPoint = "/run/user/1000/secrets.d";
+}:
+with lib;
+with lib.nixicle; let
+  cfg = config.security.sops;
+in {
+  options.security.sops = with types; {
+    enable = mkBoolOpt false "Whether to enable sop for secrets management.";
   };
 
-  home.packages = with pkgs; [
-    sops
+  imports = with inputs; [
+    sops-nix.homeManagerModules.sops
   ];
+
+  config = mkIf cfg.enable {
+    sops = {
+      gnupg = {
+        home = "~/.gnupg";
+        sshKeyPaths = [];
+      };
+      defaultSymlinkPath = "/run/user/1000/secrets";
+      defaultSecretsMountPoint = "/run/user/1000/secrets.d";
+    };
+
+    home.packages = with pkgs; [
+      sops
+    ];
+  };
 }
