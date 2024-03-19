@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -8,6 +9,10 @@ with lib;
 with lib.nixicle; let
   cfg = config.user;
 in {
+  imports = with inputs; [
+    home-manager.nixosModules.home-manager
+  ];
+
   options.user = with types; {
     name = mkOpt str "haseeb" "The name of the user's account";
     initialPassword =
