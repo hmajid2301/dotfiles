@@ -68,12 +68,13 @@
         hardware.nixosModules.framework-13-7040-amd
       ];
 
-      homes.modules = with inputs; [
-        nix-colors.homeManagerModule
-        nixvim.homeManagerModules.nixvim
-        impermanence.nixosModules.home-manager.impermanence
-        hyprland-nix.homeManagerModules.default
-      ];
+      # TODO: move to relevant files
+      # homes.modules = with inputs; [
+      #   nix-colors.homeManagerModule
+      #   nixvim.homeManagerModules.nixvim
+      #   impermanence.nixosModules.home-manager.impermanence
+      #   hyprland-nix.homeManagerModules.default
+      # ];
 
       overlays = with inputs; [
         nixgl.overlay
