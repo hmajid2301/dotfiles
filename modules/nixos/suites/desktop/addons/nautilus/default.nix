@@ -17,13 +17,13 @@ in {
     services.gvfs.enable = true;
     services.udisks2.enable = true;
 
-    home.config = {
-      dconf.settings = {
-        "org/gnome/desktop/privacy" = {
-          remember-recent-files = false;
-        };
-      };
-    };
+    # home.config = {
+    #   dconf.settings = {
+    #     "org/gnome/desktop/privacy" = {
+    #       remember-recent-files = false;
+    #     };
+    #   };
+    # };
 
     environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
       gst-plugins-good
