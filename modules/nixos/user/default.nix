@@ -33,5 +33,9 @@ in {
           ++ cfg.extraGroups;
       }
       // cfg.extraOptions;
+
+    home-manager = {
+      useUserPackages = true;
+    };
   };
 }
