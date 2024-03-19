@@ -17,7 +17,7 @@ in {
     services.gvfs.enable = true;
     services.udisks2.enable = true;
 
-    home.config = {
+    snowfallorg.user.${config.user.name}.home.config = {
       dconf.settings = {
         "org/gnome/desktop/privacy" = {
           remember-recent-files = false;
