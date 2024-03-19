@@ -8,8 +8,8 @@ with lib;
 with lib.nixicle; let
   cfg = config.cli.multiplexers.tmux;
 in {
-  options.cli.multiplexers.tmux = {
-    enable = mkBoolOpt "enable tmux multiplexer";
+  options.cli.multiplexers.tmux = with types; {
+    enable = mkBoolOpt false "enable tmux multiplexer";
   };
 
   config = mkIf cfg.enable {

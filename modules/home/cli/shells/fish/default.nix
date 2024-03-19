@@ -11,8 +11,8 @@ with lib.nixicle; let
   inherit (colorscheme) colors;
   cfg = config.cli.shells.fish;
 in {
-  options.cli.shells.fish = {
-    enable = mkBoolOpt "enable fish shell";
+  options.cli.shells.fish = with types; {
+    enable = mkBoolOpt false "enable fish shell";
   };
 
   config = mkIf cfg.enable {

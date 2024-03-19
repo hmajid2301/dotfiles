@@ -7,8 +7,8 @@ with lib;
 with lib.nixicle; let
   cfg = config.cli.terminals.alacritty;
 in {
-  options.cli.terminals.alacritty = {
-    enable = mkBoolOpt "enable alacritty terminal emulator";
+  options.cli.terminals.alacritty = with types; {
+    enable = mkBoolOpt false "enable alacritty terminal emulator";
   };
 
   config = mkIf cfg.enable {
