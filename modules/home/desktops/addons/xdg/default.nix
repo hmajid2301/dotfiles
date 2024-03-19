@@ -11,13 +11,13 @@ in {
     enable = mkBoolOpt false "manage xdg config";
   };
 
-  home.sessionVariables = {
-    HISTFILE = lib.mkForce "${config.xdg.stateHome}/bash/history";
-    #GNUPGHOME = lib.mkForce "${config.xdg.dataHome}/gnupg";
-    GTK2_RC_FILES = lib.mkForce "${config.xdg.configHome}/gtk-2.0/gtkrc";
-  };
-
   config = mkIf cfg.enable {
+    home.sessionVariables = {
+      HISTFILE = lib.mkForce "${config.xdg.stateHome}/bash/history";
+      #GNUPGHOME = lib.mkForce "${config.xdg.dataHome}/gnupg";
+      GTK2_RC_FILES = lib.mkForce "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    };
+
     xdg = {
       enable = true;
       cacheHome = config.home.homeDirectory + "/.local/cache";
