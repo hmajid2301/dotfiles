@@ -17,6 +17,10 @@ in {
       gaming.enable = true;
     };
 
+    services = {
+      kdeconnect.enable = true;
+      spotify.enable = true;
+    };
     desktops.addons.xdg.enable = true;
 
     home.sessionVariables = {

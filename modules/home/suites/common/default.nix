@@ -17,10 +17,21 @@ in {
   config = mkIf cfg.enable {
     colorscheme = nix-colors.colorSchemes.catppuccin-mocha;
 
-    nix.enable = true;
+    system = {
+      nix.enable = true;
+      fonts.enable = true;
+    };
+
+    cli = {
+      terminals.wezterm.enable = true;
+      shells.fish.enable = true;
+    };
+
     suites.guis.enable = true;
-    cli.terminals.wezterm.enable = true;
-    cli.shells.fish.enable = true;
+
+    security = {
+      sops.enable = true;
+    };
 
     # TODO: move this to a separate module
     home.packages = with pkgs; [
