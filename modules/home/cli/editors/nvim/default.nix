@@ -14,7 +14,7 @@ in {
   ];
 
   options.cli.editors.nvim = with types; {
-    enable = mkBoolOpt "enable neovim editor";
+    enable = mkBoolOpt false "enable neovim editor";
   };
 
   config =
