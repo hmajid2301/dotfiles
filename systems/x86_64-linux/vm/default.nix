@@ -14,6 +14,7 @@
   };
 
   suites = {
+    desktop.enable = true;
     desktop.addons.gnome.enable = true;
   };
 
