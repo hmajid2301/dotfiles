@@ -35,7 +35,10 @@ in {
     };
 
     # TODO: move this to a separate module
-    home.packages = with pkgs; [
+    home.packages = with pkgs;
+    with nixicle.pkgs; [
+      monolisa
+
       keymapp
       powertop
 
