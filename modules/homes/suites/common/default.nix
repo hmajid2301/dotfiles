@@ -4,16 +4,19 @@
   inputs,
   ...
 }:
-with lib; let
+with lib;
+with inputs; let
   cfg = config.suites.common;
 in {
-  imports = with inputs; [nix-colors.homeManagerModule];
+  imports = [nix-colors.homeManagerModule];
 
   options.suites.common = {
     enable = mkEnableOption "Enable common configuration";
   };
 
   config = mkIf cfg.enable {
+    colorscheme = nix-colors.colorSchemes.catppuccin-mocha;
+
     nix.enable = true;
     suites.guis.enable = true;
     cli.terminals.wezterm.enable = true;
