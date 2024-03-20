@@ -1,7 +1,7 @@
 {
   programs.nixvim = {
     plugins.bufferline = {
-      enable = true;
+      enable = false;
       highlights = {
         background = {
           bg = "#252434";
