@@ -15,7 +15,6 @@ in {
     suites = {
       common.enable = true;
       development.enable = true;
-      gaming.enable = true;
     };
 
     services = {
