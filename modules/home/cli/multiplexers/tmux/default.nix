@@ -25,7 +25,7 @@ in {
 
     programs.tmux = {
       enable = true;
-      shell = "${config.my.settings.default.shell}";
+      shell = "fish";
       terminal = "tmux-256color";
       historyLimit = 100000;
       keyMode = "vi";

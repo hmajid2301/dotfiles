@@ -28,7 +28,7 @@ in {
         effect-vignette = "0.5:0.5";
         fade-in = 0.2;
 
-        font = "${config.my.settings.fonts.monospace}";
+        font = "MonoLisa Nerd Font";
         ring-color = "${colors.base02}";
         inside-wrong-color = "${colors.base08}";
         ring-wrong-color = "${colors.base08}";

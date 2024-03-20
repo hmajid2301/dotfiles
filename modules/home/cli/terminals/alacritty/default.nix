@@ -45,15 +45,15 @@ in {
 
         font = {
           normal = {
-            inherit (config.my.settings.fonts) monospace;
+            monospace = "MonoLisa Nerd Font";
             style = "Regular";
           };
           bold = {
-            inherit (config.my.settings.fonts) monospace;
+            monospace = "MonoLisa Nerd Font";
             style = "Bold";
           };
           italic = {
-            inherit (config.my.settings.fonts) monospace;
+            monospace = "MonoLisa Nerd Font";
             style = "Italic";
           };
           size = 14.0;

@@ -41,8 +41,8 @@ in {
 
         main = {
           term = "foot";
-          font = "${config.my.settings.fonts.monospace}:size=14, JoyPixels:size=14";
-          shell = "${config.my.settings.default.shell}";
+          font = "MonoLisa Nerd Font:size=14, JoyPixels:size=14";
+          shell = "fish";
           pad = "30x30";
           selection-target = "clipboard";
         };

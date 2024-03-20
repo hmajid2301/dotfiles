@@ -15,7 +15,7 @@ in {
     gtk = {
       enable = true;
       font = {
-        name = config.my.settings.fonts.regular;
+        name = "Fira Sans";
         size = 12;
       };
 
