@@ -19,7 +19,7 @@
     };
   };
 
-  networking.hostName = "desktop";
+  networking.hostName = "workstation";
 
   virtualisation.kvm = {
     vfio = {
