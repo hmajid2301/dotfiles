@@ -29,7 +29,7 @@ in {
     };
 
     nix = {
-      package = pkgs.nix;
+      package = lib.mkDefault pkgs.nixUnstable;
       settings = {
         trusted-substituters = [
           "https://cache.nixos.org"
