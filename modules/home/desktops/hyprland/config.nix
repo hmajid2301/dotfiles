@@ -53,21 +53,14 @@ in {
           disable_autoreload = true;
         };
 
-        env = [
-          "WLR_DRM_DEVICES,/dev/dri/card0"
-        ];
-
         exec_once = [
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
           "${pkgs.swaynotificationcenter}/bin/swaync"
           "${pkgs.kanshi}/bin/kanshi"
           "${pkgs.waybar}/bin/waybar"
-          "${pkgs.swaybg}/bin/swaybg -i ${config.my.settings.wallpaper} --mode fill"
-          "${pkgs.trayscale}/bin/trayscale --hide-window"
+          "${pkgs.swaybg}/bin/swaybg -i ${pkgs.nixicle.wallpaper}/share/wallpapers/Kurzgesagt-Galaxy_3.png --mode fill"
           "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-          "mullvad-gui"
           "solaar -w hide"
-          "blueman-applet"
         ];
       };
     };
