@@ -25,6 +25,8 @@ with lib.nixicle; let
 in {
   # Based on this https://gist.github.com/CRTified/43b7ce84cd238673f7f24652c85980b3
   options.virtualisation.kvm = {
+    enable = mkEnableOption "enable kvm vfio virtualisation";
+
     libvirtd = {
       deviceACL = mkOption {
         type = types.listOf types.str;
