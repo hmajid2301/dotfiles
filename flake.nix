@@ -31,7 +31,6 @@
     hyprpaper.url = "github:hyprwm/hyprpaper";
 
     comma.url = "github:nix-community/comma";
-    nix-gaming.url = "github:fufexan/nix-gaming";
 
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";

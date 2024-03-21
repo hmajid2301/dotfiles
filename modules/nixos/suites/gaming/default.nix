@@ -14,22 +14,20 @@ in {
   };
 
   config = mkIf cfg.enable {
-    hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        mesa
-      ];
+    hardware = {
+      xpadneo.enable = true;
+      xone.enable = true;
+
+      opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+        extraPackages = with pkgs; [
+          mesa
+        ];
+      };
     };
 
-    nix.settings = {
-      substituters = ["https://nix-gaming.cachix.org"];
-      trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
-    };
-
-    hardware.xpadneo.enable = true;
-    hardware.xone.enable = true;
     services.ratbagd.enable = true;
 
     programs = {
@@ -40,8 +38,8 @@ in {
         dedicatedServer.openFirewall = true;
         remotePlay.openFirewall = true;
         gamescopeSession.enable = true;
-        extraCompatPackages = [
-          inputs.nix-gaming.packages.${pkgs.system}.proton-ge
+        extraCompatPackages = with pkgs; [
+          proton-ge-bin
         ];
       };
     };
