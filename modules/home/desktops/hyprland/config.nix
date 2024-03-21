@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.desktops.hyprland.hyprland;
+  cfg = config.desktops.hyprland;
 in {
   options.desktops.hyprland = {
     enable = mkEnableOption "enable hyprland window manager";

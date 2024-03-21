@@ -10,6 +10,8 @@
     gaming.enable = true;
   };
 
+  desktops.hyprland.enable = true;
+
   nixicle.user = {
     enable = true;
     name = "haseeb";
