@@ -193,14 +193,14 @@ in {
             ]
           '';
         };
-
-        services.udev.extraRules = ''
-          SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
-        '';
-
-        systemd.tmpfiles.rules =
-          mapAttrsToList tmpfileEntry cfg.sharedMemoryFiles;
       };
     };
+
+    services.udev.extraRules = ''
+      SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
+    '';
+
+    systemd.tmpfiles.rules =
+      mapAttrsToList tmpfileEntry cfg.sharedMemoryFiles;
   };
 }
