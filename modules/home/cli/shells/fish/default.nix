@@ -172,12 +172,7 @@ in {
         }
         {
           name = "fifc";
-          src = pkgs.fetchFromGitHub {
-            owner = "gazorby";
-            repo = "fifc";
-            rev = "v0.1.1";
-            sha256 = "sha256-p5E4Mx6j8hcM1bDbeftikyhfHxQ+qPDanuM1wNqGm6E=";
-          };
+          inherit (pkgs.fishPlugins.fifc) src;
         }
         {
           name = "git-abbr";

@@ -1,19 +1,9 @@
 {
   config,
   pkgs,
+  inputs,
   ...
-}: let
-  copilotchat-nvim = pkgs.vimUtils.buildVimPlugin rec {
-    version = "1.9.0";
-    pname = "CopilotChat.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "CopilotC-Nvim";
-      repo = pname;
-      rev = "v${version}";
-      sha256 = "sha256-Q0j1maM7cvRoHu18KGMw7vYkZBQv8H7jcurxgLHl3Lg=";
-    };
-  };
-in {
+}: {
   programs.nixvim = {
     plugins = {
       copilot-lua = {
@@ -33,7 +23,7 @@ in {
 
     extraPlugins = [
       pkgs.vimPlugins.ChatGPT-nvim
-      copilotchat-nvim
+      inputs.copilotchat-nvim
     ];
 
     # For copilot-chat

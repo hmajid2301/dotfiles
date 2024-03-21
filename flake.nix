@@ -37,6 +37,16 @@
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
+
+    copilotchat-nvim = {
+      url = "github:copilotc-nvim/copilotchat.nvim";
+      flake = false;
+    };
+
+    neorg-templates = {
+      url = "github:pysan3/neorg-templates";
+      flake = false;
+    };
   };
 
   outputs = inputs:
