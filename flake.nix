@@ -30,6 +30,7 @@
     hyprlock.url = "github:hyprwm/Hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
 
+    nix-index-database.url = "github:nix-community/nix-index-database";
     comma.url = "github:nix-community/comma";
 
     firefox-gnome-theme = {
