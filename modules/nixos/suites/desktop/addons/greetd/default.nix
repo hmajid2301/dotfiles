@@ -16,7 +16,8 @@ in {
       settings = {
         default_session = {
           command = "Hyprland";
-          user = config.snowfallorg.user.name;
+          #user = config.snowfallorg.user.name;
+          user = "haseeb";
         };
       };
     };
