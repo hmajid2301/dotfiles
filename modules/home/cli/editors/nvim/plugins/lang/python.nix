@@ -3,17 +3,17 @@
   config,
   ...
 }: {
-  home.packages = with pkgs; [
-    pyright
-  ];
-
   programs.nixvim = {
-    extraConfigLua = ''
-      require("lspconfig")["pyright"].setup({})
-    '';
-
     plugins = {
       dap.extensions.dap-python.enable = true;
+
+      neotest = {
+        adapters.python = {
+          enable = true;
+        };
+      };
+
+      lsp.servers.pyright.enable = true;
 
       treesitter = {
         grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [

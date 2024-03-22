@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.nixvim = {
     plugins.which-key.registrations = {
       "<leader>t" = "+test";
@@ -77,28 +77,12 @@
       }
     ];
 
-    extraPlugins = with pkgs.vimPlugins; [
-      neotest
-      neotest-python
-      neotest-go
-    ];
-
-    # TODO: workout how to move neotest to specific language files
-    extraConfigLua = ''
-      local neotest = require('neotest')
-      neotest.setup({
-      	status = { virtual_text = true },
-      	output = { open_on_run = true },
-      	adapters = {
-      		require('neotest-python') {},
-      		require('neotest-go') {
-      			experimental = {
-      				test_table = true,
-      			},
-      			args = { "-tags=unit,integration,e2e,bdd" }
-      		},
-      	},
-      })
-    '';
+    plugins.neotest = {
+      enable = true;
+      settings = {
+        output.open_on_run = true;
+        status.virtual_text = true;
+      };
+    };
   };
 }
