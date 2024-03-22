@@ -4,9 +4,9 @@
   ...
 }: {
   programs.nixvim = {
-    # extraPlugins = with inputs; [
-    #   neorg-templates
-    # ];
+    extraPlugins = with inputs; [
+      neorg-templates
+    ];
 
     plugins = {
       neorg = {
