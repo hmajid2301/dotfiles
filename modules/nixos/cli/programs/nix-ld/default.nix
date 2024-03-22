@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nixicle; let
-  cfg = config.programs.nix-ld;
+  cfg = config.cli.programs.nix-ld;
 in {
-  options.programs.nix-ld = with types; {
+  options.cli.programs.nix-ld = with types; {
     enable = mkBoolOpt false "Whether or not to enable nix-ld.";
   };
 

@@ -35,7 +35,7 @@ in {
       vpn.enable = true;
     };
 
-    programs = {
+    cli.programs = {
       nix-ld.enable = true;
     };
 
