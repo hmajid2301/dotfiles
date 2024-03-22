@@ -14,7 +14,7 @@ in {
   config = mkIf cfg.enable {
     suites = {
       common.enable = true;
-      #development.enable = true;
+      development.enable = true;
     };
 
     services = {
