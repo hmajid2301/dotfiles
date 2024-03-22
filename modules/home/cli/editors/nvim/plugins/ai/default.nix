@@ -40,7 +40,7 @@
         require("CopilotChat").setup({
         	show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
         	debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
-        	python_path = "${copilotchat-nvim}/bin/python3"
+        	python_path = "${inputs.copilotchat-nvim}/bin/python3"
         })
 
         require("chatgpt").setup({
