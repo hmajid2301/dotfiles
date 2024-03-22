@@ -13,12 +13,13 @@ in {
   config = mkIf cfg.enable {
     services.greetd = {
       enable = true;
-      settings = {
+      settings = rec {
         default_session = {
           command = "Hyprland";
-          #user = config.snowfallorg.user.name;
+          # TODO: make this configurable using snowfall username
           user = "haseeb";
         };
+        initial_session = default_session;
       };
     };
   };
