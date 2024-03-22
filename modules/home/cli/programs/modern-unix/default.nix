@@ -32,7 +32,6 @@ in {
       hexyl
       ouch
       silver-searcher
-      thefuck
       procs
       psensor
       trash-cli
