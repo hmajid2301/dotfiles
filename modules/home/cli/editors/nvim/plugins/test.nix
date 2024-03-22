@@ -79,10 +79,10 @@
 
     plugins.neotest = {
       enable = true;
-      settings = {
-        output.open_on_run = true;
-        status.virtual_text = true;
-      };
+      # settings = {
+      #   output.open_on_run = true;
+      #   status.virtual_text = true;
+      # };
     };
   };
 }

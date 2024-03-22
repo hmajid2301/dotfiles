@@ -14,7 +14,7 @@ in {
     suites.common.enable = true;
 
     cli = {
-      # editors.nvim.enable = true;
+      editors.nvim.enable = true;
       multiplexers.zellij.enable = true;
       scripts.enable = true;
 
@@ -30,6 +30,7 @@ in {
         k8s.enable = true;
         modern-unix.enable = true;
         network-tools.enable = true;
+        nix-index.enable = true;
         podman.enable = true;
         ssh.enable = true;
         starship.enable = true;

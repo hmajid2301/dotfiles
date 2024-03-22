@@ -55,17 +55,17 @@ in {
         };
       };
 
-      neotest = {
-        adapters.go = {
-          enable = true;
-          settings = {
-            experimental = {
-              test_table = true;
-            };
-            args = buildFlags;
-          };
-        };
-      };
+      # neotest = {
+      #   adapters.go = {
+      #     enable = true;
+      #     settings = {
+      #       experimental = {
+      #         test_table = true;
+      #       };
+      #       args = buildFlags;
+      #     };
+      #   };
+      # };
 
       lsp.servers.gopls = {
         enable = true;
