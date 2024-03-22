@@ -8,9 +8,11 @@
 with lib; let
   cfg = config.desktops.hyprland;
 in {
-  imports = with inputs; [
-    hyprland-nix.homeManagerModules.default
-  ];
+  imports = with inputs;
+    [
+      hyprland-nix.homeManagerModules.default
+    ]
+    ++ lib.snowfall.fs.get-non-default-nix-files ./.;
 
   options.desktops.hyprland = {
     enable = mkEnableOption "enable hyprland window manager";

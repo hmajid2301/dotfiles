@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.browsers.firefox;
+  cfg = config.browsers.firefox;
 in {
-  options.modules.browsers.firefox = {
+  options.browsers.firefox = {
     enable = mkEnableOption "enable firefox browser";
   };
 

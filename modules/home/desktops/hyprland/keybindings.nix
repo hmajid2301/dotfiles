@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.desktops.hyprland.hyprland;
+  cfg = config.desktops.hyprland;
   laptop_lid_switch = pkgs.writeShellScriptBin "laptop_lid_switch" ''
     #!/usr/bin/env bash
 
@@ -58,10 +58,6 @@ with lib; let
     hyprctl dispatch resizeactive exact $size_x $size_y
   '';
 in {
-  options.desktops.hyprland = {
-    enable = mkEnableOption "enable hyprland window manager";
-  };
-
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.keyBinds = {
       bind = {

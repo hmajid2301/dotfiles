@@ -18,6 +18,8 @@ in {
   config = mkIf cfg.enable {
     colorscheme = nix-colors.colorSchemes.catppuccin-mocha;
 
+    browsers.firefox.enable = true;
+
     system = {
       nix.enable = true;
       fonts.enable = true;
