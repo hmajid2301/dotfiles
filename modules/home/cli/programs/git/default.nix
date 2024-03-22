@@ -7,6 +7,7 @@
 with lib;
 with lib.nixicle; let
   cfg = config.cli.programs.git;
+  inherit (config.colorScheme) palette;
 in {
   options.cli.programs.git = with types; {
     enable = mkBoolOpt false "Whether or not to enable git";
@@ -72,14 +73,14 @@ in {
         };
         gui.theme = {
           lightTheme = false;
-          activeBorderColor = ["#${config.colorscheme.colors.base0B}" "bold"];
-          inactiveBorderColor = ["#${config.colorscheme.colors.base05}"];
-          optionsTextColor = ["#${config.colorscheme.colors.base0D}"];
-          selectedLineBgColor = ["#${config.colorscheme.colors.base02}"];
-          selectedRangeBgColor = ["#${config.colorscheme.colors.base02}"];
-          cherryPickedCommitBgColor = ["#${config.colorscheme.colors.base0C}"];
-          cherryPickedCommitFgColor = ["#${config.colorscheme.colors.base0D}"];
-          unstagedChangesColor = ["#${config.colorscheme.colors.base08}"];
+          activeBorderColor = ["#${palette.base0B}" "bold"];
+          inactiveBorderColor = ["#${palette.base05}"];
+          optionsTextColor = ["#${palette.base0D}"];
+          selectedLineBgColor = ["#${palette.base02}"];
+          selectedRangeBgColor = ["#${palette.base02}"];
+          cherryPickedCommitBgColor = ["#${palette.base0C}"];
+          cherryPickedCommitFgColor = ["#${palette.base0D}"];
+          unstagedChangesColor = ["#${palette.base08}"];
         };
         customCommands = [
           {

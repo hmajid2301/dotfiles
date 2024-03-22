@@ -2,14 +2,12 @@
   pkgs,
   lib,
   config,
-  format,
   host,
   ...
 }:
 with lib;
 with lib.nixicle; let
-  inherit (config) colorscheme;
-  inherit (colorscheme) colors;
+  inherit (config.colorScheme) palette;
   cfg = config.cli.shells.fish;
 in {
   options.cli.shells.fish = with types; {
@@ -17,7 +15,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [comma gum];
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
@@ -37,38 +34,38 @@ in {
 
         # FZF
         export FZF_DEFAULT_OPTS="
-        	--color=bg+:#${colors.base02},bg:#${colors.base00},spinner:#${colors.base06},hl:#${colors.base08}
-        	--color=fg:#${colors.base05},header:#${colors.base08},info:#${colors.base0E},pointer:#${colors.base06}
-        	--color=marker:#${colors.base06},fg+:#${colors.base05},prompt:#${colors.base0E},hl+:#${colors.base08}
+        	--color=bg+:#${palette.base02},bg:#${palette.base00},spinner:#${palette.base06},hl:#${palette.base08}
+        	--color=fg:#${palette.base05},header:#${palette.base08},info:#${palette.base0E},pointer:#${palette.base06}
+        	--color=marker:#${palette.base06},fg+:#${palette.base05},prompt:#${palette.base0E},hl+:#${palette.base08}
         "
         bind \cr _fzf_search_history
         bind -M insert \cr _fzf_search_history
 
-        set -g fish_color_normal ${colors.base05}
-        set -g fish_color_command ${colors.base0D}
-        set -g fish_color_param ${colors.base0F}
-        set -g fish_color_keyword ${colors.base08}
-        set -g fish_color_quote ${colors.base0B}
+        set -g fish_color_normal ${palette.base05}
+        set -g fish_color_command ${palette.base0D}
+        set -g fish_color_param ${palette.base0F}
+        set -g fish_color_keyword ${palette.base08}
+        set -g fish_color_quote ${palette.base0B}
         set -g fish_color_redirection f4b8e4
-        set -g fish_color_end ${colors.base09}
+        set -g fish_color_end ${palette.base09}
         set -g fish_color_comment 838ba7
-        set -g fish_color_error ${colors.base08}
+        set -g fish_color_error ${palette.base08}
         set -g fish_color_gray 737994
-        set -g fish_color_selection --background=${colors.base02}
-        set -g fish_color_search_match --background=${colors.base02}
-        set -g fish_color_option ${colors.base0B}
+        set -g fish_color_selection --background=${palette.base02}
+        set -g fish_color_search_match --background=${palette.base02}
+        set -g fish_color_option ${palette.base0B}
         set -g fish_color_operator f4b8e4
         set -g fish_color_escape ea999c
         set -g fish_color_autosuggestion 737994
-        set -g fish_color_cancel ${colors.base08}
-        set -g fish_color_cwd ${colors.base0A}
-        set -g fish_color_user ${colors.base0C}
-        set -g fish_color_host ${colors.base0D}
-        set -g fish_color_host_remote ${colors.base0B}
-        set -g fish_color_status ${colors.base08}
+        set -g fish_color_cancel ${palette.base08}
+        set -g fish_color_cwd ${palette.base0A}
+        set -g fish_color_user ${palette.base0C}
+        set -g fish_color_host ${palette.base0D}
+        set -g fish_color_host_remote ${palette.base0B}
+        set -g fish_color_status ${palette.base08}
         set -g fish_pager_color_progress 737994
         set -g fish_pager_color_prefix f4b8e4
-        set -g fish_pager_color_completion ${colors.base05}
+        set -g fish_pager_color_completion ${palette.base05}
         set -g fish_pager_color_description 737994
 
         fish_vi_key_bindings

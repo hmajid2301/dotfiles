@@ -6,6 +6,7 @@
 }:
 with lib; let
   cfg = config.desktops.addons.rofi;
+  inherit (config.colorScheme) palette;
 in {
   options.desktops.addons.rofi = {
     enable = mkEnableOption "Enable rofi app manager";
@@ -34,13 +35,13 @@ in {
       in {
         #"@import" = "default";
         "*" = {
-          bg-col = mkLiteral "#${config.colorscheme.colors.base00}";
-          bg-col-light = mkLiteral "#${config.colorscheme.colors.base00}";
-          border-col = mkLiteral "#${config.colorscheme.colors.base00}";
-          selected-col = mkLiteral "#${config.colorscheme.colors.base00}";
-          blue = mkLiteral "#${config.colorscheme.colors.base0D}";
-          fg-col = mkLiteral "#${config.colorscheme.colors.base05}";
-          fg-col2 = mkLiteral "#${config.colorscheme.colors.base08}";
+          bg-col = mkLiteral "#${palette.base00}";
+          bg-col-light = mkLiteral "#${palette.base00}";
+          border-col = mkLiteral "#${palette.base00}";
+          selected-col = mkLiteral "#${palette.base00}";
+          blue = mkLiteral "#${palette.base0D}";
+          fg-col = mkLiteral "#${palette.base05}";
+          fg-col2 = mkLiteral "#${palette.base08}";
           grey = mkLiteral "#737994";
           width = 600;
         };

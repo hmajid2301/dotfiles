@@ -7,6 +7,7 @@
 with lib;
 with lib.nixicle; let
   cfg = config.cli.programs.starship;
+  inherit (config.colorScheme) palette;
 in {
   options.cli.programs.starship = with types; {
     enable = mkBoolOpt false "Whether or not to enable starship";
@@ -19,31 +20,31 @@ in {
       settings = {
         palette = "custom";
         palettes.custom = {
-          rosewater = "#${config.colorscheme.colors.base06}";
-          flamingo = "#${config.colorscheme.colors.base0F}";
+          rosewater = "#${palette.base06}";
+          flamingo = "#${palette.base0F}";
           pink = "#f6c2e7";
-          mauve = "#${config.colorscheme.colors.base0E}";
-          red = "#${config.colorscheme.colors.base08}";
+          mauve = "#${palette.base0E}";
+          red = "#${palette.base08}";
           maroon = "#eba0ac";
-          peach = "#${config.colorscheme.colors.base09}";
-          yellow = "#${config.colorscheme.colors.base0A}";
-          green = "#${config.colorscheme.colors.base0B}";
-          teal = "#${config.colorscheme.colors.base0C}";
+          peach = "#${palette.base09}";
+          yellow = "#${palette.base0A}";
+          green = "#${palette.base0B}";
+          teal = "#${palette.base0C}";
           sky = "#89dceb";
           sapphire = "#74c7ec";
-          blue = "#${config.colorscheme.colors.base0D}";
-          lavender = "#${config.colorscheme.colors.base07}";
-          text = "#${config.colorscheme.colors.base05}";
+          blue = "#${palette.base0D}";
+          lavender = "#${palette.base07}";
+          text = "#${palette.base05}";
           subtext1 = "#bac2de";
           subtext0 = "#a6adc8";
           overlay2 = "#9399b2";
           overlay1 = "#7f849c";
           overlay0 = "#6c7086";
-          surface2 = "#${config.colorscheme.colors.base04}";
-          surface1 = "#${config.colorscheme.colors.base03}";
-          surface0 = "#${config.colorscheme.colors.base02}";
-          base = "#${config.colorscheme.colors.base00}";
-          mantle = "#${config.colorscheme.colors.base01}";
+          surface2 = "#${palette.base04}";
+          surface1 = "#${palette.base03}";
+          surface0 = "#${palette.base02}";
+          base = "#${palette.base00}";
+          mantle = "#${palette.base01}";
           crust = "#11111b";
         };
       };

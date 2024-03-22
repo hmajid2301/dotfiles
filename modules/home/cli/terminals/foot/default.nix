@@ -5,6 +5,7 @@
 }:
 with lib;
 with lib.nixicle; let
+  inherit (config.colorScheme) palette;
   cfg = config.cli.terminals.foot;
 in {
   options.cli.terminals.foot = with types; {
@@ -17,25 +18,25 @@ in {
 
       settings = {
         colors = {
-          foreground = "${config.colorscheme.colors.base05}"; # Text
-          background = "${config.colorscheme.colors.base00}"; # Base
+          foreground = "${palette.base05}"; # Text
+          background = "${palette.base00}"; # Base
 
-          regular0 = "${config.colorscheme.colors.base03}"; # Surface 1
-          regular1 = "${config.colorscheme.colors.base08}"; # red
-          regular2 = "${config.colorscheme.colors.base0B}"; # green
-          regular4 = "${config.colorscheme.colors.base0A}"; # yellow
-          regular3 = "${config.colorscheme.colors.base0D}"; # blue
+          regular0 = "${palette.base03}"; # Surface 1
+          regular1 = "${palette.base08}"; # red
+          regular2 = "${palette.base0B}"; # green
+          regular4 = "${palette.base0A}"; # yellow
+          regular3 = "${palette.base0D}"; # blue
           regular5 = "f4b8e4"; # pink
-          regular6 = "${config.colorscheme.colors.base0C}"; # teal
+          regular6 = "${palette.base0C}"; # teal
           regular7 = "b5bfe2"; # subtext 1
 
-          bright0 = "${config.colorscheme.colors.base04}"; # Surface 2
-          bright1 = "${config.colorscheme.colors.base08}"; # red
-          bright2 = "${config.colorscheme.colors.base0B}"; # green
-          bright4 = "${config.colorscheme.colors.base0A}"; # yellow
-          bright3 = "${config.colorscheme.colors.base0D}"; # blue
+          bright0 = "${palette.base04}"; # Surface 2
+          bright1 = "${palette.base08}"; # red
+          bright2 = "${palette.base0B}"; # green
+          bright4 = "${palette.base0A}"; # yellow
+          bright3 = "${palette.base0D}"; # blue
           bright5 = "f4b8e4"; # pink
-          bright6 = "${config.colorscheme.colors.base0C}"; # teal
+          bright6 = "${palette.base0C}"; # teal
           bright7 = "a5adce"; # subtext 0
         };
 
