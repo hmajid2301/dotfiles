@@ -12,13 +12,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # home = {
-    #   persistence = {
-    #     # Not persisting is safer
-    #     "/persist/home/haseeb".directories = [ ".mozilla/firefox" ];
-    #   };
-    # };
-
     home.file.".mozilla/firefox/default/chrome/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
 
     programs.firefox = {

@@ -28,6 +28,7 @@ in {
       cartridges
       bottles
       adwsteamgtk
+      steam
     ];
   };
 }
