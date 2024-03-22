@@ -13,7 +13,7 @@ in {
     enable = mkBoolOpt false "Whether or not to nix index";
   };
 
-  import = with inputs; [
+  imports = with inputs; [
     nix-index-database.hmModules.nix-index
   ];
 
