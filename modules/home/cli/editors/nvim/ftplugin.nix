@@ -1,4 +1,4 @@
-{}: {
+{
   programs.nixvim = {
     files = {
       "ftplugin/nix.lua" = {
