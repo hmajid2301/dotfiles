@@ -27,10 +27,19 @@
     comma.url = "github:nix-community/comma";
 
     hypr-contrib.url = "github:hyprwm/contrib";
-    hyprland-nix.url = "github:spikespaz/hyprland-nix";
     hypridle.url = "github:hyprwm/Hypridle";
     hyprlock.url = "github:hyprwm/Hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
+
+    hyprland-git.url = "github:hyprwm/hyprland";
+    hyprland-xdph-git.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    hyprland-protocols-git.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    hyprland-nix.url = "github:spikespaz/hyprland-nix";
+    hyprland-nix.inputs = {
+      hyprland.follows = "hyprland-git";
+      hyprland-xdph.follows = "hyprland-xdph-git";
+      hyprland-protocols.follows = "hyprland-protocols-git";
+    };
 
     nixvim.url = "github:pta2002/nixvim";
 
