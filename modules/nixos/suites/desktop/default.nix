@@ -35,6 +35,10 @@ in {
       vpn.enable = true;
     };
 
+    programs = {
+      nix-ld.enable = true;
+    };
+
     user = {
       name = "haseeb";
       initialPassword = "1";

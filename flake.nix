@@ -16,13 +16,15 @@
     disko.url = "github:nix-community/disko";
     hardware.url = "github:nixos/nixos-hardware";
     sops-nix.url = "github:mic92/sops-nix";
-    nixvim.url = "github:pta2002/nixvim";
 
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.url = "github:nix-community/lanzaboote";
 
     nixgl.url = "github:nix-community/nixGL";
     nix-colors.url = "github:misterio77/nix-colors";
+    nix-ld.url = "github:Mic92/nix-ld";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    comma.url = "github:nix-community/comma";
 
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprland-nix.url = "github:spikespaz/hyprland-nix";
@@ -30,8 +32,7 @@
     hyprlock.url = "github:hyprwm/Hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
 
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    comma.url = "github:nix-community/comma";
+    nixvim.url = "github:pta2002/nixvim";
 
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
@@ -72,6 +73,7 @@
         lanzaboote.nixosModules.lanzaboote
         impermanence.nixosModules.impermanence
         sops-nix.nixosModules.sops
+        nix-ld.nixosModules.nix-ld
       ];
 
       systems.hosts.framework.modules = with inputs; [

@@ -24,11 +24,6 @@ in {
     mkIf
     cfg.enable
     {
-      home.file."./.config/nvim" = {
-        source = ./config;
-        recursive = true;
-      };
-
       programs.nixvim = {
         enable = true;
         extraPlugins = with pkgs.vimPlugins; [plenary-nvim];
