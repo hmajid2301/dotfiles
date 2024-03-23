@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nixicle; let
-  cfg = config.virtualisation.kvm;
+  cfg = config.services.virtualisation.kvm;
 in {
-  options.virtualisation.kvm = {
+  options.services.virtualisation.kvm = {
     enable = lib.mkEnableOption "enable kvm virtualisation";
   };
 

@@ -7,7 +7,7 @@
 with lib;
 with lib.nixicle; let
   inherit (lib) types mkOption mkEnableOption optional optionals;
-  cfg = config.virtualisation.vfio;
+  cfg = config.services.virtualisation;
 
   tmpfileEntry = name: f: "f /dev/shm/${name} ${f.mode} ${f.user} ${f.group} -";
 
@@ -21,10 +21,10 @@ with lib.nixicle; let
       ,
     ''
     escapeNixString
-    config.virtualisation.libvirtd.deviceACL;
+    config.services.virtualisation.libvirtd.deviceACL;
 in {
   # Based on this https://gist.github.com/CRTified/43b7ce84cd238673f7f24652c85980b3
-  options.virtualisation.vfio = {
+  options.services.virtualisation.vfio = {
     enable = mkEnableOption "enable kvm vfio virtualisation";
 
     libvirtd = {
@@ -38,87 +38,84 @@ in {
       };
     };
 
-    vfio = {
-      enable = mkEnableOption "VFIO Configuration";
-      IOMMUType = mkOption {
-        type = types.enum ["intel" "amd"];
-        example = "intel";
-        description = "Type of the IOMMU used";
-      };
-      devices = mkOption {
-        type = types.listOf (types.strMatching "[0-9a-f]{4}:[0-9a-f]{4}");
-        default = [];
-        example = ["10de:1b80" "10de:10f0"];
-        description = "PCI IDs of devices to bind to vfio-pci";
-      };
-      disableEFIfb = mkOption {
-        type = types.bool;
-        default = false;
-        example = true;
-        description = "Disables the usage of the EFI framebuffer on boot.";
-      };
-      blacklistNvidia = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Add Nvidia GPU modules to blacklist";
-      };
-      ignoreMSRs = mkOption {
-        type = types.bool;
-        default = false;
-        example = true;
-        description = "Enables or disables kvm guest access to model-specific registers";
-      };
-      sharedMemoryFiles = mkOption {
-        type = types.attrsOf (types.submodule ({name, ...}: {
-          options = {
-            name = mkOption {
-              visible = false;
-              default = name;
-              type = types.str;
-            };
-            user = mkOption {
-              type = types.str;
-              default = "root";
-              description = "Owner of the memory file";
-            };
-            group = mkOption {
-              type = types.str;
-              default = "root";
-              description = "Group of the memory file";
-            };
-            mode = mkOption {
-              type = types.str;
-              default = "0600";
-              description = "Group of the memory file";
-            };
+    IOMMUType = mkOption {
+      type = types.enum ["intel" "amd"];
+      example = "intel";
+      description = "Type of the IOMMU used";
+    };
+    devices = mkOption {
+      type = types.listOf (types.strMatching "[0-9a-f]{4}:[0-9a-f]{4}");
+      default = [];
+      example = ["10de:1b80" "10de:10f0"];
+      description = "PCI IDs of devices to bind to vfio-pci";
+    };
+    disableEFIfb = mkOption {
+      type = types.bool;
+      default = false;
+      example = true;
+      description = "Disables the usage of the EFI framebuffer on boot.";
+    };
+    blacklistNvidia = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Add Nvidia GPU modules to blacklist";
+    };
+    ignoreMSRs = mkOption {
+      type = types.bool;
+      default = false;
+      example = true;
+      description = "Enables or disables kvm guest access to model-specific registers";
+    };
+    sharedMemoryFiles = mkOption {
+      type = types.attrsOf (types.submodule ({name, ...}: {
+        options = {
+          name = mkOption {
+            visible = false;
+            default = name;
+            type = types.str;
           };
-        }));
-        default = {};
-      };
-      hugepages = {
-        enable = mkEnableOption "Hugepages";
+          user = mkOption {
+            type = types.str;
+            default = "root";
+            description = "Owner of the memory file";
+          };
+          group = mkOption {
+            type = types.str;
+            default = "root";
+            description = "Group of the memory file";
+          };
+          mode = mkOption {
+            type = types.str;
+            default = "0600";
+            description = "Group of the memory file";
+          };
+        };
+      }));
+      default = {};
+    };
+    hugepages = {
+      enable = mkEnableOption "Hugepages";
 
-        defaultPageSize = mkOption {
-          type = types.strMatching "[0-9]*[kKmMgG]";
-          default = "1M";
-          description = "Default size of huge pages. You can use suffixes K, M, and G to specify KB, MB, and GB.";
-        };
-        pageSize = mkOption {
-          type = types.strMatching "[0-9]*[kKmMgG]";
-          default = "1M";
-          description = "Size of huge pages that are allocated at boot. You can use suffixes K, M, and G to specify KB, MB, and GB.";
-        };
-        numPages = mkOption {
-          type = types.ints.positive;
-          default = 1;
-          description = "Number of huge pages to allocate at boot.";
-        };
+      defaultPageSize = mkOption {
+        type = types.strMatching "[0-9]*[kKmMgG]";
+        default = "1M";
+        description = "Default size of huge pages. You can use suffixes K, M, and G to specify KB, MB, and GB.";
+      };
+      pageSize = mkOption {
+        type = types.strMatching "[0-9]*[kKmMgG]";
+        default = "1M";
+        description = "Size of huge pages that are allocated at boot. You can use suffixes K, M, and G to specify KB, MB, and GB.";
+      };
+      numPages = mkOption {
+        type = types.ints.positive;
+        default = 1;
+        description = "Number of huge pages to allocate at boot.";
       };
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    services.virtualisation.kvm.enable = true;
+  config = lib.mkIf cfg.vfio.enable {
+    virtualisation.kvm.enable = true;
 
     boot = {
       kernelParams =
@@ -163,18 +160,18 @@ in {
 
     virtualisation.libvirtd.verbatimConfig = ''
       clear_emulation_capabilities = ${
-        boolToZeroOne cfg.clearEmulationCapabilities
+        boolToZeroOne cfg.libvirtd.clearEmulationCapabilities
       }
       cgroup_device_acl = [
         ${aclString}
       ]
     '';
+
+    services.udev.extraRules = ''
+      SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
+    '';
+
+    systemd.tmpfiles.rules =
+      mapAttrsToList tmpfileEntry cfg.sharedMemoryFiles;
   };
-
-  services.udev.extraRules = ''
-    SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
-  '';
-
-  systemd.tmpfiles.rules =
-    mapAttrsToList tmpfileEntry cfg.sharedMemoryFiles;
 }

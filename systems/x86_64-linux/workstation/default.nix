@@ -10,9 +10,8 @@
 
   services = {
     vpn.enable = lib.mkForce false;
+    virtualisation.kvm.enable = true;
   };
-
-  virtualisation.kvm.enable = true;
 
   suites = {
     gaming.enable = true;
