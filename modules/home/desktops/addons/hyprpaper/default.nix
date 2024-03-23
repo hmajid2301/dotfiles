@@ -22,7 +22,7 @@ in {
       preloads = [
         "${pkgs.nixicle.wallpapers.Kurzgesagt-Galaxy_2}"
       ];
-      wallpaper = [", ${pkgs.nixicle.wallpapers.Kurzgesagt-Galaxy_2}"];
+      wallpapers = [", ${pkgs.nixicle.wallpapers.Kurzgesagt-Galaxy_2}"];
     };
   };
 }

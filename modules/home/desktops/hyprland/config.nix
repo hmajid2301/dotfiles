@@ -57,6 +57,7 @@ in {
           "${pkgs.waybar}/bin/waybar"
           "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
           "solaar -w hide"
+          "${pkgs.swaybg}/bin/swaybg -i ${pkgs.nixicle.wallpapers.Kurzgesagt-Galaxy_2} --mode fill"
         ];
       };
     };
