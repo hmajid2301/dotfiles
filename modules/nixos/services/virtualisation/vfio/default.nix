@@ -7,7 +7,7 @@
 with lib;
 with lib.nixicle; let
   inherit (lib) types mkOption mkEnableOption optional optionals;
-  cfg = config.services.virtualisation;
+  cfg = config.services.virtualisation.vfio;
 
   tmpfileEntry = name: f: "f /dev/shm/${name} ${f.mode} ${f.user} ${f.group} -";
 
@@ -21,7 +21,7 @@ with lib.nixicle; let
       ,
     ''
     escapeNixString
-    config.services.virtualisation.libvirtd.deviceACL;
+    config.services.virtualisation.vfio.libvirtd.deviceACL;
 in {
   # Based on this https://gist.github.com/CRTified/43b7ce84cd238673f7f24652c85980b3
   options.services.virtualisation.vfio = {
@@ -114,8 +114,8 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.vfio.enable {
-    virtualisation.kvm.enable = true;
+  config = lib.mkIf cfg.enable {
+    services.virtualisation.kvm.enable = true;
 
     boot = {
       kernelParams =
@@ -158,7 +158,7 @@ in {
       looking-glass-client
     ];
 
-    virtualisation.libvirtd.verbatimConfig = ''
+    virtualisation.libvirtd.qemu.verbatimConfig = ''
       clear_emulation_capabilities = ${
         boolToZeroOne cfg.libvirtd.clearEmulationCapabilities
       }
