@@ -24,14 +24,6 @@ in {
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
 
-    services.hyprpaper = {
-      enable = true;
-      preloads = [
-        "${pkgs.nixicle.wallpapers.Kurzgesagt-Galaxy_2}"
-      ];
-      wallpapers = [", ${pkgs.nixicle.wallpapers.Kurzgesagt-Galaxy_2}"];
-    };
-
     desktops.addons = {
       gtk.enable = true;
       qt.enable = true;
