@@ -12,6 +12,12 @@ in {
   programs.nixvim = {
     extraPlugins = [
       neorg-templates
+      {
+        plugin = pkgs.vimPlugins.headlines-nvim;
+        config = ''
+          require("headlines").setup()
+        '';
+      }
     ];
 
     plugins = {
