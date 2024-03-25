@@ -36,15 +36,11 @@
         "url \"git@git.curve.tools:\"" = {insteadOf = "https://git.curve.tools/";};
         "url \"git@gitlab.com:imaginecurve/\"" = {insteadOf = "https://gitlab.com/imaginecurve/";};
         "url \"git@gitlab.com:\"" = {insteadOf = "https://gitlab.com/";};
-        core.excludesfile = "~/.config/git/ignore";
       };
     };
   };
 
   wayland.windowManager.hyprland.extraConfig = lib.mkAfter ''
-    exec-once = /usr/libexec/geoclue-2.0/demos/agent
-    exec-once = warp-taskbar
-
     bind=,XF86Launch5,exec,/usr/local/bin/swaylock -S
     bind=,XF86Launch4,exec,/usr/local/bin/swaylock -S
     bind=SUPER,backspace,exec,/usr/local/bin/swaylock -S

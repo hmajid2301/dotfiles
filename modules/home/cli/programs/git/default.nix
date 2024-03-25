@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   ...
@@ -10,14 +9,16 @@ with lib.nixicle; let
   inherit (config.colorScheme) palette;
 in {
   options.cli.programs.git = with types; {
-    enable = mkBoolOpt false "Whether or not to enable git";
+    enable = mkBoolOpt false "Whether or not to enable git.";
+    email = mkOpt (types.nullOr types.str) "hello@haseebmajid.dev" "The email to use with git.";
+    extraConfig = mkOpt (types.nullOr types.str) "" "Any extra config to add to git.";
   };
 
   config = mkIf cfg.enable {
     programs.git = {
       enable = true;
       userName = "Haseeb Majid";
-      userEmail = "hello@haseebmajid.dev";
+      userEmail = cfg.email;
 
       signing = {
         signByDefault = true;
