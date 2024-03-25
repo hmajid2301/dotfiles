@@ -11,7 +11,7 @@ in {
   options.cli.programs.git = with types; {
     enable = mkBoolOpt false "Whether or not to enable git.";
     email = mkOpt (types.nullOr types.str) "hello@haseebmajid.dev" "The email to use with git.";
-    extraConfig = mkOpt (types.nullOr types.str) "" "Any extra config to add to git.";
+    extraConfig = mkOpt (types.nullOr types.attrsOf types.str) {} "Any extra config to add to git.";
   };
 
   config = mkIf cfg.enable {
@@ -25,41 +25,43 @@ in {
         key = "D528 BD50 F4E9 F031 AACB 1F7A 9833 E49C 848D 6C90";
       };
 
-      extraConfig = {
-        core = {
-          editor = "nvim";
-          pager = "delta";
-        };
+      extraConfig =
+        {
+          core = {
+            editor = "nvim";
+            pager = "delta";
+          };
 
-        color = {
-          ui = true;
-        };
+          color = {
+            ui = true;
+          };
 
-        interactive = {
-          diffFitler = "delta --color-only";
-        };
+          interactive = {
+            diffFitler = "delta --color-only";
+          };
 
-        delta = {
-          enable = true;
-          navigate = true;
-          light = false;
-          side-by-side = false;
-          options.syntax-theme = "catppuccin";
-        };
+          delta = {
+            enable = true;
+            navigate = true;
+            light = false;
+            side-by-side = false;
+            options.syntax-theme = "catppuccin";
+          };
 
-        pull = {
-          ff = "only";
-        };
+          pull = {
+            ff = "only";
+          };
 
-        push = {
-          default = "current";
-          autoSetupRemote = true;
-        };
+          push = {
+            default = "current";
+            autoSetupRemote = true;
+          };
 
-        init = {
-          defaultBranch = "init";
-        };
-      };
+          init = {
+            defaultBranch = "init";
+          };
+        }
+        + cfg.extraConfig;
     };
 
     programs.lazygit = {
