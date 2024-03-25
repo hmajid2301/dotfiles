@@ -19,7 +19,7 @@
       enable = true;
       addons = {
         gnome.enable = true;
-        # hyprland.enable = true;
+        hyprland.enable = true;
       };
     };
   };
