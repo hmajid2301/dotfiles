@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   lib,
   config,
   ...
@@ -11,17 +10,23 @@
     desktop.enable = true;
   };
 
+  desktops.addon = {
+    gnome.enable = true;
+
+    swaylock = {
+      enable = true;
+      blur = "25x20";
+      vignette = "0.5x0.5";
+      swaylockBinary = "/usr/local/bin/swaylock";
+    };
+  };
+
   nixicle.user = {
     enable = true;
     name = "haseebmajid";
   };
 
-  # To show nix installed apps in Gnome
-  xdg = {
-    mime.enable = true;
-    systemDirs.data = ["${config.home.homeDirectory}/.nix-profile/share/applications"];
-  };
-  targets.genericLinux.enable = true;
+  home.stateVersion = "23.11";
 
   # Work Laptop different email
   programs = {
@@ -34,10 +39,6 @@
         core.excludesfile = "~/.config/git/ignore";
       };
     };
-    swaylock = {
-      settings.effect-blur = lib.mkForce "25x20";
-      settings.effect-vignette = lib.mkForce "0.5x0.5";
-    };
   };
 
   wayland.windowManager.hyprland.extraConfig = lib.mkAfter ''
@@ -48,43 +49,5 @@
     bind=,XF86Launch4,exec,/usr/local/bin/swaylock -S
     bind=SUPER,backspace,exec,/usr/local/bin/swaylock -S
     bind=SUPER,return,exec,nixGL -- wezterm
-    bind=,XF86AudioRaiseVolume,exec, ${pkgs.pamixer}/bin/pamixer -i 5
-    bind=,XF86AudioLowerVolume,exec, ${pkgs.pamixer}/bin/pamixer -d 5
   '';
-
-  home.packages = with pkgs; [
-    podman-compose
-    podman-tui
-    docker-compose
-  ];
-
-  gtk.iconTheme = lib.mkForce {
-    package = pkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
-  };
-
-  services.swayidle = lib.mkForce {
-    enable = true;
-    events = [
-      {
-        event = "before-sleep";
-        command = "/usr/local/bin/swaylock -fF";
-      }
-      {
-        event = "lock";
-        command = "/usr/local/bin/swaylock -fF";
-      }
-    ];
-    timeouts = [
-      {
-        timeout = 600;
-        command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
-      }
-      {
-        timeout = 610;
-        command = "${pkgs.systemd}/bin/loginctl lock-session";
-      }
-    ];
-  };
 }
