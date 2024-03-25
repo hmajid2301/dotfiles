@@ -11,7 +11,7 @@ in {
   options.cli.programs.git = with types; {
     enable = mkBoolOpt false "Whether or not to enable git.";
     email = mkOpt (types.nullOr types.str) "hello@haseebmajid.dev" "The email to use with git.";
-    extraConfig = mkOpt (types.nullOr types.attrsOf types.str) {} "Any extra config to add to git.";
+    extraConfig = mkOpt (types.attrsOf types.str) {} "Any extra config to add to git.";
   };
 
   config = mkIf cfg.enable {
@@ -61,7 +61,7 @@ in {
             defaultBranch = "init";
           };
         }
-        + cfg.extraConfig;
+        // cfg.extraConfig;
     };
 
     programs.lazygit = {

@@ -4,7 +4,8 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nixicle; let
   inherit (config.colorScheme) palette;
   cfg = config.desktops.addons.swaylock;
 in {
