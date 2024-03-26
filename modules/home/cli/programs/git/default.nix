@@ -7,6 +7,14 @@ with lib;
 with lib.nixicle; let
   cfg = config.cli.programs.git;
   inherit (config.colorScheme) palette;
+
+  rewriteURL =
+    builtins.attrmap
+    (key: {
+      name = "url \"${key}\"";
+      value = {insteadOf = cfg.extraConfig."${key}";};
+    })
+    cfg.extraConfig;
 in {
   options.cli.programs.git = with types; {
     enable = mkBoolOpt false "Whether or not to enable git.";
@@ -61,7 +69,7 @@ in {
             defaultBranch = "init";
           };
         }
-        // cfg.extraConfig;
+        // rewriteURL;
     };
 
     programs.lazygit = {
