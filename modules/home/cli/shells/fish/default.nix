@@ -100,8 +100,8 @@ in {
         # nix
         nd = "nix develop";
         nfu = "nix flake update";
-        hms = "home-manager switch --flake ~/dotfiles#${host}";
-        hmr = "home-manager generations | fzf --tac | awk '{print $7}' | xargs -I{} bash {}/activate";
+        hms = "home-manager switch --flake ~/dotfiles#${config.nixicile.name}@${host}";
+        hmr = "home-manager generations | fzf --tac --no-sort | awk '{print $7}' | xargs -I{} bash {}/activate";
         nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#${host}";
         niso = "nix build .#nixosConfigurations.iso.config.system.build.isoImage";
 

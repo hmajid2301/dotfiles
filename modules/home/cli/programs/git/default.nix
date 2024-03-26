@@ -10,8 +10,8 @@ with lib.nixicle; let
 in {
   options.cli.programs.git = with types; {
     enable = mkBoolOpt false "Whether or not to enable git.";
-    email = mkOpt (types.nullOr types.str) "hello@haseebmajid.dev" "The email to use with git.";
-    extraConfig = mkOpt (types.attrsOf types.str) {} "Any extra config to add to git.";
+    email = mkOpt (nullOr str) "hello@haseebmajid.dev" "The email to use with git.";
+    extraConfig = mkOpt (attrsOf str) {} "Any extra config to add to git.";
   };
 
   config = mkIf cfg.enable {
