@@ -54,7 +54,7 @@ in {
 
         require("chatgpt").setup({
         	api_key_cmd = "cat ${config.sops.secrets.chatgpt_api_key.path}",
-        	actions_paths = { "~/dotfiles/home-manager/editors/nvim/plugins/ai/chatgpt-actions.json" },
+        	actions_paths = { "~/dotfiles/home/cli/editors/nvim/plugins/ai/chatgpt-actions.json" },
         	chat = {
         		sessions_window = {
         			active_sign = "  ",
