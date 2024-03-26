@@ -16,9 +16,9 @@
 
   cli.programs.git = {
     email = "haseeb.majid@imaginecurve.com";
-    extraConfig = {
+    urlRewrites = {
       "git@gitlab.com:imaginecurve/" = "https://gitlab.com/imaginecurve/";
-      "url \"git@gitlab.com:\"" = {insteadOf = "https://gitlab.com/";};
+      "git@gitlab.com:" = "https://gitlab.com/";
     };
   };
 

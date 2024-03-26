@@ -9,17 +9,17 @@ with lib.nixicle; let
   inherit (config.colorScheme) palette;
 
   rewriteURL =
-    builtins.attrmap
-    (key: {
+    builtins.mapAttrs
+    (key: value: {
       name = "url \"${key}\"";
-      value = {insteadOf = cfg.extraConfig."${key}";};
+      value = {insteadOf = value;};
     })
-    cfg.extraConfig;
+    cfg.urlRewrites;
 in {
   options.cli.programs.git = with types; {
     enable = mkBoolOpt false "Whether or not to enable git.";
     email = mkOpt (nullOr str) "hello@haseebmajid.dev" "The email to use with git.";
-    extraConfig = mkOpt (attrsOf str) {} "Any extra config to add to git.";
+    urlRewrites = mkOpt (attrsOf str) {} "url we need to rewrite i.e. ssh to http";
   };
 
   config = mkIf cfg.enable {
