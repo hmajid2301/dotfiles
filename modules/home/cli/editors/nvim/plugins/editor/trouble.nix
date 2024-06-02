@@ -100,16 +100,6 @@
         ];
       }
       {
-        action = "<cmd>TroubleToggle quickfix<cr>";
-        key = "<leader>xQ";
-        options = {
-          desc = "Quickfix list";
-        };
-        mode = [
-          "n"
-        ];
-      }
-      {
         action = "<cmd>TodoTrouble<cr>";
         key = "<leader>xt";
         options = {
