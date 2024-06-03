@@ -117,6 +117,9 @@ in {
     plugins = {
       arrow = {
         enable = true;
+        settings = {
+          leader_key = "<Space>h";
+        };
       };
 
       better-escape = {
