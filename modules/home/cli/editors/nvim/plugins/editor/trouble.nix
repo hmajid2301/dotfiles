@@ -12,7 +12,7 @@
 
     keymaps = [
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -27,7 +27,6 @@
             end
           '';
         key = "]q";
-        lua = true;
         options = {
           desc = "Next quickfix item";
         };
@@ -36,7 +35,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -51,7 +50,6 @@
             end
           '';
         key = "[q";
-        lua = true;
         options = {
           desc = "Previous quickfix item";
         };

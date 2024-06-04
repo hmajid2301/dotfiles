@@ -88,7 +88,7 @@
 
     keymaps = [
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -98,7 +98,6 @@
             end
           '';
         key = "<leader>du1";
-        lua = true;
         options = {
           desc = "Debug layout 1; Stacks, Scopes";
         };
@@ -107,7 +106,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -117,7 +116,6 @@
             end
           '';
         key = "<leader>du2";
-        lua = true;
         options = {
           desc = "Debug layout 2; breakpoints, watches";
         };
@@ -136,7 +134,6 @@
             end
           '';
         key = "<leader>du3";
-        lua = true;
         options = {
           desc = "Debug layout 3; repl, console";
         };
@@ -145,7 +142,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -153,7 +150,6 @@
             end
           '';
         key = "<leader>dc";
-        lua = true;
         options = {
           desc = "Continue";
         };
@@ -162,7 +158,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -172,7 +168,6 @@
             end
           '';
         key = "<leader>dut";
-        lua = true;
         options = {
           desc = " toggle types";
         };
@@ -189,7 +184,6 @@
             end
           '';
         key = "<leader>dO";
-        lua = true;
         options = {
           desc = "Step over";
         };
@@ -198,7 +192,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -206,7 +200,6 @@
             end
           '';
         key = "<leader>di";
-        lua = true;
         options = {
           desc = "Step Into";
         };
@@ -215,7 +208,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -223,7 +216,6 @@
             end
           '';
         key = "<leader>do";
-        lua = true;
         options = {
           desc = "Step Out";
         };
@@ -232,7 +224,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -240,7 +232,6 @@
             end
           '';
         key = "<leader>dp";
-        lua = true;
         options = {
           desc = "Pause";
         };
@@ -249,7 +240,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -257,7 +248,6 @@
             end
           '';
         key = "<leader>db";
-        lua = true;
         options = {
           desc = "Toggle Breakpoint";
         };
@@ -266,7 +256,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -274,7 +264,6 @@
             end
           '';
         key = "<leader>dB";
-        lua = true;
         options = {
           desc = "Breakpoint (conditional)";
         };
@@ -283,7 +272,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -291,7 +280,6 @@
             end
           '';
         key = "<leader>dR";
-        lua = true;
         options = {
           desc = "Toggle REPL";
         };
@@ -300,7 +288,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -311,7 +299,6 @@
             end
           '';
         key = "<leader>dr";
-        lua = true;
         options = {
           desc = "Restart Debugger";
         };
@@ -320,7 +307,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -328,7 +315,6 @@
             end
           '';
         key = "<leader>dl";
-        lua = true;
         options = {
           desc = "Run Last";
         };
@@ -337,7 +323,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -345,7 +331,6 @@
             end
           '';
         key = "<leader>ds";
-        lua = true;
         options = {
           desc = "Session";
         };
@@ -354,7 +339,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -362,7 +347,6 @@
             end
           '';
         key = "<leader>dt";
-        lua = true;
         options = {
           desc = "Terminate";
         };
@@ -371,7 +355,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -379,7 +363,6 @@
             end
           '';
         key = "<leader>dw";
-        lua = true;
         options = {
           desc = "Hover Widget";
         };
@@ -388,7 +371,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -396,7 +379,6 @@
             end
           '';
         key = "<leader>dC";
-        lua = true;
         options = {
           desc = "Run all lines up to cursor";
         };
@@ -405,7 +387,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -413,7 +395,6 @@
             end
           '';
         key = "<leader>?";
-        lua = true;
         options = {
           desc = "Evaluate value under cursor";
         };
@@ -422,7 +403,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -430,7 +411,6 @@
             end
           '';
         key = "<leader>du";
-        lua = true;
         options = {
           desc = "Toggle UI";
         };
@@ -439,7 +419,7 @@
         ];
       }
       {
-        action =
+        action.__raw =
           # lua
           ''
             function()
@@ -447,7 +427,6 @@
             end
           '';
         key = "<leader>de";
-        lua = true;
         options = {
           desc = "Eval";
         };

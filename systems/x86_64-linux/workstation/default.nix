@@ -23,21 +23,6 @@
     };
   };
 
-  # TODO: move when working
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
-
-  # TODO; move to config
-  services.home-assistant = {
-    enable = true;
-    extraComponents = [
-      "default_config"
-      "esphome"
-      "met"
-      "radio_browser"
-    ];
-    config = null;
-  };
-
   boot = {
     kernelParams = [
       "resume_offset=533760"
