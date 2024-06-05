@@ -23,7 +23,12 @@
     };
   };
 
+  environment.systemPackages = [
+    pkgs.it87
+  ];
+
   boot = {
+    kernelModules = ["it87" "k10temp"];
     kernelParams = [
       "resume_offset=533760"
     ];
