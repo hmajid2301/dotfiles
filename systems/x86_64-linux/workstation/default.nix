@@ -23,8 +23,8 @@
     };
   };
 
-  environment.systemPackages = [
-    pkgs.it87
+  environment.systemPackages = with pkgs.nixicle; [
+    it87
   ];
 
   boot = {
