@@ -212,12 +212,16 @@ in {
       };
     };
 
-    extraPlugins = [
+    extraPlugins = with pkgs.vimPlugins; [
+      aerial-nvim
       gx-nvim
     ];
 
-    extraConfigLua = ''
-      require("gx").setup()
-    '';
+    extraConfigLua =
+      # lua
+      ''
+        require("aerial").setup()
+        require("gx").setup()
+      '';
   };
 }
