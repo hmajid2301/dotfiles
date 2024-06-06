@@ -20,7 +20,7 @@ in {
       execOnceExtras = [
         "warp-taskbar"
         "blueman-applet"
-        screensharing
+        "${screensharing}/bin/screensharing"
       ];
     };
 
