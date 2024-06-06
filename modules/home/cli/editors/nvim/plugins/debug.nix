@@ -16,7 +16,7 @@
     '';
 
     plugins.which-key.registrations = {
-      "<leader>d" = "+debug";
+      "<leader>d" = "debug";
     };
 
     plugins.dap = {
@@ -66,16 +66,28 @@
             }
             {
               elements = [
-                "breakpoints"
-                "watches"
+                {
+                  id = "repl";
+                  size = 0.80;
+                }
+                {
+                  id = "console";
+                  size = 0.20;
+                }
               ];
               position = "bottom";
               size = 20;
             }
             {
               elements = [
-                "repl"
-                "console"
+                {
+                  id = "breakpoints";
+                  size = 0.50;
+                }
+                {
+                  id = "watches";
+                  size = 0.50;
+                }
               ];
               position = "bottom";
               size = 20;

@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   roles = {
     desktop.enable = true;
   };
@@ -8,6 +8,7 @@
       enable = true;
       execOnceExtras = [
         "warp-taskbar"
+        "blueman-applet"
       ];
     };
 
