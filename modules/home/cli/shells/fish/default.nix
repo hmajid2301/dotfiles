@@ -77,7 +77,7 @@ in {
 
         pfile = "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
         gdub = "git fetch -p && git branch -vv | grep ': gone]' | awk '{print }' | xargs git branch -D $argv;";
-        tldrf = "${pkgs.tldr}/bin/tldr --list | fzf --preview \"tldr {1} --color=always\" --preview-window=right,70% | xargs tldr";
+        tldrf = "${pkgs.tldr}/bin/tldr --list | fzf --preview \"${pkgs.tldr}/bin/tldr {1} --color=always\" --preview-window=right,70% | xargs tldr";
         dk = "docker kill (docker ps -q)";
         ds = "docker stop (docker ps -a -q)";
         drm = "docker rm (docker ps -a -q)";
