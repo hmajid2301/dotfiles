@@ -23,8 +23,10 @@
     };
   };
 
-  environment.systemPackages = with pkgs.nixicle; [
+  environment.systemPackages = with pkgs;
+  with pkgs.nixicle; [
     it87
+    lm_sensors
   ];
 
   boot = {
