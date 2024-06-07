@@ -198,9 +198,8 @@ in {
         enable = true;
 
         registrations = {
-          "<leader>f" = "+file/find";
-          "<leader>h" = "+harpoon";
-          "<leader>s" = "+spectre";
+          "<leader>f" = "file/find";
+          "<leader>s" = "spectre";
         };
       };
 
