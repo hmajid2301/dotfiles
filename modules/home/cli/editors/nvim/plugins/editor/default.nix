@@ -214,12 +214,14 @@ in {
 
     extraPlugins = with pkgs.vimPlugins; [
       aerial-nvim
+      outline-nvim
       gx-nvim
     ];
 
     extraConfigLua =
       # lua
       ''
+        require("outline").setup()
         require("aerial").setup()
         require("gx").setup()
       '';
