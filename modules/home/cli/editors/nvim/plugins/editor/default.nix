@@ -190,6 +190,10 @@ in {
         enable = true;
       };
 
+      smart-splits = {
+        enable = true;
+      };
+
       undotree = {
         enable = true;
       };
@@ -203,12 +207,12 @@ in {
         };
       };
 
-      zellij = {
-        enable = true;
-        settings = {
-          vimTmuxNavigatorKeybinds = true;
-        };
-      };
+      # zellij = {
+      #   enable = true;
+      #   settings = {
+      #     vimTmuxNavigatorKeybinds = true;
+      #   };
+      # };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
@@ -224,7 +228,7 @@ in {
         require("outline").setup()
         require("aerial").setup()
         require("gx").setup()
-        require("tmux").setup()
+        -- require("tmux").setup()
       '';
   };
 }

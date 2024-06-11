@@ -14,6 +14,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      sesh
       lsof
       # for tmux super fingers
       python311
@@ -151,17 +152,38 @@ in {
         set -ga update-environment TERM
         set -ga update-environment TERM_PROGRAM
 
-        bind-key -T copy-mode-vi M-h resize-pane -L 1
-        bind-key -T copy-mode-vi M-j resize-pane -D 1
-        bind-key -T copy-mode-vi M-k resize-pane -U 1
-        bind-key -T copy-mode-vi M-l resize-pane -R 1
+        bind-key e send-keys "tmux capture-pane -p -S - | nvim -c 'set buftype=nofile' +" Enter
 
-        # Bind Keys
+        # '@pane-is-vim' is a pane-local option that is set by the plugin on load,
+        # and unset when Neovim exits or suspends; note that this means you'll probably
+        # not want to lazy-load smart-splits.nvim, as the variable won't be set until
+        # the plugin is loaded
+
+        # Smart pane switching with awareness of Neovim splits.
+        bind-key -n C-h if -F "#{@pane-is-vim}" 'send-keys C-h'  'select-pane -L'
+        bind-key -n C-j if -F "#{@pane-is-vim}" 'send-keys C-j'  'select-pane -D'
+        bind-key -n C-k if -F "#{@pane-is-vim}" 'send-keys C-k'  'select-pane -U'
+        bind-key -n C-l if -F "#{@pane-is-vim}" 'send-keys C-l'  'select-pane -R'
+
+        # Smart pane resizing with awareness of Neovim splits.
+        bind-key -n M-h if -F "#{@pane-is-vim}" 'send-keys M-h' 'resize-pane -L 3'
+        bind-key -n M-j if -F "#{@pane-is-vim}" 'send-keys M-j' 'resize-pane -D 3'
+        bind-key -n M-k if -F "#{@pane-is-vim}" 'send-keys M-k' 'resize-pane -U 3'
+        bind-key -n M-l if -F "#{@pane-is-vim}" 'send-keys M-l' 'resize-pane -R 3'
+
+        tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+        if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+            "bind-key -n 'C-\\' if -F \"#{@pane-is-vim}\" 'send-keys C-\\'  'select-pane -l'"
+        if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+            "bind-key -n 'C-\\' if -F \"#{@pane-is-vim}\" 'send-keys C-\\\\'  'select-pane -l'"
+
+        bind-key -T copy-mode-vi 'C-h' select-pane -L
+        bind-key -T copy-mode-vi 'C-j' select-pane -D
+        bind-key -T copy-mode-vi 'C-k' select-pane -U
+        bind-key -T copy-mode-vi 'C-l' select-pane -R
+        bind-key -T copy-mode-vi 'C-\' select-pane -l        # Bind Keys
         bind-key -T prefix C-g split-window \
         	"$SHELL --login -i -c 'navi --print | head -c -1 | tmux load-buffer -b tmp - ; tmux paste-buffer -p -t {last} -b tmp -d'"
-        bind-key -T prefix C-l switch -t notes
-        bind-key -T prefix C-d switch -t dotfiles
-        bind-key e send-keys "tmux capture-pane -p -S - | nvim -c 'set buftype=nofile' +" Enter
       '';
     };
   };
