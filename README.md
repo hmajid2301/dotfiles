@@ -98,8 +98,9 @@ Some features of my dotfiles:
 | `vm`                                         | QEMU                                                      | -                                                              | -           | VirGL                                                  |  🐄   | ❄️   | ✅    |
 | `steamdeck`                                  | -                                                         | Zen 2                                                          | 16GB        | 8 RDNA 2 CUs                                           |  🎮️   | 🐧  | ✅    |
 | `um790`                                      |  UM790                                                    |  AMD Ryzen 9 7940HS                                            | 64GB        | AMD Radeon™ 780M                                       |  ☁️    | ❄️   | ✅    |
-| `mainboard`                                  | Framework 12th Gen Intel                                  |  i7-1280P                                                      | 32GB        | Intel Iris Graphics                                    |  ☁️    | ❄️   | ✅    |
-| `pi-server-1`                                | Rapsberry Pi 4B                                           |  Quad core Cortex-A72                                          | 4GB         | VideoCore VI @ 500 MHz                                 |  ☁️    | ❄️   | ⚠️ |
+| `ms01`                                       |  MS-01                                                    |  i9-13900H                                                     | 32GB        | Iris Xe Graphics                                       |  ☁️    | ❄️   | ✅    |
+| `mainboard`                                  | Framework 12th Gen Intel                                  |  i7-1280P                                                      | 32GB        | Intel Iris Graphics                                    |  ☁️    | ❄️   | ⚠️     |
+| `pi-server-1`                                | Rapsberry Pi 4B                                           |  Quad core Cortex-A72                                          | 4GB         | VideoCore VI @ 500 MHz                                 |  ☁️    | ❄️   | ⚠️     |
 **Key**
 
 - 🖥️ : Desktop
