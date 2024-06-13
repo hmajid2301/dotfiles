@@ -22,7 +22,7 @@ in {
 
     programs.tmux = {
       enable = true;
-      shell = "fish";
+      shell = "${pkgs.fish}/bin/fish";
       terminal = "tmux-256color";
       historyLimit = 100000;
       keyMode = "vi";
@@ -34,6 +34,21 @@ in {
         better-mouse-mode
         yank
         tmux-thumbs
+        {
+          plugin = mkTmuxPlugin {
+            pluginName = "tmux-floax";
+            version = "unstable-2024-05-08";
+            src = pkgs.fetchFromGitHub {
+              owner = "omerxx";
+              repo = "tmux-floax";
+              rev = "ecc0507a792a9f55529952c806e849c11093a168";
+              sha256 = "sha256-lX5P1l4yHV8jiuHsa7GkbgGT+wk0BdyvSSUu/L6G4eQ=";
+            };
+          };
+          extraConfig = ''
+            set -g @sessionx-bind 'p'
+          '';
+        }
         {
           plugin = mkTmuxPlugin {
             pluginName = "tmux-super-fingers";
