@@ -20,6 +20,11 @@ in {
 
     keymaps = [
       {
+        action = "<cmd>ToggleTermToggleAll<cr>";
+        key = "<leader>gg";
+        mode = ["n"];
+      }
+      {
         action = "<cmd>ToggleTerm<cr>";
         key = "<A-p>";
         mode = ["n"];
@@ -283,9 +288,7 @@ in {
           shell = "fish";
           direction = "float";
           float_opts = {
-            border = "curved";
-            height = 30;
-            width = 130;
+            border = "double";
           };
         };
       };
