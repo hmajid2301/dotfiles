@@ -29,6 +29,11 @@ in {
       "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
     ];
 
+    services.openiscsi = {
+      enable = true;
+      name = "<some-name>";
+    };
+
     environment =
       {
         systemPackages = [
