@@ -28,8 +28,8 @@ in {
 
     environment =
       {
-        # List packages installed in system profile.
-        systemPackages = map lib.lowPrio [
+        systemPackages = [
+          pkgs.openiscsi
           pkgs.dnsutils
           pkgs.tmux
         ];
