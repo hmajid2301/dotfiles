@@ -20,6 +20,11 @@ in {
 
     keymaps = [
       {
+        action = "<cmd>ToggleTerm<cr>";
+        key = "<A-p>";
+        mode = ["n"];
+      }
+      {
         action = "<cmd>lua require('smart-splits').resize_left()<cr>";
         key = "<A-h>";
         mode = ["n"];
@@ -275,6 +280,7 @@ in {
       toggleterm = {
         enable = true;
         settings = {
+          shell = "fish";
           direction = "float";
           float_opts = {
             border = "curved";
@@ -283,13 +289,6 @@ in {
           };
         };
       };
-
-      # zellij = {
-      #   enable = true;
-      #   settings = {
-      #     vimTmuxNavigatorKeybinds = true;
-      #   };
-      # };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
