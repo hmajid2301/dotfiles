@@ -20,6 +20,71 @@ in {
 
     keymaps = [
       {
+        action = "<cmd>lua require('smart-splits').resize_left()<cr>";
+        key = "<A-h>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').resize_down()<cr>";
+        key = "<A-j>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').resize_up()<cr>";
+        key = "<A-k>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').resize_right()<cr>";
+        key = "<A-l>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').move_cursor_left()<cr>";
+        key = "<C-h>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').move_cursor_down()<cr>";
+        key = "<C-j>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').move_cursor_up()<cr>";
+        key = "<C-k>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').move_cursor_right()<cr>";
+        key = "<C-l>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').move_cursor_previous()<cr>";
+        key = "<C-\\>";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').swap_buf_left()<cr>";
+        key = "<leader><leader>h";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').swap_buf_down()<cr>";
+        key = "<leader><leader>j";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').swap_buf_up()<cr>";
+        key = "<leader><leader>k";
+        mode = ["n"];
+      }
+      {
+        action = "<cmd>lua require('smart-splits').swap_buf_right()<cr>";
+        key = "<leader><leader>l";
+        mode = ["n"];
+      }
+      {
         action = "<cmd>lua require('flash').jump()<cr>";
         key = "<leader>ls";
         options = {
