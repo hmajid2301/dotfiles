@@ -101,6 +101,7 @@ Some features of my dotfiles:
 | `ms01`                                       |  MS-01                                                    |  i9-13900H                                                     | 32GB        | Iris Xe Graphics                                       |  ☁️    | ❄️   | ✅    |
 | `mainboard`                                  | Framework 12th Gen Intel                                  |  i7-1280P                                                      | 32GB        | Intel Iris Graphics                                    |  ☁️    | ❄️   | ⚠️     |
 | `pi-server-1`                                | Rapsberry Pi 4B                                           |  Quad core Cortex-A72                                          | 4GB         | VideoCore VI @ 500 MHz                                 |  ☁️    | ❄️   | ⚠️     |
+
 **Key**
 
 - 🖥️ : Desktop
