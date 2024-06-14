@@ -36,6 +36,20 @@ in {
         tmux-thumbs
         {
           plugin = mkTmuxPlugin {
+            pluginName = "tmux-floax";
+            version = "08-05-2024";
+            src = pkgs.fetchFromGitHub {
+              owner = "omerxx";
+              repo = "tmux-floax";
+              rev = "ecc0507a792a9f55529952c806e849c11093a168";
+              sha256 = "sha256-lX5P1l4yHV8jiuHsa7GkbgGT+wk0BdyvSSUu/L6G4eQ=";
+            };
+          };
+          extraConfig = ''
+          '';
+        }
+        {
+          plugin = mkTmuxPlugin {
             pluginName = "tmux-super-fingers";
             version = "unstable-2023-10-03";
             src = pkgs.fetchFromGitHub {
