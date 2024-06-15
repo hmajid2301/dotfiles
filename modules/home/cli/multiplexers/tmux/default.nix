@@ -46,6 +46,7 @@ in {
             };
           };
           extraConfig = ''
+            set -g @floax-bind 'z'
           '';
         }
         {
