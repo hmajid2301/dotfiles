@@ -7,6 +7,17 @@
 with lib;
 with lib.nixicle; let
   cfg = config.cli.multiplexers.tmux;
+
+  tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tmux-floax";
+    version = "08-05-2024";
+    src = pkgs.fetchFromGitHub {
+      owner = "omerxx";
+      repo = "tmux-floax";
+      rev = "ecc0507a792a9f55529952c806e849c11093a168";
+      sha256 = "sha256-lX5P1l4yHV8jiuHsa7GkbgGT+wk0BdyvSSUu/L6G4eQ=";
+    };
+  };
 in {
   options.cli.multiplexers.tmux = with types; {
     enable = mkBoolOpt false "enable tmux multiplexer";
@@ -34,21 +45,7 @@ in {
         better-mouse-mode
         yank
         tmux-thumbs
-        {
-          plugin = mkTmuxPlugin {
-            pluginName = "tmux-floax";
-            version = "08-05-2024";
-            src = pkgs.fetchFromGitHub {
-              owner = "omerxx";
-              repo = "tmux-floax";
-              rev = "ecc0507a792a9f55529952c806e849c11093a168";
-              sha256 = "sha256-lX5P1l4yHV8jiuHsa7GkbgGT+wk0BdyvSSUu/L6G4eQ=";
-            };
-          };
-          extraConfig = ''
-            set -g @floax-bind 'z'
-          '';
-        }
+        tmux-floax
         {
           plugin = mkTmuxPlugin {
             pluginName = "tmux-super-fingers";
