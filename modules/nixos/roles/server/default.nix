@@ -37,6 +37,7 @@ in {
     environment =
       {
         systemPackages = [
+          pkgs.nfs-utils
           pkgs.openiscsi
           pkgs.dnsutils
           pkgs.tmux
