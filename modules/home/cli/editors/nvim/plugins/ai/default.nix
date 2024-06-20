@@ -11,6 +11,39 @@
   };
 in {
   programs.nixvim = {
+    keymaps = [
+      {
+        action = "<cmd>CopilotChat<CR>";
+        key = "<leader>ac";
+        options = {
+          desc = "Show copilot chat";
+        };
+        mode = [
+          "n"
+        ];
+      }
+      {
+        action = "<cmd>CopilotChatClose<CR>";
+        key = "<leader>acc";
+        options = {
+          desc = "Close Copilot chat";
+        };
+        mode = [
+          "n"
+        ];
+      }
+      {
+        action = "<cmd>ChatGPT<CR>";
+        key = "<leader>ag";
+        options = {
+          desc = "Show ChatGPT";
+        };
+        mode = [
+          "n"
+        ];
+      }
+    ];
+
     plugins = {
       ollama = {
         enable = true;
