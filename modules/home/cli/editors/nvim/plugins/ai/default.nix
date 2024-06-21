@@ -16,7 +16,7 @@ in {
         action = "<cmd>CopilotChat<CR>";
         key = "<leader>ac";
         options = {
-          desc = "Show copilot chat";
+          desc = "Show Coilot chat";
         };
         mode = [
           "n"
