@@ -14,7 +14,7 @@ in {
     keymaps = [
       {
         action = "<cmd>CopilotChat<CR>";
-        key = "<leader>ac";
+        key = "<leader>as";
         options = {
           desc = "Show Coilot chat";
         };
@@ -24,7 +24,7 @@ in {
       }
       {
         action = "<cmd>CopilotChatClose<CR>";
-        key = "<leader>acc";
+        key = "<leader>ac";
         options = {
           desc = "Close Copilot chat";
         };
