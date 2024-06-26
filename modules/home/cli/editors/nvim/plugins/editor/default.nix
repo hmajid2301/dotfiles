@@ -20,23 +20,8 @@ in {
 
     keymaps = [
       {
-        action = "<cmd>lua require('smart-splits').resize_left()<cr>";
-        key = "<A-h>";
-        mode = ["n"];
-      }
-      {
-        action = "<cmd>lua require('smart-splits').resize_down()<cr>";
-        key = "<A-j>";
-        mode = ["n"];
-      }
-      {
-        action = "<cmd>lua require('smart-splits').resize_up()<cr>";
-        key = "<A-k>";
-        mode = ["n"];
-      }
-      {
-        action = "<cmd>lua require('smart-splits').resize_right()<cr>";
-        key = "<A-l>";
+        action = "<cmd>lua require('smart-splits').start_resize_mode()<cr>";
+        key = "<leader>mr";
         mode = ["n"];
       }
       {
