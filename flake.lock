@@ -1879,7 +1879,8 @@
         "precognition-nvim": "precognition-nvim",
         "pyprland": "pyprland",
         "snowfall-lib": "snowfall-lib",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "vim-zellij-navigator": "vim-zellij-navigator"
       }
     },
     "rust-overlay": {
@@ -2286,6 +2287,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vim-zellij-navigator": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714686955,
+        "narHash": "sha256-A9Lg9XJ0giatWz8HYx9IES/mSbXp7DN0HcO6WnnsGwA=",
+        "owner": "hiasr",
+        "repo": "vim-zellij-navigator.nvim",
+        "rev": "380d6d55d13fe60f91ac0c8303749c2c12fdc85a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hiasr",
+        "repo": "vim-zellij-navigator.nvim",
         "type": "github"
       }
     },
