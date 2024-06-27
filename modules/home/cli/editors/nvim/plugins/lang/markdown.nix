@@ -57,13 +57,13 @@
           };
         };
       };
-    };
 
-    plugins.treesitter = {
-      grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
-        markdown
-        markdown_inline
-      ];
+      treesitter = {
+        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          markdown
+          markdown_inline
+        ];
+      };
     };
   };
 }
