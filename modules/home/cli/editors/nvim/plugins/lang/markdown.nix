@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.nixvim = {
     files = {
       "ftplugin/markdown.lua" = {
@@ -39,6 +43,17 @@
           extraOptions = {
             checkFrequency = "save";
             language = "en-GB";
+          };
+        };
+      };
+
+      lint = {
+        lintersByFt = {
+          md = ["markdownlint-cli2"];
+        };
+        linters = {
+          markdownlint-cli2 = {
+            cmd = "${pkgs.markdownlint-cli2}/bin/markdownlint-cli2";
           };
         };
       };
