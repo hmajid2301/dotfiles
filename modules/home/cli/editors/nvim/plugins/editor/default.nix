@@ -9,6 +9,11 @@
     pname = "gx.nvim";
     src = inputs.gx-nvim;
   };
+  vim-zellij-navigator = pkgs.vimUtils.buildVimPlugin {
+    version = "latest";
+    pname = "vim-zellij-navigator.nvim";
+    src = inputs.vim-zellij-navigator;
+  };
 in {
   imports = lib.snowfall.fs.get-non-default-nix-files ./.;
 
@@ -260,12 +265,14 @@ in {
 
     extraPlugins = [
       gx-nvim
+      vim-zellij-navigator
     ];
 
     extraConfigLua =
       # lua
       ''
         require("gx").setup()
+        require('vim-zellij-navigator').setup()
       '';
   };
 }
