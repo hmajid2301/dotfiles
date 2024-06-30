@@ -19,7 +19,7 @@ in {
   };
 
   wayland.windowManager.hyprland.keyBinds = {
-    bind."SUPER, Return" = lib.mkForce "exec, nixGLIntel kitty";
+    bind."SUPER, Return" = lib.mkForce "exec, foot";
   };
 
   desktops = {
