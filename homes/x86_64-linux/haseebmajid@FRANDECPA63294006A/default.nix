@@ -22,6 +22,8 @@ in {
     bind."SUPER, Return" = lib.mkForce "exec, foot";
   };
 
+  cli.terminals.alacritty.enable = true;
+
   desktops = {
     hyprland = {
       enable = true;
