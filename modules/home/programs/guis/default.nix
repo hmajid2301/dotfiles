@@ -15,13 +15,8 @@ in {
     home.packages = with pkgs; [
       obsidian
 
-      kooha
-      mission-center
       foliate
-      helvum
       pavucontrol
-      trayscale
-      celeste
 
       fragments
       baobab
@@ -33,7 +28,6 @@ in {
       gnome.gvfs
       loupe
       gnome-text-editor
-      gnome-network-displays
       gnome-firmware
 
       gnome.nautilus
