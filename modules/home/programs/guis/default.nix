@@ -18,7 +18,6 @@ in {
       foliate
       pavucontrol
 
-      fragments
       baobab
       gnome.gnome-power-manager
       gnome.sushi

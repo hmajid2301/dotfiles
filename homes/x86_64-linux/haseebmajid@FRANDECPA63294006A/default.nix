@@ -18,8 +18,18 @@ in {
     desktop.enable = true;
   };
 
-  wayland.windowManager.hyprland.keyBinds = {
-    bind."SUPER, Return" = lib.mkForce "exec, foot";
+  xdg.desktopEntries.firefox = {
+    name = "firefox";
+    genericName = "Browser";
+    exec = "nixGLIntel firefox"; # this is the main fix and the rest is to conform with original
+    icon = "firefox";
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
+    settings = {
+      TryExec = "firefox";
+    };
   };
 
   cli.terminals.alacritty.enable = true;
