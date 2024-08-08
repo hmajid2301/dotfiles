@@ -45,6 +45,15 @@ creation_rules:
       - *framework
       - *haseeb_workstation
 
+  - path_regex: modules/nixos/services/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *workstation
+      - *framework
+      - *haseeb_workstation
+      - *um790
+      - *ms01
+
   - path_regex: modules/home/secrets.ya?ml$
     key_groups:
     - age:

@@ -12,7 +12,6 @@ in {
 
   config = mkIf cfg.enable {
     services = {
-      immich.enable = true;
       bazarr.enable = true;
       lidarr.enable = true;
       radarr.enable = true;
