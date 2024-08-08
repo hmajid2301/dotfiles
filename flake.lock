@@ -803,22 +803,6 @@
         "type": "github"
       }
     },
-    "go-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1722411450,
-        "narHash": "sha256-LNK+tXaTlcN5LHrQ6TOQVhjfnPaOXCp6sA2FooiI/+0=",
-        "owner": "ray-x",
-        "repo": "go.nvim",
-        "rev": "e66c3240d26936428cd0f320dc5ffa1eb01538b8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ray-x",
-        "repo": "go.nvim",
-        "type": "github"
-      }
-    },
     "gx-nvim": {
       "flake": false,
       "locked": {
@@ -1475,22 +1459,6 @@
         "type": "github"
       }
     },
-    "neotest-golang-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1723046248,
-        "narHash": "sha256-gMoSY+0+Q+zevHQSzADc86AlIE7x3aAopPlTYes3Kcs=",
-        "owner": "fredrikaverpil",
-        "repo": "neotest-golang",
-        "rev": "f5108088eeb028e01ece23cc295efecf16bba444",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fredrikaverpil",
-        "repo": "neotest-golang",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -2030,22 +1998,6 @@
         "type": "github"
       }
     },
-    "precognition-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1722461049,
-        "narHash": "sha256-S/4ZbiWtxJlAH1kVJPmkGul8O2pDCkyINeTG04m5+zw=",
-        "owner": "tris203",
-        "repo": "precognition.nvim",
-        "rev": "6772d3a6aa98f6e68b53fd7d4dfd7762bf3ae3bf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tris203",
-        "repo": "precognition.nvim",
-        "type": "github"
-      }
-    },
     "pyprland": {
       "inputs": {
         "flake-compat": "flake-compat_6",
@@ -2078,7 +2030,6 @@
         "deploy-rs": "deploy-rs",
         "disko": "disko",
         "firefox-gnome-theme": "firefox-gnome-theme",
-        "go-nvim": "go-nvim",
         "gx-nvim": "gx-nvim",
         "home-manager": "home-manager",
         "hypr-contrib": "hypr-contrib",
@@ -2090,7 +2041,6 @@
         "impermanence": "impermanence",
         "lanzaboote": "lanzaboote",
         "maximize-nvim": "maximize-nvim",
-        "neotest-golang-nvim": "neotest-golang-nvim",
         "nix-index-database": "nix-index-database",
         "nixgl": "nixgl",
         "nixos-anywhere": "nixos-anywhere",
@@ -2099,7 +2049,6 @@
         "nixpkgs": "nixpkgs_9",
         "nixvim": "nixvim",
         "nur": "nur",
-        "precognition-nvim": "precognition-nvim",
         "pyprland": "pyprland",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix",
