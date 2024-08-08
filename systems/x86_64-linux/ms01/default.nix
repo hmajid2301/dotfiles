@@ -10,7 +10,10 @@
 
   services = {
     media-server.enable = true;
-    nixicle.gitlab-runner.enable = true;
+    nixicle = {
+      gitlab-runner.enable = true;
+      traefik.enable = true;
+    };
   };
 
   roles = {
