@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   config,
   ...
@@ -7,6 +6,8 @@
   buildFlags = "-tags=unit,integration,e2e,bdd";
 in {
   xdg.configFile."nvim/queries/go/injections.scm".text = builtins.readFile ./lua/go/injections.scm;
+
+  home.packages = with pkgs; [delve];
 
   programs.nixvim = {
     files = {
