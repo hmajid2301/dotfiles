@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -12,7 +13,7 @@ in {
 
   config = mkIf cfg.enable {
     sops.secrets.gitlab_runner_env = {
-      sopsFile = ../services.yaml;
+      sopsFile = ../secrets.yaml;
     };
 
     boot.kernel.sysctl."net.ipv4.ip_forward" = true;
@@ -20,7 +21,7 @@ in {
       enable = true;
       services = {
         nix = with lib; {
-          registrationConfigFile = config.sops.secrets.gitlab_runner_env.path;
+          authenticationTokenConfigFile = config.sops.secrets.gitlab_runner_env.path;
           dockerImage = "alpine";
           dockerVolumes = [
             "/nix/store:/nix/store:ro"

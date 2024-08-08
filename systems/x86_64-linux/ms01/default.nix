@@ -10,7 +10,7 @@
 
   services = {
     media-server.enable = true;
-    virtualisation.podman.enable = true;
+    nixicle.gitlab-runner.enable = true;
   };
 
   roles = {
