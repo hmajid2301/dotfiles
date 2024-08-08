@@ -6,7 +6,7 @@
 }: let
   buildFlags = "-tags=unit,integration,e2e,bdd";
 in {
-  xdg.configFile."nvim/queries/go/injections.scm".text = builtins.readFile "lua/go/injections.scm";
+  xdg.configFile."nvim/queries/go/injections.scm".text = builtins.readFile ./lua/go/injections.scm;
 
   programs.nixvim = {
     files = {
