@@ -7,10 +7,10 @@ with lib; let
   cfg = config.services.nixicle.ollama;
 in {
   options.services.nixicle.ollama = {
-    enable = mkEnableOption "Enable ollama and web ui";
+    enable = mkenableoption "enable ollama and web ui";
   };
 
-  config = mkIf cfg.enable {
+  config = mkif cfg.enable {
     services.ollama = {
       enable = true;
     };
