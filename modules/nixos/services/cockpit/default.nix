@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -11,6 +12,9 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      packagekit
+    ];
     services.cockpit = {
       enable = true;
       openFirewall = true;
