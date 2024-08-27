@@ -32,36 +32,6 @@ in {
       traefik = {
         enable = true;
 
-        # TODO: dynamically enable if enabled using host and port rather than hard coding it
-        dynamicConfigOptions = {
-          http = {
-            services = {
-              # TODO: how to do this over devices?
-              homeassistant.loadBalancer.servers = [
-                {
-                  url = "http://192.168.1.44:8123";
-                }
-              ];
-            };
-
-            routers = {
-              homeassistant = {
-                entryPoints = ["websecure"];
-                rule = "Host(`home-assistant.bare.homelab.haseebmajid.dev`)";
-                service = "homeassistant";
-                tls.certResolver = "letsencrypt";
-              };
-
-              traefik-dashboard = {
-                entryPoints = ["websecure"];
-                rule = "Host(`traefik.bare.homelab.haseebmajid.dev`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))";
-                service = "api@internal";
-                tls.certResolver = "letsencrypt";
-                # middlewares = ["authentik"];
-              };
-            };
-          };
-        };
         staticConfigOptions = {
           log = {
             level = "INFO";

@@ -1,30 +1,40 @@
 {
-  pkgs,
+  config,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./disks.nix
+    ./disko-config.nix
   ];
 
-  roles = {
-    server.enable = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda1";
+
+  services.openssh.enable = true;
+
+  users.users.nixos = {
+    isNormalUser = true;
+    extraGroups = ["wheel"];
+    initialHashedPassword = "$y$j9T$2DyEjQxPoIjTkt8zCoWl.0$3mHxH.fqkCgu53xa0vannyu4Cue3Q7xL4CrUhMxREKC"; # Password.123
   };
 
-  services.nixicle = {
-    postgresql.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    configure = {
+      customRC = ''
+        colorscheme habamax
+      '';
+
+      packages.packages = {
+        start = [
+          pkgs.vimPlugins.nerdtree
+        ];
+      };
+    };
   };
 
-  topology.self = {
-    hardware.info = "vps";
-  };
-
-  boot = {
-    supportedFilesystems = lib.mkForce ["btrfs"];
-    kernelPackages = pkgs.linuxPackages_latest;
-    resumeDevice = "/dev/disk/by-label/nixos";
-  };
-
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }
