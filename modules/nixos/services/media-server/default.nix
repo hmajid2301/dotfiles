@@ -49,11 +49,6 @@ in {
         dynamicConfigOptions = {
           http = {
             services = {
-              jellyfin.loadBalancer.servers = [
-                {
-                  url = "http://localhost:8096";
-                }
-              ];
               bazarr.loadBalancer.servers = [
                 {
                   url = "http://localhost:6767";
@@ -77,11 +72,6 @@ in {
               prowlarr.loadBalancer.servers = [
                 {
                   url = "http://localhost:9696";
-                }
-              ];
-              jellyseerr.loadBalancer.servers = [
-                {
-                  url = "http://localhost:5055";
                 }
               ];
               sonarr.loadBalancer.servers = [
@@ -142,12 +132,6 @@ in {
                 service = "prowlarr";
                 tls.certResolver = "letsencrypt";
                 middlewares = ["authentik"];
-              };
-              jellyseerr = {
-                entryPoints = ["websecure"];
-                rule = "Host(`jellyseerr.bare.homelab.haseebmajid.dev`)";
-                service = "jellyseerr";
-                tls.certResolver = "letsencrypt";
               };
               sonarr = {
                 entryPoints = ["websecure"];
