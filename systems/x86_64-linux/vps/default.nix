@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./disko-config.nix
+    ./disks.nix
   ];
 
   boot.loader.grub.enable = true;
