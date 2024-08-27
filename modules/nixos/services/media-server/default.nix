@@ -89,6 +89,11 @@ in {
                   url = "http://localhost:8555";
                 }
               ];
+              jellyfin.loadBalancer.servers = [
+                {
+                  url = "http://localhost:8096";
+                }
+              ];
             };
 
             routers = {
