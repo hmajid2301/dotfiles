@@ -14,6 +14,7 @@
 
   roles.server.enable = true;
   system.boot.enable = lib.mkForce false;
+  services.nixicle.traefik.enable = true;
 
   services = {
     traefik = {
@@ -28,7 +29,7 @@
           };
 
           routers = {
-            homeassistant = {
+            jellyfin = {
               entryPoints = ["websecure"];
               rule = "Host(`jellyfin.haseebmajid.dev`)";
               service = "jellyfin";
