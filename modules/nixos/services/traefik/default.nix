@@ -99,6 +99,10 @@ in {
                   main = "bare.homelab.haseebmajid.dev";
                   sans = ["*.bare.homelab.haseebmajid.dev"];
                 }
+                {
+                  main = "haseebmajid.dev";
+                  sans = ["*.haseebmajid.dev"];
+                }
               ];
             };
           };

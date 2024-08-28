@@ -16,6 +16,7 @@ in {
       syncthing = {
         enable = true;
         guiAddress = "0.0.0.0:8384";
+        dataDir = "/mnt/share/haseeb/homelab/syncthing";
       };
 
       traefik = {
@@ -35,6 +36,7 @@ in {
                 rule = "Host(`syncthing.bare.homelab.haseebmajid.dev`)";
                 service = "syncthing";
                 tls.certResolver = "letsencrypt";
+                middlewares = ["authentik"];
               };
             };
           };
