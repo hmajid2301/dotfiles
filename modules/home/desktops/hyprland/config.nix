@@ -11,6 +11,7 @@ in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      fufexan.enable = true;
       package = pkgs.hyprland;
 
       reloadConfig = true;
