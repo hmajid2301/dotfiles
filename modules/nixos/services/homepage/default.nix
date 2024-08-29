@@ -132,7 +132,7 @@ in {
             {
               Cloudflare = {
                 icon = "cloudflare.png";
-                href = "https://one.dash.cloudflare.com/2db62630e1032ef3eb682987078e4743/networks/tunnels";
+                href = "{{HOMEPAGE_VAR_CLOUDFLARE_URL}}";
                 description = "cloudflare tunnel";
                 widget = {
                   type = "cloudflared";
