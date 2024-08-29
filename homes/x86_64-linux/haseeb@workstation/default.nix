@@ -10,6 +10,12 @@
     };
   };
 
+  services.syncthing = {
+    enable = true;
+    tray = true;
+    extraOptions = ["--gui-address=127.0.0.1:8384"];
+  };
+
   roles = {
     desktop.enable = true;
     social.enable = true;
