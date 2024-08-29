@@ -37,50 +37,7 @@ in {
       enable = true;
       # environmentFile = config.age.secrets.dashboard-env.path;
       listenPort = 8173;
-      bookmarks = [
-        {
-          dev = [
-            {
-              github = [
-                {
-                  abbr = "GH";
-                  href = "https://github.com/";
-                  icon = "github-light.png";
-                }
-              ];
-            }
-            {
-              "homepage docs" = [
-                {
-                  abbr = "HD";
-                  href = "https://gethomepage.dev";
-                  icon = "homepage.png";
-                }
-              ];
-            }
-          ];
-          machines = [
-            {
-              tower = [
-                {
-                  abbr = "TR";
-                  href = "https://dash.crgrd.uk";
-                  icon = "homarr.png";
-                }
-              ];
-            }
-            {
-              gbox = [
-                {
-                  abbr = "GB";
-                  href = "https://dash.gbox.crgrd.uk";
-                  icon = "homepage.png";
-                }
-              ];
-            }
-          ];
-        }
-      ];
+      bookmarks = [];
       services = [
         {
           media = [
@@ -121,6 +78,30 @@ in {
               };
             }
             {
+              Lidarr = {
+                icon = "Lidarr.png";
+                href = "{{HOMEPAGE_VAR_SONARR_URL}}";
+                description = "tv management";
+                widget = {
+                  type = "sonarr";
+                  url = "{{HOMEPAGE_VAR_SONARR_URL}}";
+                  key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
+                };
+              };
+            }
+            {
+              Readarr = {
+                icon = "Readarr.png";
+                href = "{{HOMEPAGE_VAR_SONARR_URL}}";
+                description = "tv management";
+                widget = {
+                  type = "sonarr";
+                  url = "{{HOMEPAGE_VAR_SONARR_URL}}";
+                  key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
+                };
+              };
+            }
+            {
               Prowlarr = {
                 icon = "prowlarr.png";
                 href = "{{HOMEPAGE_VAR_PROWLARR_URL}}";
@@ -129,18 +110,6 @@ in {
                   type = "prowlarr";
                   url = "{{HOMEPAGE_VAR_PROWLARR_URL}}";
                   key = "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}";
-                };
-              };
-            }
-            {
-              Sabnzbd = {
-                icon = "sabnzbd.png";
-                href = "{{HOMEPAGE_VAR_SABNZBD_URL}}/";
-                description = "download client";
-                widget = {
-                  type = "sabnzbd";
-                  url = "{{HOMEPAGE_VAR_SABNZBD_URL}}";
-                  key = "{{HOMEPAGE_VAR_SABNZBD_API_KEY}}";
                 };
               };
             }
@@ -201,8 +170,33 @@ in {
       widgets = [
         {
           search = {
-            provider = "google";
+            provider = "custom";
+            url = "https://kagi.com/search?q=";
             target = "_blank";
+            suggestionUrl = "https://kagi.com/autocomplete?type=list&q="; # Optional
+            showSearchSuggestions = true; # Optional
+          };
+        }
+        {
+          cloudflared = {
+            type = "cloudflared";
+            accountid = "{{HOMEPAGE_VAR_CLOUDFLARE_ACCOUNT_ID}}";
+            tunnelid = "{{HOMEPAGE_VAR_CLOUDFLARE_TUNNEL_ID}}";
+            key = "{{HOMEPAGE_VAR_CLOUDFLARE_KEY}}";
+          };
+        }
+        {
+          jellyseerr = {
+            type = "jellyseerr";
+            url = "{{HOMEPAGE_VAR_JELLYSEERR_URL}}";
+            key = "{{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}";
+          };
+        }
+        {
+          tailscale = {
+            type = "tailscale";
+            deviceid = "{{HOMEPAGE_VAR_TAILSCALE_DEVICE_ID}}";
+            key = "{{HOMEPAGE_VAR_TAILSCALE_KEY}}";
           };
         }
         {
@@ -215,12 +209,12 @@ in {
         {
           resources = {
             label = "storage";
-            disk = ["/data"];
+            disk = ["/mnt/share/haseeb/homelab"];
           };
         }
         {
           openmeteo = {
-            label = "Bristol";
+            label = "London";
             timezone = "Europe/London";
             latitude = "{{HOMEPAGE_VAR_LATITUDE}}";
             longitude = "{{HOMEPAGE_VAR_LONGITUDE}}";
