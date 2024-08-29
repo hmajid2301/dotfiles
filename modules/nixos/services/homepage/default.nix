@@ -54,6 +54,18 @@ in {
               };
             }
             {
+              Jellyseerr = {
+                icon = "jellyseerr.png";
+                href = "{{HOMEPAGE_VAR_JELLYSEERR_URL}}";
+                description = "request management";
+                widget = {
+                  type = "jellyseerr";
+                  url = "{{HOMEPAGE_VAR_JELLYSEERR_URL}}";
+                  key = "{{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}";
+                };
+              };
+            }
+            {
               Radarr = {
                 icon = "radarr.png";
                 href = "{{HOMEPAGE_VAR_RADARR_URL}}";
@@ -80,24 +92,24 @@ in {
             {
               Lidarr = {
                 icon = "Lidarr.png";
-                href = "{{HOMEPAGE_VAR_SONARR_URL}}";
-                description = "tv management";
+                href = "{{HOMEPAGE_VAR_LIDARR_URL}}";
+                description = "";
                 widget = {
-                  type = "sonarr";
-                  url = "{{HOMEPAGE_VAR_SONARR_URL}}";
-                  key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
+                  type = "music management";
+                  url = "{{HOMEPAGE_VAR_LIDARR_URL}}";
+                  key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
                 };
               };
             }
             {
               Readarr = {
                 icon = "Readarr.png";
-                href = "{{HOMEPAGE_VAR_SONARR_URL}}";
-                description = "tv management";
+                href = "{{HOMEPAGE_VAR_READARR_URL}}";
+                description = "book management";
                 widget = {
-                  type = "sonarr";
-                  url = "{{HOMEPAGE_VAR_SONARR_URL}}";
-                  key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
+                  type = "readarr";
+                  url = "{{HOMEPAGE_VAR_READARR}}";
+                  key = "{{HOMEPAGE_VAR_READARR_API_KEY}}";
                 };
               };
             }
@@ -116,54 +128,47 @@ in {
           ];
         }
         {
-          infra = [
+          network = [
             {
-              Files = {
-                description = "file manager";
-                icon = "files.png";
-                href = "https://files.jnsgr.uk";
+              Cloudflare = {
+                icon = "cloudflare.png";
+                href = "https://one.dash.cloudflare.com/2db62630e1032ef3eb682987078e4743/networks/tunnels";
+                description = "cloudflare tunnel";
+                widget = {
+                  type = "cloudflared";
+                  accountid = "{{HOMEPAGE_VAR_CLOUDFLARE_ACCOUNT_ID}}";
+                  tunnelid = "ec0b6af0-a823-4616-a08b-b871fd2c7f58";
+                  key = "{{HOMEPAGE_VAR_CLOUDFLARE_KEY}}";
+                };
               };
             }
             {
-              "Syncthing (thor)" = {
-                description = "syncthing ui for thor";
-                icon = "syncthing.png";
-                href = "https://thor.sync.jnsgr.uk";
-              };
-            }
-            {
-              "Syncthing (kara)" = {
-                description = "syncthing ui for kara";
-                icon = "syncthing.png";
-                href = "https://kara.sync.jnsgr.uk";
-              };
-            }
-            {
-              "Syncthing (freyja)" = {
-                description = "syncthing ui for freyja";
-                icon = "syncthing.png";
-                href = "https://freyja.sync.jnsgr.uk";
+              Tailscale = {
+                icon = "tailscale.png";
+                href = "{{HOMEPAGE_VAR_TAILSCALE_URL}}";
+                description = "vpn connected devices";
+                widget = {
+                  type = "tailscale";
+                  deviceid = "{{HOMEPAGE_VAR_TAILSCALE_DEVICE_ID}}";
+                  key = "{{HOMEPAGE_VAR_TAILSCALE_KEY}}";
+                };
               };
             }
           ];
         }
       ];
       settings = {
-        title = "sgrs dashboard";
-        favicon = "https://jnsgr.uk/favicon.ico";
+        title = "Homelab Dashboard";
+        favicon = "https://haseebmajid.dev/favicon.ico";
         headerStyle = "clean";
         layout = {
           media = {
             style = "row";
             columns = 3;
           };
-          infra = {
+          network = {
             style = "row";
-            columns = 4;
-          };
-          machines = {
-            style = "row";
-            columns = 4;
+            columns = 2;
           };
         };
       };
@@ -175,28 +180,6 @@ in {
             target = "_blank";
             suggestionUrl = "https://kagi.com/autocomplete?type=list&q="; # Optional
             showSearchSuggestions = true; # Optional
-          };
-        }
-        {
-          cloudflared = {
-            type = "cloudflared";
-            accountid = "{{HOMEPAGE_VAR_CLOUDFLARE_ACCOUNT_ID}}";
-            tunnelid = "{{HOMEPAGE_VAR_CLOUDFLARE_TUNNEL_ID}}";
-            key = "{{HOMEPAGE_VAR_CLOUDFLARE_KEY}}";
-          };
-        }
-        {
-          jellyseerr = {
-            type = "jellyseerr";
-            url = "{{HOMEPAGE_VAR_JELLYSEERR_URL}}";
-            key = "{{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}";
-          };
-        }
-        {
-          tailscale = {
-            type = "tailscale";
-            deviceid = "{{HOMEPAGE_VAR_TAILSCALE_DEVICE_ID}}";
-            key = "{{HOMEPAGE_VAR_TAILSCALE_KEY}}";
           };
         }
         {
