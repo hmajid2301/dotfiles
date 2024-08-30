@@ -1,5 +1,18 @@
 # home lab docs
 
+## 🖳  Diagram
+
+This nix config also contains some of the config for my homelab, mostly the bare metal management of the machine.
+All the kubernetes config can be found [here](https://gitlab.com/hmajid2301/homelab).
+
+<details>
+<summary>🕸️ HomeLab Diagram</summary>
+
+![image](./assets/imgs/homelab/main.svg)
+![image](./assets/imgs/homelab/network.svg)
+
+</details>
+
 ## tandoor
 
 no social logisn firs time setup then enable
