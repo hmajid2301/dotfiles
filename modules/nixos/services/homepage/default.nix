@@ -23,6 +23,27 @@ in {
         bookmarks = [];
         services = [
           {
+            monitoring = [
+              {
+                Grafana = {
+                  icon = "grafana.png";
+                  href = "{{HOMEPAGE_VAR_GRAFANA_URL}}";
+                  description = "monitoring dashboard";
+                };
+              }
+              {
+                Gotify = {
+                  icon = "gotify.png";
+                  href = "{{HOMEPAGE_VAR_JELLYFIN_URL}}";
+                  description = "notification service";
+                  widget = {
+                    type = "gotify";
+                    url = "{{HOMEPAGE_VAR_GOTIFY_URL}}";
+                    key = "{{HOMEPAGE_VAR_GOTIFY_API_KEY}}";
+                  };
+                };
+              }
+            ];
             media = [
               {
                 Jellyfin = {
@@ -74,11 +95,11 @@ in {
               }
               {
                 Lidarr = {
-                  icon = "Lidarr.png";
+                  icon = "lidarr.png";
                   href = "{{HOMEPAGE_VAR_LIDARR_URL}}";
-                  description = "";
+                  description = "music management";
                   widget = {
-                    type = "music management";
+                    type = "lidarr";
                     url = "{{HOMEPAGE_VAR_LIDARR_URL}}";
                     key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
                   };
@@ -86,12 +107,12 @@ in {
               }
               {
                 Readarr = {
-                  icon = "Readarr.png";
+                  icon = "readarr.png";
                   href = "{{HOMEPAGE_VAR_READARR_URL}}";
                   description = "book management";
                   widget = {
                     type = "readarr";
-                    url = "{{HOMEPAGE_VAR_READARR}}";
+                    url = "{{HOMEPAGE_VAR_READARR_URL}}";
                     key = "{{HOMEPAGE_VAR_READARR_API_KEY}}";
                   };
                 };
