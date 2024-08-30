@@ -24,8 +24,8 @@ no OS on the device. You need to copy ssh keys onto the target machine
 `mkdir -p ~/.ssh && curl https://github.com/hmajid2301.keys > ~/.ssh/authorized_keys` in my case I can copy them from GitHub.
 
 ```bash
-git clone git@github.com:hmajid2301/dotfiles.git ~/dotfiles/
-cd dotfiles
+git clone git@github.com:hmajid2301/nixicle.git ~/nixicle/
+cd nixcile
 
 nix develop
 
@@ -39,11 +39,11 @@ Then run `nix_installer`, which will then ask you which host you would like to i
 
 ### Building
 
-To build my dotfiles for a specific host you can do something like:
+To build my config for a specific host you can do something like:
 
 ```bash
-git clone git@github.com:hmajid2301/dotfiles.git ~/dotfiles/
-cd dotfiles
+git clone git@github.com:hmajid2301/nixicle.git ~/nixicle/
+cd nixicle
 
 nix develop
 
