@@ -11,7 +11,7 @@ with types; let
 in {
   imports = with inputs;
     [
-      hyprland-nix.homeManagerModules.default
+      hyprnix.homeManagerModules.default
     ]
     ++ lib.snowfall.fs.get-non-default-nix-files ./.;
 

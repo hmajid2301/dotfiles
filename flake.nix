@@ -76,15 +76,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-git.url = "github:hyprwm/hyprland";
-    hyprland-xdph-git.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    hyprland-protocols-git.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    hyprland-nix.url = "github:hyprland-community/hyprnix/rewrite";
-    hyprland-nix.inputs = {
-      hyprland.follows = "hyprland-git";
-      hyprland-xdph.follows = "hyprland-xdph-git";
-      hyprland-protocols.follows = "hyprland-protocols-git";
-    };
+    hyprnix.url = "github:hyprland-community/hyprnix/rewrite";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     nixvim = {
