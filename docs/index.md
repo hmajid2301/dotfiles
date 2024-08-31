@@ -399,3 +399,15 @@ hostname needs to be like tandoor-recipes.haseebmajid.dev
 Multi domain authentik: https://www.youtube.com/watch?v=tqimi3SdvCQ
 
 ![tunnel-order.png](assets/imgs/tunnel-order.png)
+
+
+## Sops
+
+sops multiline enviornment files
+```yaml
+tandoor: |
+    SOCIALACCOUNT_PROVIDERS='{ "openid_connect": { "SERVERS": [ { "id": "tandoor", "name": "authentik", "server_url": "https://authentik.haseebmajid.dev/application/o/tandoor/.well-known/openid-configuration", "token_auth_method": "client_secret_basic", "APP": { "client_id": "", "secret": "", }, } ] }}'
+    SECRET_KEY=""
+```
+
+note = not a colon `:`.
