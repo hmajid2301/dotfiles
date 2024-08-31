@@ -410,4 +410,5 @@ tandoor: |
     SECRET_KEY=""
 ```
 
-note = not a colon `:`.
+- note = not a colon `:`.
+- quote `"#"` say passwords surround it with quotes can break yaml syntax.

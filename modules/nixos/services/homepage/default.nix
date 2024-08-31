@@ -173,18 +173,7 @@ in {
                   };
                 };
               }
-              {
-                Deluge = {
-                  icon = "deluge.png";
-                  href = "{{HOMEPAGE_VAR_DELUGE_URL}}";
-                  description = "torrent client";
-                  widget = {
-                    type = "deluge";
-                    url = "{{HOMEPAGE_VAR_DELUGE_INTERNAL_URL}}";
-                    key = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
-                  };
-                };
-              }
+
               {
                 Radarr = {
                   icon = "radarr.png";
@@ -254,6 +243,18 @@ in {
                     type = "bazarr";
                     url = "{{HOMEPAGE_VAR_BAZARR_INTERNAL_URL}}";
                     key = "{{HOMEPAGE_VAR_BAZARR_API_KEY}}";
+                  };
+                };
+              }
+              {
+                Deluge = {
+                  icon = "deluge.png";
+                  href = "{{HOMEPAGE_VAR_DELUGE_URL}}";
+                  description = "torrent client";
+                  widget = {
+                    type = "deluge";
+                    url = "{{HOMEPAGE_VAR_DELUGE_INTERNAL_URL}}";
+                    key = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
                   };
                 };
               }
@@ -366,7 +367,7 @@ in {
           {
             resources = {
               label = "storage";
-              disk = ["/mnt/share/haseeb/homelab"];
+              disk = ["/mnt/share/"];
             };
           }
           {

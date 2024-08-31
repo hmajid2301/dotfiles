@@ -16,7 +16,7 @@ in {
       syncthing = {
         enable = true;
         guiAddress = "0.0.0.0:8384";
-        dataDir = "/mnt/share/haseeb/homelab/syncthing";
+        dataDir = "/mnt/share/syncthing";
         group = "media";
       };
 
