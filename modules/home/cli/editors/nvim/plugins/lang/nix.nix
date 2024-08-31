@@ -22,12 +22,14 @@ in {
       nix-develop.enable = true;
 
       conform-nvim = {
-        formattersByFt = {
-          nix = ["alejandra"];
-        };
-        formatters = {
-          alejandra = {
-            command = "${pkgs.alejandra}/bin/alejandra";
+        settings = {
+          formatters_by_ft = {
+            nix = ["alejandra"];
+          };
+          formatters = {
+            alejandra = {
+              command = "${pkgs.alejandra}/bin/alejandra";
+            };
           };
         };
       };
@@ -67,12 +69,6 @@ in {
             };
           };
         };
-      };
-
-      treesitter = {
-        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
-          nix
-        ];
       };
     };
 

@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.nixvim = {
     plugins = {
       treesitter = {
@@ -21,7 +25,7 @@
           };
         };
 
-        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           c
           css
           bash
