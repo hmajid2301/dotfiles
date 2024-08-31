@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -27,7 +28,7 @@ in {
         };
         settings = {
           server = {
-            HTTP_PORT = "5705";
+            HTTP_PORT = 5705;
             DOMAIN = "gitea.bare.homelab.haseebmajid.dev";
           };
           mailer = {
