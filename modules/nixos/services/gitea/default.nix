@@ -72,7 +72,7 @@ in {
             routers = {
               gitea = {
                 entryPoints = ["websecure"];
-                rule = "Host(`gitea.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`git.bare.homelab.haseebmajid.dev`)";
                 service = "gitea";
                 tls.certResolver = "letsencrypt";
               };
