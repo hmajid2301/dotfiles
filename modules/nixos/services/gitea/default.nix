@@ -14,6 +14,7 @@ in {
   config = mkIf cfg.enable {
     sops.secrets.gitea_smtp_password = {
       sopsFile = ../secrets.yaml;
+      owner = "gitea";
     };
 
     services = {
