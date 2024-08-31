@@ -29,7 +29,8 @@ in {
         settings = {
           server = {
             HTTP_PORT = 5705;
-            DOMAIN = "gitea.bare.homelab.haseebmajid.dev";
+            DOMAIN = "git.bare.homelab.haseebmajid.dev";
+            ROOT_URL = "https://git.bare.homelab.haseebmajid.dev/";
           };
           mailer = {
             ENABLED = true;
