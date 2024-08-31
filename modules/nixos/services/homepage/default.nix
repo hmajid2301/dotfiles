@@ -74,7 +74,7 @@ in {
               }
               {
                 HomeAssistant = {
-                  icon = "homeassistant.png";
+                  icon = "home-assistant.png";
                   href = "{{HOMEPAGE_VAR_HOME_ASSISTANT_URL}}";
                   description = "home automation";
                   widget = {
@@ -174,6 +174,18 @@ in {
                 };
               }
               {
+                Deluge = {
+                  icon = "deluge.png";
+                  href = "{{HOMEPAGE_VAR_DELUGE_URL}}";
+                  description = "torrent client";
+                  widget = {
+                    type = "deluge";
+                    url = "{{HOMEPAGE_VAR_DELUGE_INTERNAL_URL}}";
+                    key = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
+                  };
+                };
+              }
+              {
                 Radarr = {
                   icon = "radarr.png";
                   href = "{{HOMEPAGE_VAR_RADARR_URL}}";
@@ -256,7 +268,7 @@ in {
                   description = "NAS";
                   widget = {
                     type = "diskstation";
-                    href = "{{HOMEPAGE_VAR_SYNOLOGY_INTERNAL_URL}}";
+                    url = "{{HOMEPAGE_VAR_SYNOLOGY_INTERNAL_URL}}";
                     username = "{{HOMEPAGE_VAR_SYNOLOGY_USERNAME}}";
                     password = "{{HOMEPAGE_VAR_SYNOLOGY_PASSWORD}}";
                   };
@@ -266,6 +278,19 @@ in {
           }
           {
             network = [
+              {
+                Adguard = {
+                  icon = "adguard-home.png";
+                  href = "{{HOMEPAGE_VAR_ADGUARD_URL}}";
+                  description = "dns block";
+                  widget = {
+                    type = "adguard";
+                    url = "{{HOMEPAGE_VAR_ADGUARD_INTERNAL_URL}}";
+                    username = "{{HOMEPAGE_VAR_ADGUARD_USERNAME}}";
+                    password = "{{HOMEPAGE_VAR_ADGUARD_PASSWORD}}";
+                  };
+                };
+              }
               {
                 Cloudflare = {
                   icon = "cloudflare.png";
