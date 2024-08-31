@@ -60,6 +60,9 @@ in {
             USER = "postmaster@sandbox92beea2c073042199273861834e24d1f.mailgun.org";
             SENDMAIL_PATH = "${pkgs.system-sendmail}/bin/sendmail";
           };
+          ui = {
+            DEFAULT_THEME = "catppuccin-mocha-lavendar";
+          };
         };
         dump = {
           backupDir = "/mnt/share/gitea/backups";
