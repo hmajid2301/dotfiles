@@ -54,7 +54,7 @@ in {
                   href = "{{HOMEPAGE_VAR_PAPERLESS_URL}}";
                   description = "document management";
                   widget = {
-                    type = "audiobookshelf";
+                    type = "paperlessngx";
                     url = "{{HOMEPAGE_VAR_PAPERLESS_INTERNAL_URL}}";
                     key = "{{HOMEPAGE_VAR_PAPERLESS_API_KEY}}";
                   };
@@ -69,6 +69,18 @@ in {
                     type = "jellyseerr";
                     url = "{{HOMEPAGE_VAR_JELLYSEERR_INTERNAL_URL}}";
                     key = "{{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}";
+                  };
+                };
+              }
+              {
+                HomeAssistant = {
+                  icon = "homeassistant.png";
+                  href = "{{HOMEPAGE_VAR_HOME_ASSISTANT_URL}}";
+                  description = "home automation";
+                  widget = {
+                    type = "homeassistant";
+                    url = "{{HOMEPAGE_VAR_HOME_ASSISTANT_INTERNAL_URL}}";
+                    key = "{{HOMEPAGE_VAR_HOME_ASSISTANT_API_KEY}}";
                   };
                 };
               }
@@ -97,6 +109,39 @@ in {
                     type = "grafana";
                     url = "{{HOMEPAGE_VAR_GRAFANA_INTERNAL_URL}}";
                     key = "{{HOMEPAGE_VAR_GRAFANA_API_KEY}}";
+                  };
+                };
+              }
+              {
+                Prometheus = {
+                  icon = "prometheus.png";
+                  href = "{{HOMEPAGE_VAR_PROMETHEUS_URL}}";
+                  description = "metrics scrapper";
+                  widget = {
+                    type = "prometheus";
+                    url = "{{HOMEPAGE_VAR_PROMETHEUS_INTERNAL_URL}}";
+                  };
+                };
+              }
+              {
+                Netdata = {
+                  icon = "netdata.png";
+                  href = "{{HOMEPAGE_VAR_NETDATA_URL}}";
+                  description = "pc monitoring";
+                  widget = {
+                    type = "netdata";
+                    url = "{{HOMEPAGE_VAR_NETDATA_INTERNAL_URL}}";
+                  };
+                };
+              }
+              {
+                Traefik = {
+                  icon = "traefik.png";
+                  href = "{{HOMEPAGE_VAR_TRAEFIK_URL}}";
+                  description = "reverse proxy";
+                  widget = {
+                    type = "traefik";
+                    url = "{{HOMEPAGE_VAR_TRAEFIK_INTERNAL_URL}}";
                   };
                 };
               }
@@ -203,6 +248,23 @@ in {
             ];
           }
           {
+            disk = [
+              {
+                Synology = {
+                  icon = "synology.png";
+                  href = "{{HOMEPAGE_VAR_SYNOLOGY_URL}}";
+                  description = "NAS";
+                  widget = {
+                    type = "diskstation";
+                    href = "{{HOMEPAGE_VAR_SYNOLOGY_INTERNAL_URL}}";
+                    username = "{{HOMEPAGE_VAR_SYNOLOGY_USERNAME}}";
+                    password = "{{HOMEPAGE_VAR_SYNOLOGY_PASSWORD}}";
+                  };
+                };
+              }
+            ];
+          }
+          {
             network = [
               {
                 Cloudflare = {
@@ -250,6 +312,10 @@ in {
               columns = 2;
             };
             monitoring = {
+              style = "row";
+              columns = 2;
+            };
+            disk = {
               style = "row";
               columns = 2;
             };

@@ -24,21 +24,6 @@
             };
           };
         };
-
-        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-          c
-          css
-          bash
-          fish
-          diff
-
-          vim
-          vimdoc
-          vhs
-
-          json
-          toml
-        ];
       };
       treesitter-textobjects = {
         enable = true;
