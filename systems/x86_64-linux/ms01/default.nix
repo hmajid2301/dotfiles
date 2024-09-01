@@ -61,7 +61,8 @@
       photoprism.enable = true;
       postgresql.enable = true;
       syncthing.enable = true;
-      stirling-pdf.enable = true;
+      # TODO: need a way to configure the settings file
+      # stirling-pdf.enable = true;
       traefik.enable = true;
     };
   };

@@ -17,6 +17,7 @@ in {
         enable = true;
         environment = {
           SERVER_PORT = 8783;
+          SECURITY_ENABLE_LOGIN = "true";
         };
       };
 

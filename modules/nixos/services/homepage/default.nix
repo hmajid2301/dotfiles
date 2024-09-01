@@ -73,6 +73,29 @@ in {
                 };
               }
               {
+                Syncthing = {
+                  icon = "syncthing.png";
+                  href = "{{HOMEPAGE_VAR_HOME_SYNCTHING_URL}}";
+                  description = "file syncing";
+                  widget = {
+                    type = "syncthing";
+                    url = "{{HOMEPAGE_VAR_SYNCTHING_INTERNAL_URL}}";
+                  };
+                };
+              }
+              {
+                Gitea = {
+                  icon = "gitea.png";
+                  href = "{{HOMEPAGE_VAR_HOME_GITEA_URL}}";
+                  description = "git server";
+                  widget = {
+                    type = "gitea";
+                    url = "{{HOMEPAGE_VAR_GITEA_INTERNAL_URL}}";
+                    key = "{{HOMEPAGE_VAR_GITEA_API_KEY}}";
+                  };
+                };
+              }
+              {
                 HomeAssistant = {
                   icon = "home-assistant.png";
                   href = "{{HOMEPAGE_VAR_HOME_ASSISTANT_URL}}";
