@@ -18,6 +18,7 @@ in {
         guiAddress = "0.0.0.0:8384";
         dataDir = "/mnt/share/syncthing";
         group = "media";
+        openDefaultPorts = true;
         relay = {
           enable = true;
         };

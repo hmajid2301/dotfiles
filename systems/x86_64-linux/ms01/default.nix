@@ -58,6 +58,7 @@
       netdata.enable = true;
       nfs.enable = true;
       paperless.enable = true;
+      plausible.enable = true;
       photoprism.enable = true;
       postgresql.enable = true;
       syncthing.enable = true;
@@ -72,10 +73,6 @@
       enable = true;
       role = "agent";
     };
-  };
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
 
   # networking.interfaces.enp1s0.wakeOnLan.enable = true;
