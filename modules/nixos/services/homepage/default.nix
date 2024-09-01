@@ -78,7 +78,7 @@ in {
                   href = "{{HOMEPAGE_VAR_HOME_SYNCTHING_URL}}";
                   description = "file syncing";
                   widget = {
-                    type = "syncthing";
+                    type = "strelaysrv";
                     url = "{{HOMEPAGE_VAR_SYNCTHING_INTERNAL_URL}}";
                   };
                 };
@@ -86,7 +86,7 @@ in {
               {
                 Gitea = {
                   icon = "gitea.png";
-                  href = "{{HOMEPAGE_VAR_HOME_GITEA_URL}}";
+                  href = "{{HOMEPAGE_VAR_GITEA_URL}}";
                   description = "git server";
                   widget = {
                     type = "gitea";

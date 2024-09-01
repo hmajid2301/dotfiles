@@ -74,6 +74,10 @@
     };
   };
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
+  };
+
   # networking.interfaces.enp1s0.wakeOnLan.enable = true;
 
   topology.self = {
