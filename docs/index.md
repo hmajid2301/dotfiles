@@ -26,7 +26,7 @@ no social logisn firs time setup then enable
 set  SOCIALACCOUNT_PROVIDERS
 
 ```json
-{ "openid_connect": { "SERVERS": [ { "id": "tandoor", "name": "authentik", "server_url": "https://auth.bare.homelab.haseebmajid.dev/application/o/tandoor/.well-known/openid-configuration", "token_auth_method": "client_secret_basic", "APP": { "client_id": "", "secret": "", }, } ] }}
+{ "openid_connect": { "SERVERS": [ { "id": "tandoor", "name": "authentik", "server_url": "https://auth.homelab.haseebmajid.dev/application/o/tandoor/.well-known/openid-configuration", "token_auth_method": "client_secret_basic", "APP": { "client_id": "", "secret": "", }, } ] }}
 ```
 
 Ref: https://github.com/TandoorRecipes/recipes/issues/970
@@ -127,14 +127,14 @@ https://github.com/FlakM/nix_dots/blob/main/hosts/odroid/tandoor.nix
             routers = {
               recipes = {
                 entryPoints = ["websecure"];
-                rule = "Host(`recipes.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`recipes.homelab.haseebmajid.dev`)";
                 service = "recipes";
                 tls.certResolver = "letsencrypt";
               };
 
               recipes-media = {
                 entryPoints = ["websecure"];
-                rule = "Host(`recipes.bare.homelab.haseebmajid.dev`) && PathPrefix(`/media`)";
+                rule = "Host(`recipes.homelab.haseebmajid.dev`) && PathPrefix(`/media`)";
                 service = "recipes-media";
                 tls.certResolver = "letsencrypt";
               };
@@ -203,7 +203,7 @@ The key here being the outpost needs to use https and 9443
             routers = {
               auth = {
                 entryPoints = ["websecure"];
-                rule = "Host(`auth.bare.homelab.haseebmajid.dev`) || HostRegexp(`{subdomain:[a-z0-9]+}.bare.homelab.haseebmajid.com`) && PathPrefix(`/outpost.goauthentik.io/`)";
+                rule = "Host(`auth.homelab.haseebmajid.dev`) || HostRegexp(`{subdomain:[a-z0-9]+}.homelab.haseebmajid.com`) && PathPrefix(`/outpost.goauthentik.io/`)";
                 service = "auth";
                 tls.certResolver = "letsencrypt";
               };
@@ -220,7 +220,7 @@ set middleware on sonarr
 ````nix
   sonarr = {
     entryPoints = ["websecure"];
-    rule = "Host(`sonarr.bare.homelab.haseebmajid.dev`)";
+    rule = "Host(`sonarr.homelab.haseebmajid.dev`)";
     service = "sonarr";
     tls.certResolver = "letsencrypt";
     middlewares = ["authentik"];

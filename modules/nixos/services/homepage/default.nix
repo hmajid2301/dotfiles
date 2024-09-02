@@ -417,7 +417,7 @@ in {
             routers = {
               homepage = {
                 entryPoints = ["websecure"];
-                rule = "Host(`homepage.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`homepage.homelab.haseebmajid.dev`)";
                 service = "homepage";
                 tls.certResolver = "letsencrypt";
                 middlewares = ["authentik"];

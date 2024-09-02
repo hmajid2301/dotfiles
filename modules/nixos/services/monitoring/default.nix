@@ -56,25 +56,25 @@ in {
             routers = {
               prometheus = {
                 entryPoints = ["websecure"];
-                rule = "Host(`prometheus.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`prometheus.homelab.haseebmajid.dev`)";
                 service = "prometheus";
                 tls.certResolver = "letsencrypt";
               };
               grafana = {
                 entryPoints = ["websecure"];
-                rule = "Host(`grafana.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`grafana.homelab.haseebmajid.dev`)";
                 service = "grafana";
                 tls.certResolver = "letsencrypt";
               };
               promtail = {
                 entryPoints = ["websecure"];
-                rule = "Host(`promtail.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`promtail.homelab.haseebmajid.dev`)";
                 service = "promtail";
                 tls.certResolver = "letsencrypt";
               };
               alertmanager = {
                 entryPoints = ["websecure"];
-                rule = "Host(`alertmanager.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`alertmanager.homelab.haseebmajid.dev`)";
                 service = "alertmanager";
                 tls.certResolver = "letsencrypt";
               };

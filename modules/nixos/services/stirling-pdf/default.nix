@@ -33,7 +33,7 @@ in {
             routers = {
               pdf = {
                 entryPoints = ["websecure"];
-                rule = "Host(`pdf.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`pdf.homelab.haseebmajid.dev`)";
                 service = "pdf";
                 tls.certResolver = "letsencrypt";
               };

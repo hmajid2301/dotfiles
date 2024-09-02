@@ -45,7 +45,7 @@ in {
             routers = {
               jellyfin = {
                 entryPoints = ["websecure"];
-                rule = "Host(`jellyfin.bare.homelab.haseebmajid.dev`)";
+                rule = "Host(`jellyfin.homelab.haseebmajid.dev`)";
                 service = "jellyfin";
                 tls.certResolver = "letsencrypt";
               };
