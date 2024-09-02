@@ -23,9 +23,9 @@
 
         routers.homeAssistant = {
           entryPoints = ["websecure"];
-          rule = "Host(`s100.taila5caf.ts.net`)";
+          rule = "Host(`home-assistant.homelab.haseebmajid.dev`)";
           service = "homeAssistant";
-          tls.certResolver = "tailscale";
+          tls.certResolver = "letsencrypt";
         };
       };
     };
