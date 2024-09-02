@@ -12,25 +12,6 @@
     server.enable = true;
   };
 
-  services.traefik = {
-    dynamicConfigOptions = {
-      http = {
-        services.homeAssistant.loadBalancer.servers = [
-          {
-            url = "http://localhost:8123";
-          }
-        ];
-
-        routers.homeAssistant = {
-          entryPoints = ["websecure"];
-          rule = "Host(`home-assistant.homelab.haseebmajid.dev`)";
-          service = "homeAssistant";
-          tls.certResolver = "letsencrypt";
-        };
-      };
-    };
-  };
-
   services.nixicle = {
     traefik.enable = true;
     postgresql.enable = true;
