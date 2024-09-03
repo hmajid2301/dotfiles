@@ -22,8 +22,6 @@ with lib; let
 
   toggle-headphones = pkgs.writeScriptBin "toggle-headphones" ''
     #!/bin/sh
-
-            alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.analog-stereo
     SOURCE1="alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.analog-stereo"
     SOURCE2="alsa_output.usb-ACTIONS_Pebble_V3-00.analog-stereo"
 
