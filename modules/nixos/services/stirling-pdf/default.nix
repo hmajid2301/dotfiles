@@ -11,6 +11,7 @@ in {
     enable = mkEnableOption "Enable stirling pdf service";
   };
 
+  # TODO: need a way to configure the settings file
   config = mkIf cfg.enable {
     services = {
       stirling-pdf = {
