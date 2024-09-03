@@ -131,7 +131,8 @@ in {
                   widget = {
                     type = "grafana";
                     url = "{{HOMEPAGE_VAR_GRAFANA_INTERNAL_URL}}";
-                    key = "{{HOMEPAGE_VAR_GRAFANA_API_KEY}}";
+                    username = "{{HOMEPAGE_VAR_GRAFANA_USERNAME}}";
+                    password = "{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}";
                   };
                 };
               }
