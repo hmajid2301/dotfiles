@@ -43,6 +43,13 @@ in {
             };
 
             routers = {
+              jellyfin-vps = {
+                entryPoints = ["websecure"];
+                rule = "Host(`jellyfin.haseebmajid.dev`)";
+                service = "jellyfin";
+                tls.certResolver = "letsencrypt";
+              };
+
               jellyfin = {
                 entryPoints = ["websecure"];
                 rule = "Host(`jellyfin.homelab.haseebmajid.dev`)";
