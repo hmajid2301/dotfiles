@@ -18,6 +18,10 @@ in {
     DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/podman/podman.sock";
   };
 
+  home.packages = with pkgs; [
+    screensharing
+  ];
+
   desktops = {
     hyprland = {
       enable = true;
