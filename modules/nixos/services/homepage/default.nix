@@ -278,7 +278,7 @@ in {
                   widget = {
                     type = "deluge";
                     url = "{{HOMEPAGE_VAR_DELUGE_INTERNAL_URL}}";
-                    key = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
+                    password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
                   };
                 };
               }

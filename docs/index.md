@@ -412,3 +412,38 @@ tandoor: |
 
 - note = not a colon `:`.
 - quote `"#"` say passwords surround it with quotes can break yaml syntax.
+
+
+## Jellyfin lost user access
+
+```bash
+nix-shell -p sqlite
+systemctl stop jellyfin.service
+sudo sqlite3 /var/lib/jellyfin/data/jellyfin.db "select id from users where username='REPLACE';"
+sudo sqlite3 /var/lib/jellyfin/data/jellyfin.db "update permissions set value=1 where kind=0 and permission_permissions_guid='REPLACE';"
+systemctl start jellyfin.service
+```
+
+### homepage assistant
+
+[
+              {
+                Synology = {
+                  icon = "synology.png";
+                  href = "{{HOMEPAGE_VAR_SYNOLOGY_URL}}";
+                  description = "NAS";
+                  widget = {
+                    type = "diskstation";
+                    url = "{{HOMEPAGE_VAR_SYNOLOGY_INTERNAL_URL}}";
+                    username = "{{HOMEPAGE_VAR_SYNOLOGY_USERNAME}}";
+                    password = "{{HOMEPAGE_VAR_SYNOLOGY_PASSWORD}}";
+                  };
+                };
+              }
+            ]
+
+
+    HOMEPAGE_VAR_SYNOLOGY_URL=https://nas.homelab.haseebmajid.dev
+    HOMEPAGE_VAR_SYNOLOGY_INTERNAL_URL=http://192.168.1.73:5000
+    HOMEPAGE_VAR_SYNOLOGY_USERNAME=homepage
+    HOMEPAGE_VAR_SYNOLOGY_PASSWORD=
