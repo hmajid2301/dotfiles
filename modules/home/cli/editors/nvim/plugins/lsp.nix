@@ -10,6 +10,14 @@
         };
       }
       {
+        action = "<cmd>LspRestart<CR>";
+        key = "<leader>lR";
+        mode = ["n"];
+        options = {
+          desc = "Restart LSP";
+        };
+      }
+      {
         action = "<cmd>Telescope lsp_references<CR>";
         key = "<leader>gr";
         mode = ["n"];
