@@ -81,3 +81,19 @@
       '';
   };
 }
+
+Okay ladies and gentlefish,
+
+
+The time has arrived, what you've all been waiting for. Access to my big beautiful homelab.
+Use this invite to create an account: https://authentik.haseebmajid.dev/if/flow/enrollment-invitation/?itoken=3bfc1357-a499-4cc2-bc83-dda31a1f5d75
+
+Then sign up for: https://tandoor-recipes.haseebmajid.dev/, a way to manage recipes, meal planning and maybe a shopping list.
+
+You can also access: https://paperless.haseebmajid.dev/accounts/login/?next=/
+A place to digitally store important documents, which can be auto-tagged etc and provides lot of cool features
+to make it easier to search.
+
+When signin up for both make sure to click on "Sign in with Authentik"
+
+I will include more apps later. Like a media server, where you can request shows and automagically watch them.
