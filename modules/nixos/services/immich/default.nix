@@ -5,9 +5,9 @@
 }:
 with lib;
 with lib.nixicle; let
-  cfg = config.services.immich;
+  cfg = config.services.nixicle.immich;
 in {
-  options.services.immich = {
+  options.services.nixicle.immich = {
     enable = mkEnableOption "Enable the immich photo service";
   };
 
