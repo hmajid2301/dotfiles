@@ -23,13 +23,7 @@ in {
       after = ["postgresql.service"];
     };
 
-    # TODO: work out how to allow nginx to access this folder
-    system.activationScripts = {
-      chmodPermissions = ''
-        chmod o+x /var/lib/private/tandoor-recipes
-        chmod o+x /var/lib/private/
-      '';
-    };
+    users.users.nginx.extraGroups = ["tandoor_recipes"];
 
     services = {
       tandoor-recipes = {
