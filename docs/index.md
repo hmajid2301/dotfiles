@@ -447,3 +447,11 @@ systemctl start jellyfin.service
     HOMEPAGE_VAR_SYNOLOGY_INTERNAL_URL=http://192.168.1.73:5000
     HOMEPAGE_VAR_SYNOLOGY_USERNAME=homepage
     HOMEPAGE_VAR_SYNOLOGY_PASSWORD=
+
+## Gitlab
+
+this error when using with nix
+
+ERROR: Job failed (system failure): Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "sh": executable file not found in $PATH: unknown (exec.go:78:0s)
+
+
