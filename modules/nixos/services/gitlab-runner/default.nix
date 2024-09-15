@@ -27,9 +27,6 @@ in {
         default = {
           authenticationTokenConfigFile = config.sops.secrets.gitlab_runner_env.path;
           limit = 10;
-          environmentVariables = {
-            SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
-          };
           dockerImage = "debian:stable";
           dockerPrivileged = true;
           dockerVolumes = [
