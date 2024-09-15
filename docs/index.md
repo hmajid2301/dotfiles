@@ -455,3 +455,6 @@ this error when using with nix
 ERROR: Job failed (system failure): Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "sh": executable file not found in $PATH: unknown (exec.go:78:0s)
 
 
+ fix this permissiosn
+ls -al /var/run/docker.sock
+srw-rw---- 1 root docker 0 Sep 12 20:53 /var/run/docker.sock
