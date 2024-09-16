@@ -46,7 +46,7 @@
     plugins = {
       twilight.enable = true;
       zen-mode.enable = true;
-      headlines.enable = true;
+      # headlines.enable = true;
 
       obsidian = {
         enable = true;
