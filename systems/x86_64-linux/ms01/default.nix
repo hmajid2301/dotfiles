@@ -25,6 +25,7 @@
       immich.enable = true;
       jellyfin.enable = true;
       monitoring.enable = true;
+      minio.enable = true;
       netdata.enable = true;
       nfs.enable = true;
       paperless.enable = true;
