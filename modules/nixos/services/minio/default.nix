@@ -12,12 +12,14 @@ in {
   };
 
   config = mkIf cfg.enable {
+    users.users.minio.extraGroups = ["media"];
+
     services = {
       minio = {
         enable = true;
         listenAddress = ":9055";
         consoleAddress = ":9056";
-        dataDir = "/mnt/share/minio";
+        dataDir = ["/mnt/share/minio"];
       };
 
       traefik = {
@@ -32,7 +34,7 @@ in {
             };
 
             routers = {
-              auth = {
+              minio = {
                 entryPoints = ["websecure"];
                 rule = "Host(`minio.homelab.haseebmajid.dev`)";
                 service = "minio";
