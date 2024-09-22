@@ -12,6 +12,15 @@
         desc = "Highlight yanked content";
         callback = {__raw = "function() vim.highlight.on_yank() end";};
       }
+      {
+        command = "lua vim.lsp.buf.format()";
+        event = [
+          "BufWritePre"
+        ];
+        pattern = [
+          "*.templ"
+        ];
+      }
       # {
       #   event = ["FileType"];
       #   group = "close_with_q";
