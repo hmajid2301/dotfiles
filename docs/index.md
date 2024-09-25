@@ -503,3 +503,9 @@ publish:dev-docker:
     # TODO: work out how to do versioning to make this pipeline reproducible
     - docker image tag banterbus-dev:latest $CI_REGISTRY_IMAGE:latest
     - docker push $CI_REGISTRY_IMAGE:latest
+
+## syncthing
+
+Old topic, but for me, it was due to my password manager auto-filling the password for the shared folder with the main Syncthing web password:
+
+![syncthing-encryption.png](../images/syncthing-encryption.png)
