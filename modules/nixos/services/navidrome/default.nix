@@ -27,7 +27,12 @@ in {
         tunnels = {
           "ec0b6af0-a823-4616-a08b-b871fd2c7f58" = {
             ingress = {
-              "navidrome.haseebmajid.dev" = "https://localhost";
+              "navidrome.haseebmajid.dev" = {
+                service = "https://localhost";
+                originRequest = {
+                  originServerName = "navidrome.haseebmajid.dev";
+                };
+              };
             };
           };
         };
