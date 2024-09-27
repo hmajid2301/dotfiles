@@ -13,6 +13,11 @@ in {
 
   config = mkIf cfg.enable {
     services = {
+      immich = {
+        enable = true;
+        mediaLocation = "/mnt/share/immich";
+      };
+
       cloudflared = {
         tunnels = {
           "ec0b6af0-a823-4616-a08b-b871fd2c7f58" = {
@@ -21,16 +26,6 @@ in {
           };
         };
       };
-
-      # postgresql = {
-      #   ensureDatabases = ["immich"];
-      #   ensureUsers = [
-      #     {
-      #       name = "immich";
-      #       ensureDBOwnership = true;
-      #     }
-      #   ];
-      # };
 
       traefik = {
         dynamicConfigOptions = {
