@@ -61,6 +61,9 @@ deploy .#ms01 --hostname ms01 --ssh-user nixos --skip-checks
 
 # Build Home Lab diagram using nix-topology
 nix build .#topology.config.output
+
+# Build docker image used in ci
+nix build .#containers-ci
 ```
 
 ## 🚀 Features
