@@ -20,12 +20,7 @@ in {
     home.packages = with pkgs; [
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       google-fonts
-      joypixels
-    ];
-
-    fonts.fontconfig.defaultFonts.emoji = lib.mkForce [
-      "JoyPixels"
-      "Noto Color Emoji"
+      # joypixels
     ];
 
     stylix = {

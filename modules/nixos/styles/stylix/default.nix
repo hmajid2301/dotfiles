@@ -20,6 +20,11 @@ in {
       ];
 
       fontconfig = {
+        defaultFonts.emoji = lib.mkForce [
+          "JoyPixels"
+          "Noto Color Emoji"
+        ];
+
         localConf = ''
           <?xml version="1.0"?>
           <!DOCTYPE fontconfig SYSTEM "fonts.dtd">

@@ -16,11 +16,7 @@ in {
     nixpkgs = {
       config = {
         allowUnfree = true;
-        allowUnfreePredicate = pkg:
-          builtins.elem (lib.getName pkg) [
-            "joypixels"
-          ];
-        input-fonts.acceptLicense = true;
+        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["joypixels"];
         joypixels.acceptLicense = true;
       };
     };
