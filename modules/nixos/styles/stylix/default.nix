@@ -17,13 +17,6 @@ in {
       fontDir.enable = true;
       packages = with pkgs; [
         (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-        fira
-        fira-go
-        noto-fonts-color-emoji
-        helvetica-neue-lt-std
-        source-serif
-        ubuntu_font_family
-        jetbrains-mono
       ];
 
       fontconfig = {
