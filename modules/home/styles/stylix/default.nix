@@ -19,6 +19,15 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      helvetica-neue-lt-std
+      fontconfig
+      fira-code-nerdfont
+      fira-sans
+      noto-fonts
+      noto-fonts-color-emoji
+      twitter-color-emoji
+      google-fonts
+      open-sans
     ];
 
     stylix = {
