@@ -19,6 +19,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      google-fonts
     ];
 
     stylix = {

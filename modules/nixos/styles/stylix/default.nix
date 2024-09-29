@@ -17,6 +17,7 @@ in {
       fontDir.enable = true;
       packages = with pkgs; [
         (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+        noto-fonts-color-emoji
       ];
 
       fontconfig = {
