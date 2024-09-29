@@ -31,10 +31,11 @@
             {
               __unkeyed-1 = "filetype";
               icon_only = true;
-              colored = false;
+              colored = true;
               icon = {
                 color = {
-                  fg = "#FFF";
+                  fg = "#2d2c3c";
+                  bg = "#FF0000";
                 };
               };
               padding = {
