@@ -94,7 +94,7 @@
               };
             }
             {
-              name.__raw =
+              fmt =
                 # lua
                 ''
                   function()
@@ -112,90 +112,71 @@
             }
           ];
           lualine_y = [
-            # TODO: fix this hack for showing icon with colors
             {
-              name.__raw =
+              __unkeyed-1.__raw =
                 # lua
                 ''
                   function()
-                      return "  "
-                  end
+                      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                      local clients = vim.lsp.get_active_clients()
+                      if next(clients) == nil then
+                          return "None"
+                      end
+
+                      local msg = ""
+                      for _, client in ipairs(clients) do
+                          local filetypes = client.config.filetypes
+                          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                              msg = msg .. client.name .. " "
+                          end
+                      end
+
+                      if msg then
+                        return msg
+                      else
+                        return "None"
+                      end
+
+                    end
                 '';
-
-              padding = {
-                left = 0;
-                right = 0;
-              };
-              separator = {
-                left = "";
-              };
-              color = {
-                fg = "#2d2c3c";
-                bg = "#8bc2f0";
-              };
-            }
-            {
-              name.__raw =
-                # lua
-                ''
-                  function()
-                  		local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                  		local clients = vim.lsp.get_active_clients()
-                  		if next(clients) == nil then
-                  				return "None"
-                  		end
-
-                  		local msg = ""
-                  		for _, client in ipairs(clients) do
-                  				local filetypes = client.config.filetypes
-                  				if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 and client.name ~= "null-ls" then
-                  						msg = msg .. client.name .. " "
-                  				end
-                  		end
-
-                  		if msg then
-                  			return msg
-                  		else
-                  			return "None"
-                  		end
-
-                  	end
-                '';
-              color = {
-                fg = "#D9E0EE";
-                bg = "#2f2e3e";
-                gui = "bold";
-              };
-            }
-            {
-              name.__raw =
-                # lua
-                ''
-                  function()
-                      return " "
-                  end
-                '';
-
-              padding = {
-                left = 0;
-                right = 0;
-              };
-              separator = {
-                left = "";
-              };
-              color = {
-                fg = "#2d2c3c";
-                bg = "#F38BA8";
-                gui = "bold";
-              };
-            }
-            {
-              name = "location";
-              extraConfig = {
+              icon = {
+                __unkeyed-1 = " ";
                 color = {
-                  fg = "#D9E0EE";
-                  bg = "#2f2e3e";
+                  fg = "#2d2c3c";
+                  bg = "#8bc2f0";
                 };
+              };
+              padding = {
+                left = 0;
+                right = 0;
+              };
+              separator = {
+                left = "";
+              };
+              color = {
+                bg = "#2d2c3c";
+                fg = "#FFF";
+              };
+            }
+            {
+              __unkeyed-1 = "location";
+              icon = {
+                __unkeyed-1 = " ";
+                color = {
+                  fg = "#2d2c3c";
+                  bg = "#F38BA8";
+                };
+              };
+              padding = {
+                left = 0;
+                right = 0;
+              };
+              separator = {
+                left = "";
+              };
+              color = {
+                bg = "#2d2c3c";
+                fg = "#FFF";
               };
             }
           ];
@@ -203,7 +184,12 @@
             {
               __unkeyed-1 = "progress";
               icon = {
-                __unkeyed-1 = "";
+                __unkeyed-1 = " ";
+                # TODO: use variable colours
+                color = {
+                  fg = "#2d2c3c";
+                  bg = "#ABE9B3";
+                };
               };
               padding = {
                 left = 0;
