@@ -29,90 +29,70 @@
           ];
           lualine_b = [
             {
-              name = "filetype";
-              extraConfig = {
-                icon_only = true;
-                colored = false;
-                separator = "";
-                padding = {
-                  left = 1;
-                  right = 0;
+              __unkeyed-1 = "filetype";
+              icon_only = true;
+              colored = false;
+              icon = {
+                color = {
+                  fg = "#FFF";
                 };
+              };
+              padding = {
+                left = 1;
+                right = 0;
               };
             }
             {
-              name = "filename";
+              __unkeyed-1 = "filename";
+              color = {
+                fg = "#FFF";
+              };
             }
           ];
           lualine_c = [
             {
-              name = "branch";
-              extraConfig = {
-                padding = {
-                  left = 2;
-                  right = 0;
-                };
-                icon = "";
-                colored = false;
-                color = {
-                  gui = "bold";
-                };
+              __unkeyed-1 = "branch";
+              padding = {
+                left = 2;
+                right = 0;
+              };
+              icon = "";
+              colored = false;
+              color = {
+                gui = "bold";
+                fg = "#605f6f";
               };
             }
             {
-              name = "diff";
-              extraConfig = {
-                colored = false;
-                symbols = {
-                  added = " ";
-                  modified = " ";
-                  removed = " ";
-                };
+              __unkeyed-1 = "diff";
+              colored = false;
+              color = {
+                gui = "bold";
+                fg = "#605f6f";
+              };
+              symbols = {
+                added = " ";
+                modified = " ";
+                removed = " ";
               };
             }
           ];
           lualine_x = [
             {
-              name = "diagnostics";
-              extraConfig = {
-                color = {
-                  fg = "#605f6f";
-                  bg = "#232232";
-                  gui = "bold";
-                };
-                diagnostics_color = {
-                  color_error = {fg = "#F38BA8";};
-                  color_warn = {fg = "#FAE3B0";};
-                };
-                symbols = {
-                  error = " ";
-                  warn = " ";
-                };
+              __unkeyed-1 = "diagnostics";
+              color = {
+                fg = "#605f6f";
+                gui = "bold";
+              };
+              diagnostics_color = {
+                color_error = {fg = "#F38BA8";};
+                color_warn = {fg = "#FAE3B0";};
+              };
+              symbols = {
+                error = " ";
+                warn = " ";
               };
             }
-            # {
-            #   name.__raw =
-            #     # lua
-            #     ''
-            #       function() return "  " .. require("dap").status() end
-            #     '';
-            #
-            #   cond.__raw =
-            #     # lua
-            #     ''
-            #       function ()
-            #         return package.loaded["dap"] and require("dap").status() ~= ""
-            #       end
-            #     '';
-            #   color = {
-            #     fg = "#2d2c3c";
-            #     bg = "#CBA6F7";
-            #     gui = "bold";
-            #   };
-            #   separator = {
-            #     left = "";
-            #   };
-            # }
             {
               name.__raw =
                 # lua
