@@ -12,7 +12,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     fonts = {
-      enableDefaultPackages = false;
+      enableDefaultPackages = true;
       enableGhostscriptFonts = true;
       fontDir.enable = true;
       packages = with pkgs; [
@@ -20,11 +20,6 @@ in {
       ];
 
       fontconfig = {
-        defaultFonts.emoji = lib.mkForce [
-          "JoyPixels"
-          "Noto Color Emoji"
-        ];
-
         localConf = ''
           <?xml version="1.0"?>
           <!DOCTYPE fontconfig SYSTEM "fonts.dtd">

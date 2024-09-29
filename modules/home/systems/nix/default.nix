@@ -16,8 +16,7 @@ in {
     nixpkgs = {
       config = {
         allowUnfree = true;
-        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["joypixels"];
-        joypixels.acceptLicense = true;
+        allowUnfreePredicate = _: true;
       };
     };
 
