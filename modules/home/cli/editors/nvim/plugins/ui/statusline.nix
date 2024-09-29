@@ -201,14 +201,10 @@
           ];
           lualine_z = [
             {
-              name.__raw =
-                # lua
-                ''
-                  function()
-                      return " "
-                  end
-                '';
-
+              __unkeyed-1 = "progress";
+              icon = {
+                __unkeyed-1 = "";
+              };
               padding = {
                 left = 0;
                 right = 0;
@@ -216,14 +212,6 @@
               separator = {
                 left = "";
               };
-              color = {
-                fg = "#2d2c3c";
-                bg = "#ABE9B3";
-                gui = "bold";
-              };
-            }
-            {
-              name = "progress";
               color = {
                 bg = "#2d2c3c";
                 fg = "#ABE9B3";
