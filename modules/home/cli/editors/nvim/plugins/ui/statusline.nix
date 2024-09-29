@@ -32,12 +32,6 @@
               __unkeyed-1 = "filetype";
               icon_only = true;
               colored = true;
-              icon = {
-                color = {
-                  fg = "#2d2c3c";
-                  bg = "#FF0000";
-                };
-              };
               padding = {
                 left = 1;
                 right = 0;
