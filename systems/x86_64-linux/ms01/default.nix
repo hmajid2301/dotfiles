@@ -23,7 +23,7 @@
       gitea.enable = true;
       gitlab-runner.enable = true;
       gotify.enable = true;
-      # immich.enable = true;
+      immich.enable = true;
       jellyfin.enable = true;
       monitoring.enable = true;
       # minio.enable = true;
