@@ -17,6 +17,7 @@
       authentik.enable = true;
       audiobookshelf.enable = true;
       cloudflared.enable = true;
+      couchdb.enable = true;
       deluge.enable = true;
       homepage.enable = true;
       gitea.enable = true;
@@ -37,8 +38,9 @@
   };
 
   roles = {
-    server = {
+    kubernetes = {
       enable = true;
+      role = "server";
     };
   };
 
