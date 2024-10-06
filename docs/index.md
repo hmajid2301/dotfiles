@@ -576,3 +576,72 @@ flux bootstrap gitlab \
 for cert-manager
 
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.15.0/cert-manager.crds.yaml
+
+
+for sops
+
+```
+age-keygen -o age.agekey
+# Public key: age1helqcqsh9464r8chnwc2fzj8uv7vr5ntnsft0tn45v2xtz0hpfwq98cmsg
+
+cat age.agekey |
+kubectl create secret generic sops-age \
+--namespace=flux-system \
+--from-file=age.agekey=/dev/stdin
+
+```
+
+update .sops.yaml
+
+```
+creation_rules:
+  - path_regex: .*.yaml
+    encrypted_regex: ^(data|stringData)$
+    age: age1ham2fhsrkrjhstzwxxzmuqxeql86wm75lul6cu2xe4zwew5zg3vq3mfvm5
+```
+
+in gotk-sync.yaml
+
+```
+spec:
+  interval: 10m0s
+  path: ./clusters
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+```
+
+### Test Branch
+
+
+in `gotk-sync.yaml`
+
+
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: MAJ-75
+  secretRef:
+    name: flux-system
+  url: https://gitlab.com/hmajid2301/homelab.git
+```
+
+Then
+
+```bash
+kubectl apply -f  clusters/flux-system/gotk-sync.yaml
+```
+
+ and ofc revert
+
